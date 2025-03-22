@@ -8,14 +8,12 @@
       number = true;
       shiftwidth = 2;
       tabstop = 2;
+      relativenumber = true;
     };
     extraConfig = ''
       " Enable softtabstop & smartindent
       set softtabstop=2
       set smartindent
-
-      " Enable colorscheme
-      # colorscheme gruvbox
     '';
   };
 }

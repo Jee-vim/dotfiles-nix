@@ -16,6 +16,8 @@
     nil # nix lang server
     alejandra # nix formatter
 
+    firefox
+
     # Recording and Share Screen
     obs-studio
     wlroots # Wayland support

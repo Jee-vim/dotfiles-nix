@@ -39,12 +39,14 @@ in {
       "rounding 0, floating:0, onworkspace:w[tv1]"
       "bordersize 0, floating:0, onworkspace:f[1]"
       "rounding 0, floating:0, onworkspace:f[1]"
+      "workspace 1, class:^(brave-browser)$"
       "workspace 6, class:^(kitty)$"
     ];
 
     workspace = [
       "w[tv1], gapsout:0, gapsin:0"
       "f[1], gapsout:0, gapsin:0"
+      "1, monitor:${settings.monitor.internal}"
       "6, monitor:${settings.monitor.external}"
     ];
   };
