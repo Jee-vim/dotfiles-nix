@@ -3,7 +3,7 @@
     ./programs/hypridle.nix
     ./programs/hyprlock.nix
     ./programs/hyprpaper.nix
-    ./programs/swaync.nix.nix
+    ./programs/swaync.nix
     ./programs/wofi.nix
     ./config/rules.nix
   ];

@@ -1,5 +1,5 @@
 let
-  settings = import ./settings.nix;
+  settings = import ../../settings.nix;
 in {
   services.swaync = {
     enable = true;
