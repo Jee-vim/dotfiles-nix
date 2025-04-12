@@ -5,8 +5,8 @@ in {
     enable = true;
     settings = {
       # font_size = 8.50;
-      font_size = 9.0;
-      font_family = "Source Code Pro Medium";
+      font_size = 9.50;
+      font_family = "Geist Mono";
       adjust_line_height = "100%";
       box_drawing_scale = "0.001, 0.5, 1, 1.75";
       window_padding_width = 3;

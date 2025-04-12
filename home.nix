@@ -14,7 +14,6 @@
     hyprpaper
     feh
     nautilus
-    dolphin
 
     nil # nix lang server
     alejandra # nix formatter
@@ -31,6 +30,6 @@
     mpv # video player
   ];
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 }

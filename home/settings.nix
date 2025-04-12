@@ -1,9 +1,6 @@
-let
-  secrets = import ../secrets.nix;
-in {
+{
   user = {
     name = "Jee";
-    email = secrets.email;
   };
 
   monitor = {

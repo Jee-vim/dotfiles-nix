@@ -1,30 +1,31 @@
 {
   description = "my flake";
   inputs = {
-    nixpkgs.url = "github:NixOs/nixpkgs/nixos-24.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     nixpkgs,
     home-manager,
     ...
-  }: let
+  } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
-      Nix = lib.nixosSystem {
+      jee = lib.nixosSystem {
         inherit system;
         modules = [./configuration.nix];
       };
     };
-    homeConfigurations = {
-      jee = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [./home.nix];
-      };
+    homeConfigurations.jee = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [./home.nix];
+      extraSpecialArgs = {inherit inputs;}; # Recommended to pass inputs to HM
     };
   };
 }

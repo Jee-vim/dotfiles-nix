@@ -35,21 +35,29 @@
     }
   ];
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "GeistMono" "Cousine" "Iosevka"];})
-    fira-code
+  fonts.packages = [
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.geist-mono
+    pkgs.nerd-fonts.cousine
+    pkgs.nerd-fonts.iosevka
   ];
 
   programs.nix-ld.enable = true;
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  hardware.opengl.enable = true;
-  services.udev.packages = with pkgs; [v4l-utils];
+  hardware.graphics.enable = true;
+  # services.udev.packages = with pkgs; [v4l-utils];
 
-  services.xserver.enable = true;
-  services.displayManager.defaultSession = "hyprland";
-  services.xserver.displayManager.lightdm.enable = true;
+  environment.variables = {
+    WLR_NO_HARWARE_CURSORS = "1";
+    XKB_DEFAULT_LAYOUT = "us";
+    XKB_DEFAULT_VARIANT = "";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+  };
+
   services.ollama.enable = true;
   services.libinput.enable = true;
   services.printing.enable = true;
