@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # CLI Utilities
+    v4l-utils
     ripgrep
     wget
     fastfetch
