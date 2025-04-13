@@ -35,12 +35,23 @@
     }
   ];
 
-  fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.geist-mono
-    pkgs.nerd-fonts.cousine
-    pkgs.nerd-fonts.iosevka
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerd-fonts.sauce-code-pro
+      nerd-fonts.geist-mono
+      nerd-fonts.commit-mono
+      nerd-fonts.iosevka
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = ["SauceCodePro Nerd Font"];
+        sansSerif = ["SauceCodePro Mono Nerd Font"];
+        monospace = ["Geist Mono Nerd Font"];
+      };
+    };
+  };
 
   programs.nix-ld.enable = true;
 

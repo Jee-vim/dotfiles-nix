@@ -4,9 +4,8 @@ in {
   programs.kitty = {
     enable = true;
     settings = {
-      # font_size = 8.50;
-      font_size = 9.50;
-      font_family = "Geist Mono";
+      font_size = 9.0;
+      font_family = "Souce Code Pro";
       adjust_line_height = "100%";
       box_drawing_scale = "0.001, 0.5, 1, 1.75";
       window_padding_width = 3;
