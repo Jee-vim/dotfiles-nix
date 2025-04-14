@@ -8,7 +8,6 @@
     htop
     htop-vim
     btop
-    networkmanager-openconnect
 
     # Clipboard & Screenshot Tools
     wl-clipboard

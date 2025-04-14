@@ -10,9 +10,20 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "Nix";
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
+  networking = {
+    hostName = "Nix";
+    networkmanager.enable = true;
+    firewall.enable = false;
+    networkmanager.plugins = with pkgs; [
+      networkmanager-fortisslvpn
+      networkmanager-iodine
+      networkmanager-l2tp
+      networkmanager-openconnect
+      networkmanager-openvpn
+      networkmanager-vpnc
+      networkmanager-sstp
+    ];
+  };
 
   time.timeZone = "Asia/Jakarta";
 
