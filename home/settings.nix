@@ -15,7 +15,7 @@
 
   image = {
     internal = "/home/jee/Wallpaper/gruvbox-village.jpg";
-    external = "/home/jee/Wallpaper/gruvbox-peiwen-yu.jpg";
+    external = "/home/jee/Wallpaper/gruvbox-village.jpg";
     lockscreen = "/home/jee/Wallpaper/peep-desk.jpg";
     profile = "/home/jee/Wallpaper/peep-desk-rectangle.png";
   };
