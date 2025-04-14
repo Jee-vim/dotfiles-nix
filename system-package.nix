@@ -8,6 +8,7 @@
     htop
     htop-vim
     btop
+    nm-tray
 
     # Clipboard & Screenshot Tools
     wl-clipboard
