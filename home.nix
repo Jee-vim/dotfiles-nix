@@ -18,6 +18,12 @@
     nil # nix lang server
     alejandra # nix formatter
 
+    nmap
+    lynx
+    nuclei
+    httprobe
+    nikto # web scanner
+
     firefox
 
     # Recording and Share Screen

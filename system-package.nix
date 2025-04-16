@@ -8,7 +8,8 @@
     htop
     htop-vim
     btop
-    nm-tray
+    openconnect
+    networkmanager-openconnect # GUI integration (optional)
 
     # Clipboard & Screenshot Tools
     wl-clipboard
