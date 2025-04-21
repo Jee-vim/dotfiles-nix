@@ -11,6 +11,8 @@
     openconnect
     networkmanager-openconnect # GUI integration (optional)
 
+    discord-ptb
+
     # Clipboard & Screenshot Tools
     wl-clipboard
     hyprshot

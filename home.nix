@@ -18,6 +18,7 @@
     nil # nix lang server
     alejandra # nix formatter
 
+    sqlmap
     nmap
     lynx
     nuclei

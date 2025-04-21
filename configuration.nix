@@ -14,6 +14,7 @@
     hostName = "Nix";
     networkmanager.enable = true;
     firewall.enable = false;
+    nameservers = ["127.0.0.1"];
     networkmanager.plugins = with pkgs; [
       networkmanager-fortisslvpn
       networkmanager-iodine
@@ -23,6 +24,12 @@
       networkmanager-vpnc
       networkmanager-sstp
     ];
+  };
+  services.dnscrypt-proxy2 = {
+    enable = true;
+    settings = {
+      server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri"];
+    };
   };
 
   time.timeZone = "Asia/Jakarta";
