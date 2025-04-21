@@ -12,23 +12,39 @@
 
   networking = {
     hostName = "Nix";
-    networkmanager.enable = true;
-    firewall.enable = false;
     nameservers = ["127.0.0.1"];
-    networkmanager.plugins = with pkgs; [
-      networkmanager-fortisslvpn
-      networkmanager-iodine
-      networkmanager-l2tp
-      networkmanager-openconnect
-      networkmanager-openvpn
-      networkmanager-vpnc
-      networkmanager-sstp
-    ];
+    enableIPv6 = false;
+    firewall = {
+      enable = true;
+      # Allow only necessary ports (e.g., SSH, HTTP/HTTPS)
+      allowedTCPPorts = [22 80 443];
+      allowedUDPPorts = [];
+      # Block all incoming traffic by default
+      rejectPackets = true;
+    };
+    networkmanager = {
+      enable = true;
+      dns = "none"; # Prevent NetworkManager from overriding DNS
+      plugins = with pkgs; [
+        networkmanager-fortisslvpn
+        networkmanager-iodine
+        networkmanager-l2tp
+        networkmanager-openconnect
+        networkmanager-openvpn
+        networkmanager-vpnc
+        networkmanager-sstp
+      ];
+    };
+  };
+  services.tor = {
+    enable = true;
+    client.enable = true;
+    client.transparentProxy.enable = true; # Redirects all traffic
   };
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {
-      server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri"];
+      server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri" "mullvad-adblock-doh"];
     };
   };
 
