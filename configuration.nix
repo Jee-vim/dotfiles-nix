@@ -13,14 +13,10 @@
   networking = {
     hostName = "Nix";
     nameservers = ["127.0.0.1"];
-    enableIPv6 = false;
     firewall = {
       enable = true;
-      # Allow only necessary ports (e.g., SSH, HTTP/HTTPS)
-      allowedTCPPorts = [22 80 443];
-      allowedUDPPorts = [];
       # Block all incoming traffic by default
-      rejectPackets = true;
+      # rejectPackets = true;
     };
     networkmanager = {
       enable = true;
