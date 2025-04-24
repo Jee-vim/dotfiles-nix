@@ -9,7 +9,7 @@
   };
 
   style = {
-    rounded = "8";
+    rounded = "0";
     opacity = 0.88;
   };
 

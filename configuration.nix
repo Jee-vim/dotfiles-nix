@@ -32,11 +32,11 @@
       ];
     };
   };
-  services.tor = {
-    enable = true;
-    client.enable = true;
-    client.transparentProxy.enable = true; # Redirects all traffic
-  };
+  # services.tor = {
+  #   enable = true;
+  #   client.enable = true;
+  #   client.transparentProxy.enable = true; # Redirects all traffic
+  # };
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {

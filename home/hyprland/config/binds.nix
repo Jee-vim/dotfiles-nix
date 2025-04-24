@@ -13,7 +13,7 @@
     "$mod, V, togglefloating,"
     "$mod, I, exec, swaync-client -t -sw"
     "SUPER, P, pseudo,"
-    "Alt, Return, exec, wofi --show drun"
+    "Alt, Return, exec, rofi -show drun"
     "CTRL, right, resizeactive, 100 0"
     "CTRL, left, resizeactive, -100 0"
     "CTRL, up, resizeactive, 0 -100"

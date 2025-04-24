@@ -20,11 +20,9 @@ in {
   ];
 
   general = {
-    gaps_in = 5;
-    gaps_out = 10;
-    border_size = 2;
-    "col.active_border" = "0x4c7766aa";
-    "col.inactive_border" = "0x282828aa";
+    gaps_in = 2;
+    gaps_out = 3;
+    border_size = 1;
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";
