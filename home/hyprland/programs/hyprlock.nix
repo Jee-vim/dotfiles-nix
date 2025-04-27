@@ -19,7 +19,8 @@ in {
       image = {
         path = "${settings.image.profile}";
         size = 150;
-        rounding = -1;
+        # rounding = -1;
+        rounding = 4;
         position = "0, 130";
         halign = "center";
         valign = "bottom";
@@ -48,6 +49,32 @@ in {
       };
 
       label = [
+        {
+          text = "cmd[update:1000] echo -e \"$(date +'%H')\"";
+          color = "rgba(255, 255, 255, 1)";
+          shadow_pass = "2";
+          shadow_size = "3";
+          shadow_color = "rgb(0,0,0)";
+          shadow_boost = "1.2";
+          font_size = "120";
+          font_family = "GeistMono Bold";
+          position = "0, -40";
+          halign = "center";
+          valign = "top";
+        }
+        {
+          text = "cmd[update:1000] echo -e \"$(date +':%M')\"";
+          color = "rgba(255, 255, 255, 1)";
+          shadow_pass = "2";
+          shadow_size = "3";
+          shadow_color = "rgb(0,0,0)";
+          shadow_boost = "1.2";
+          font_size = "70";
+          font_family = "GeistMono Bold";
+          position = "180, -100";
+          halign = "center";
+          valign = "top";
+        }
         {
           text = "cmd[update:1000] echo -e \"󰁥 $(uname -n)\\n$(uname -r)\\nPackages: $(nix-env -q | wc -l) nix-env\"";
           color = "rgba(255, 255, 255, 1.0)";

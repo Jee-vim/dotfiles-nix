@@ -16,13 +16,13 @@
   image = {
     internal = "/home/jee/Wallpaper/gruvbox-village.jpg";
     external = "/home/jee/Wallpaper/gruvbox-village.jpg";
-    lockscreen = "/home/jee/Wallpaper/peep-desk.jpg";
-    profile = "/home/jee/Wallpaper/peep-desk-rectangle.png";
+    lockscreen = "/home/jee/Wallpaper/gruvbox-village.jpg";
+    profile = "/home/jee/Wallpaper/gruvbox-village.jpg";
   };
 
   script = {
-    greetings = "bash hyprland/script/greeting.sh";
-    battery = "bash hyprland/script/battery.sh";
+    greetings = "bash /home/jee/.dotfiles/home/hyprland/script/greeting.sh";
+    battery = "bash /home/jee/.dotfiles/home/hyprland/script/battery.sh";
   };
 
   color = {
