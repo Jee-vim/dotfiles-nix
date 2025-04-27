@@ -21,8 +21,8 @@
   };
 
   script = {
-    greetings = "bash ./hyprland/script/greeting.sh";
-    battery = "bash ./hyprland/script/battery.sh";
+    greetings = "bash hyprland/script/greeting.sh";
+    battery = "bash hyprland/script/battery.sh";
   };
 
   color = {

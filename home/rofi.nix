@@ -21,6 +21,7 @@ in {
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
+        # image = mkLiteral settings.image.internal;
         background = mkLiteral settings.color.background;
         background-alt = mkLiteral settings.color.backgroundAlt;
         foreground = mkLiteral settings.color.foreground;
@@ -48,8 +49,15 @@ in {
         transparency = "real";
       };
       mainbox = {
-        children = mkLiteral "[inputbar, listview]";
+        children = mkLiteral "[inputbar, mode-switcher, listview]";
       };
+      # imagebox = {
+      #   padding = mkLiteral "10px";
+      #   background-color = mkLiteral "transparent";
+      #   background-image = mkLiteral "url(@image, height)";
+      #   orientation = "vertical";
+      #   children = mkLiteral "[inputbar]";
+      # };
       inputbar = {
         text-color = mkLiteral "@foreground";
         background-color = mkLiteral "@background";
@@ -86,10 +94,35 @@ in {
       element-text = {
         text-color = mkLiteral "inherit";
       };
+      mode-switcher = {
+        border-radius = mkLiteral "0px";
+        text-color = "inherit";
+        background-color = "transparent";
+        margin = mkLiteral "5px 0 5px 0";
+        spacing = mkLiteral "5px";
+      };
+      button = {
+        padding = mkLiteral "15px";
+        border-radius = mkLiteral "10px ";
+        background-color = mkLiteral "@primary";
+        text-color = mkLiteral "@foreground";
+        cursor = "pointer";
+      };
+      buttonselected = {
+        background-color = mkLiteral "@background";
+        text-color = mkLiteral "@foreground";
+      };
     };
     extraConfig = {
       # show-icons = true;
       terminal = "kitty";
+      modi = "drun,run,window";
+      show-icons = false;
+      display-drun = "󰀻 ";
+      display-run = "RUN";
+      display-window = " ";
+      drun-display-format = "{name}";
+      window-format = "{w} · {c} · {t}";
     };
   };
 }
