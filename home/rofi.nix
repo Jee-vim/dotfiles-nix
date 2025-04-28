@@ -16,12 +16,11 @@ in {
         clipboard_backend=wl-clipboard
       '';
     };
-    font = "Fira Mono 12";
+    font = "Fira Mono 10";
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        # image = mkLiteral settings.image.internal;
         background = mkLiteral settings.color.background;
         background-alt = mkLiteral settings.color.backgroundAlt;
         foreground = mkLiteral settings.color.foreground;
@@ -32,37 +31,40 @@ in {
         text-color = mkLiteral "@foreground";
         accent-color = mkLiteral "@foreground";
 
+        radius = mkLiteral settings.style.radius;
         margin = 0;
         padding = 0;
         spacing = 0;
         border = 0;
 
-        width = mkLiteral "600px";
+        width = mkLiteral "750px";
+        height = mkLiteral "300px";
       };
       window = {
         text-color = mkLiteral "@foreground";
         background-color = mkLiteral "@background";
         border = mkLiteral "2px";
         border-color = mkLiteral "@primary";
-        border-radius = mkLiteral "3px";
-        padding = mkLiteral "6px";
+        border-radius = mkLiteral "@radius";
         transparency = "real";
       };
       mainbox = {
-        children = mkLiteral "[inputbar, mode-switcher, listview]";
+        orientation = mkLiteral "horizontal";
+        children = mkLiteral "[imagebox, listview]";
       };
-      # imagebox = {
-      #   padding = mkLiteral "10px";
-      #   background-color = mkLiteral "transparent";
-      #   background-image = mkLiteral "url(@image, height)";
-      #   orientation = "vertical";
-      #   children = mkLiteral "[inputbar]";
-      # };
+      imagebox = {
+        padding = mkLiteral "10px";
+        background-color = mkLiteral "transparent";
+        background-image = mkLiteral "url('/home/jee/Wallpaper/gruvbox-village.jpg', height)";
+        orientation = mkLiteral "vertical";
+        children = mkLiteral "[inputbar, mode-switcher]";
+      };
       inputbar = {
         text-color = mkLiteral "@foreground";
-        background-color = mkLiteral "@background";
-        padding = mkLiteral "8px 8px";
+        background-color = mkLiteral "@background-alt";
+        padding = mkLiteral "10px 8px";
         spacing = mkLiteral "8px";
+        border-radius = mkLiteral "@radius";
         children = mkLiteral "[prompt, entry]";
       };
       prompt = {
@@ -72,12 +74,17 @@ in {
         text-color = mkLiteral "@foreground-alt";
       };
       listview = {
-        lines = 10;
+        lines = 8;
+        cycle = true;
+        dynamic = true;
+        layout = mkLiteral "vertical";
+        fixed-height = true;
+        fixed-columns = true;
         scrollbar = true;
       };
       scrollbar = {
         background-color = mkLiteral "@background-alt";
-        handle-color = mkLiteral "@foreground-alt";
+        handle-color = mkLiteral "@primary";
         margin-left = mkLiteral "6px";
         handle-width = mkLiteral "5px";
       };
@@ -86,16 +93,18 @@ in {
         padding = mkLiteral "6px 8px";
         spacing = mkLiteral "8px";
         children = mkLiteral "[element-text]";
+        cursor = mkLiteral "pointer";
       };
       "element selected" = {
         text-color = mkLiteral "@foreground-alt";
-        background-color = mkLiteral "@background-alt";
+        background-color = mkLiteral "@primary";
+        cursor = mkLiteral "pointer";
       };
       element-text = {
         text-color = mkLiteral "inherit";
       };
       mode-switcher = {
-        border-radius = mkLiteral "0px";
+        border-radius = mkLiteral "@radius";
         text-color = "inherit";
         background-color = "transparent";
         margin = mkLiteral "5px 0 5px 0";
@@ -103,13 +112,13 @@ in {
       };
       button = {
         padding = mkLiteral "15px";
-        border-radius = mkLiteral "10px ";
+        border-radius = mkLiteral "@radius";
         background-color = mkLiteral "@primary";
         text-color = mkLiteral "@foreground";
-        cursor = "pointer";
+        cursor = mkLiteral "pointer";
       };
-      buttonselected = {
-        background-color = mkLiteral "@background";
+      "button selected" = {
+        background-color = mkLiteral "@background-alt";
         text-color = mkLiteral "@foreground";
       };
     };
@@ -119,7 +128,7 @@ in {
       modi = "drun,run,window";
       show-icons = false;
       display-drun = "󰀻 ";
-      display-run = "RUN";
+      display-run = "󰆍 ";
       display-window = " ";
       drun-display-format = "{name}";
       window-format = "{w} · {c} · {t}";

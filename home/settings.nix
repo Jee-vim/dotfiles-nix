@@ -10,6 +10,7 @@
 
   style = {
     rounded = "0";
+    radius = "0px";
     opacity = 0.88;
   };
 
