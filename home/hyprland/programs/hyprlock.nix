@@ -58,7 +58,7 @@ in {
           shadow_boost = "1.2";
           font_size = "120";
           font_family = "GeistMono Bold";
-          position = "0, -40";
+          position = "-100, -40";
           halign = "center";
           valign = "top";
         }
@@ -71,7 +71,7 @@ in {
           shadow_boost = "1.2";
           font_size = "70";
           font_family = "GeistMono Bold";
-          position = "180, -100";
+          position = "90, -100";
           halign = "center";
           valign = "top";
         }
