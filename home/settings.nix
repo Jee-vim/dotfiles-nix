@@ -24,6 +24,8 @@
   script = {
     greetings = "bash /home/jee/.dotfiles/home/hyprland/script/greeting.sh";
     battery = "bash /home/jee/.dotfiles/home/hyprland/script/battery.sh";
+    powermenu = "/home/jee/.dotfiles/home/rofi/script/powermenu.sh";
+    network = "/home/jee/.dotfiles/home/rofi/script/network.sh";
   };
 
   color = {

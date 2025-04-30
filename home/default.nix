@@ -2,8 +2,8 @@
   imports = [
     ./hyprland
     ./terminal
+    ./rofi
     ./cursor.nix
-    ./rofi.nix
   ];
 
   home.username = "jee";

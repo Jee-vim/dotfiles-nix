@@ -1,4 +1,6 @@
-{
+let
+  settings = import ../../settings.nix;
+in {
   "$mod" = "SUPER";
   unbind = [
     "$mod, N"
@@ -13,6 +15,8 @@
     "$mod, V, togglefloating,"
     "$mod, I, exec, swaync-client -t -sw"
     "SUPER, P, pseudo,"
+    "Alt, O, exec, ${settings.script.powermenu}"
+    "Alt, N, exec, ${settings.script.network}"
     "Alt, Return, exec, rofi -show drun"
     "CTRL, right, resizeactive, 100 0"
     "CTRL, left, resizeactive, -100 0"

@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  settings = import ./settings.nix;
+  settings = import ../settings.nix;
 in {
   programs.rofi = {
     enable = true;
@@ -125,11 +125,13 @@ in {
     extraConfig = {
       # show-icons = true;
       terminal = "kitty";
-      modi = "drun,run,window";
+      modi = "drun,run,window,filebrowser";
       show-icons = false;
       display-drun = "󰀻 ";
       display-run = "󰆍 ";
       display-window = " ";
+      display-filebrowser = " ";
+      display-power = "󰐥 ";
       drun-display-format = "{name}";
       window-format = "{w} · {c} · {t}";
     };
