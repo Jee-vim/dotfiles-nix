@@ -12,10 +12,6 @@ in {
       "float, class:^(io.bassi.Amberol)$"
       "float, class:^(io.github.celluloid_player.Celluloid)$"
       "float, class:^(mpv)$"
-      "float, class:^(nm-applet)$"
-      "float, class:^(nm-connection-editor)$"
-      "float, class:^(org.gnome.Calculator)$"
-      "float, class:^(org.gnome.Loupe)$"
       "float, class:^(thunar)$"
       "float, class:^(xdg-desktop-portal-gtk)$"
 
@@ -40,6 +36,8 @@ in {
       "bordersize 0, floating:0, onworkspace:f[1]"
       "rounding 0, floating:0, onworkspace:f[1]"
       "workspace 1, class:^(brave-browser)$"
+      "workspace 2, class:^(postman)$"
+      "workspace 3, class:^(org.telegram.desktop)$"
       "workspace 6, class:^(kitty)$"
     ];
 
@@ -47,6 +45,8 @@ in {
       "w[tv1], gapsout:0, gapsin:0"
       "f[1], gapsout:0, gapsin:0"
       "1, monitor:${settings.monitor.internal}"
+      "2, monitor:${settings.monitor.internal}"
+      "3, monitor:${settings.monitor.internal}"
       "6, monitor:${settings.monitor.external}"
     ];
   };
