@@ -46,11 +46,12 @@
 
   time.timeZone = "Asia/Jakarta";
 
+  virtualisation.docker.enable = true;
   users.users.jee = {
     isNormalUser = true;
     home = "/home/jee";
     description = "Jee";
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "docker"];
   };
 
   security.sudo.extraRules = [

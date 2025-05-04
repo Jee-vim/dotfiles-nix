@@ -26,6 +26,7 @@
     pnpm_10
     lua-language-server
     typescript-language-server
+    docker-compose
 
     # File System & Compatibility
     pkgs.nix-ld # Compatibility layer for dynamic linking in Nix

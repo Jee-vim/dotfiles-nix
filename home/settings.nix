@@ -11,7 +11,7 @@
   style = {
     rounded = "0";
     radius = "0px";
-    opacity = 0.88;
+    opacity = 0.95;
   };
 
   image = {
