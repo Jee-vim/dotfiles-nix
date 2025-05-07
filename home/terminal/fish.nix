@@ -17,9 +17,11 @@
       alias nrd "npm run dev"
       alias nrs "npm run start"
       alias nrb "npm run build"
+      alias nrf "npm run format"
       alias prd "pnpm run dev"
       alias prs "pnpm run start"
       alias prb "pnpm run build"
+      alias prf "pnpm run format"
 
       set -gx PATH ~/.npm-global/bin $PATH
       set -x EDITOR nvim
