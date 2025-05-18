@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gruvbox Start Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-color: #1d2021;
+        --fg-color: #ebdbb2;
+        --red: #cc241d;
+        --green: #98971a;
+        --yellow: #d79921;
+        --blue: #458588;
+        --purple: #b16286;
+        --aqua: #689d6a;
+        --orange: #d65d0e;
+        --gray: #a89984;
+      }
+
+      body {
+        background: url("file:///home/jee/Wallpaper/gruvbox-village.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: var(--fg-color);
+        font-family: "Mono", sans-serif;
+        margin: 0;
+        padding: 2rem;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 800px;
+        width: 100%;
+      }
+
+      #clock {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      #search {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.2rem;
+        background-color: #3c3836;
+        border: 0;
+        color: var(--fg-color);
+        outline: none;
+      }
+
+      /* Social Media Grid */
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .social-item {
+        width: 100%;
+        background-color: #3c3836;
+        padding: 1rem;
+        text-align: center;
+        transition: transform 0.2s;
+        text-decoration: none;
+        color: var(--fg-color);
+      }
+
+      .social-item i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Gruvbox Color Classes */
+      .github {
+        border-top: 3px solid var(--fg-color);
+      }
+      .youtube {
+        border-top: 3px solid var(--red);
+      }
+      .reddit {
+        border-top: 3px solid var(--orange);
+      }
+      .jira {
+        border-top: 3px solid var(--blue);
+      }
+      .figma {
+        border-top: 3px solid var(--purple);
+      }
+      .nixos {
+        border-top: 3px solid var(--aqua);
+      }
+
+      .development {
+        border-top: 3px solid var(--fg-color);
+      }
+
+      .github:hover i {
+        color: var(--fg-color);
+      }
+      .youtube:hover i {
+        color: var(--red);
+      }
+      .reddit:hover i {
+        color: var(--orange);
+      }
+      .whatsapp {
+        border-top: 3px solid var(--green);
+      }
+      .jira:hover i {
+        color: var(--blue);
+      }
+      .figma:hover i {
+        color: var(--purple);
+      }
+      .nixos:hover i {
+        color: var(--aqua);
+      }
+      .chatgpt:hover i {
+        color: var(--fg-color);
+      }
+
+      .whatsapp:hover i {
+        color: var(--green);
+      }
+      .development:hover i {
+        color: var(--fg-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="clock"></div>
+
+      <!-- Row 1: Search -->
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Search..." />
+      </div>
+
+      <!-- Row 2: Social Media Grid -->
+      <div class="social-grid">
+        <a href="https://github.com" class="social-item github">
+          <i class="fab fa-github"></i>
+          <div>GitHub</div>
+        </a>
+        <a href="https://youtube.com" class="social-item youtube">
+          <i class="fab fa-youtube"></i>
+          <div>YouTube</div>
+        </a>
+        <a href="https://reddit.com" class="social-item reddit">
+          <i class="fab fa-reddit"></i>
+          <div>Reddit</div>
+        </a>
+        <a href="https://web.whatsapp.com" class="social-item whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <div>WhatsApp</div>
+        </a>
+        <a
+          href="https://oxinosindonesia.atlassian.net/jira/software/projects/SCRUM/boards/1?issueParent=10670"
+          class="social-item jira"
+        >
+          <i class="fab fa-jira"></i>
+          <div>Jira</div>
+        </a>
+        <a href="https://www.figma.com" class="social-item figma">
+          <i class="fab fa-figma"></i>
+          <div>Figma</div>
+        </a>
+        <a
+          href="https://home-manager-options.extranix.com/release=release-24.05"
+          class="social-item nixos"
+        >
+          <i class="fas fa-terminal"></i>
+          <div>NixOS</div>
+        </a>
+        <a href="http://localhost:3000" class="social-item development">
+          <i class="fas fa-code"></i>
+          <div>Development</div>
+        </a>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("search").focus();
+    });
+    document
+      .getElementById("search")
+      .addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          const query = this.value.trim();
+
+          const shortcuts = {
+            gi: "https://github.com",
+            yt: "https://youtube.com",
+            ri: "https://reddit.com",
+            ln: "https://linkedin.com",
+            ji: "https://oxinosindonesia.atlassian.net/jira/software/projects/SCRUM/boards/1?issueParent=10670",
+            fg: "https://www.figma.com",
+            nx: "https://home-manager-options.extranix.com/release=release-24.05",
+            chat: "https://chatgpt.com",
+            dev: "http://localhost:3000",
+          };
+
+          if (shortcuts[query]) {
+            window.location.href = shortcuts[query];
+          } else {
+            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          }
+        }
+      });
+
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, "0");
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      const seconds = now.getSeconds().toString().padStart(2, "0");
+      document.getElementById("clock").textContent =
+        `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Initialize clock immediately
+    updateClock();
+  </script>
+</html>
