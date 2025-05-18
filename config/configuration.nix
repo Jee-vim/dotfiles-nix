@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  setting = import ../home/settings.nix;
+in {
   imports = [
     ./hardware-configuration.nix
     ./system-package.nix
@@ -49,14 +51,14 @@
   virtualisation.docker.enable = true;
   users.users.jee = {
     isNormalUser = true;
-    home = "/home/jee";
-    description = "Jee";
+    home = "/home/${setting.user.username}";
+    description = setting.user.username;
     extraGroups = ["wheel" "networkmanager" "docker"];
   };
 
   security.sudo.extraRules = [
     {
-      users = ["jee"];
+      users = [setting.user.username];
       commands = [
         {
           command = "ALL";

@@ -1,6 +1,7 @@
 {
   user = {
     name = "Jee";
+    username = "jee";
   };
 
   monitor = {
