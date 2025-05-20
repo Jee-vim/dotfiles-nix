@@ -4,6 +4,7 @@
 ![telegram](./screenshots/telegram.png)
 ![swaync](./screenshots/swaync.png)
 
+## Instalation
 ### Nixos Build
 `sudo nixos-rebuild switch --flake .#username`
 ex: `sudo nixos-rebuild switch --flake .#jee`  
