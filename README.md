@@ -13,6 +13,6 @@ ex: `sudo nixos-rebuild switch --flake .#jee`
 ex: `home-manager switch --flake .#jee`  
 
 ### Troubleshoot
-if u add a package then u type `home-manager switch --flake .#username` and it didint install the app or file doesnt exist when u added a new file
+if u add a new file then u type `home-manager switch --flake .#username` and says file doesn't exist
 - try adding the file to Git ex: `git add file1` then build again
 since im using flake, nix only see files commited to Git
