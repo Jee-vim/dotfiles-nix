@@ -5,6 +5,10 @@ with pkgs; [
   feh
   nautilus
 
+  dconf
+  gruvbox-dark-gtk
+  thunar
+
   # sqlmap
   # nmap
   # lynx

@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ./cursor.nix
+    # ./cursor.nix
     ./gtk.nix
+    ./filemanager.nix
   ];
 }
