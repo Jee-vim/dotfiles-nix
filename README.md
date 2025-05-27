@@ -1,3 +1,5 @@
+(DRY) - Don't repeat yourself is a principle in software development. We should use this principle to reduce repetitive and time-consuming work. Personally, I just try to apply this principle in my professional and personal work. The most basic example is making these dotfiles, so that I don't have to provide the needs of the devices or tools used in everyday life. So, from this motivation you can see the main goal (Goal).
+
 ## Preview
 ![Termina](./screenshots/terminal.png)
 ![browser](./screenshots/browser.png)
@@ -12,8 +14,3 @@ ex: `sudo nixos-rebuild switch --flake .#jee`
 ### Home Build
 `home-manager switch --flake .#username`
 ex: `home-manager switch --flake .#jee`  
-
-### Troubleshoot
-if u add a new file then u type `home-manager switch --flake .#username` and says file doesn't exist
-- try adding the file to Git ex: `git add file1` then build again
-since im using flake, nix only see files commited to Git
