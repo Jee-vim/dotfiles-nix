@@ -6,15 +6,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = {
     nixpkgs,
     home-manager,
-    nixvim,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -31,11 +26,6 @@
       inherit pkgs;
       modules = [
         ./home/default.nix
-        {
-          nixpkgs.overlays = [
-            nixvim.overlays.default
-          ];
-        }
       ];
       extraSpecialArgs = {inherit inputs;}; # Recommended to pass inputs to HM
     };

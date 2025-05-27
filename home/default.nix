@@ -6,6 +6,7 @@ in {
     ./hyprland
     ./terminal
     ./rofi
+    ./ui
     ./cursor.nix
   ];
 
