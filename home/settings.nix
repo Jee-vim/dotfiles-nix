@@ -22,6 +22,8 @@
     profile = "/home/jee/Wallpaper/gruvbox-village.jpg";
   };
 
+  start_page = "/home/jee/.dotfiles/home/blank-page.html";
+
   script = {
     greetings = "bash /home/jee/.dotfiles/home/hyprland/script/greeting.sh";
     battery = "bash /home/jee/.dotfiles/home/hyprland/script/battery.sh";
