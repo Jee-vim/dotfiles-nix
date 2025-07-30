@@ -35,8 +35,8 @@ in {
       "rounding 0, floating:0, onworkspace:w[tv1]"
       "bordersize 0, floating:0, onworkspace:f[1]"
       "rounding 0, floating:0, onworkspace:f[1]"
-      "workspace 1, class:^(brave-browser)$"
-      "workspace 2, class:^(postman)$"
+      "workspace 1, class:^(brave-browser)$" # hyprctl clients | grep 'class'
+      "workspace 2, class:^(Postman)$"
       "workspace 3, class:^(org.telegram.desktop)$"
       "workspace 6, class:^(kitty)$"
     ];

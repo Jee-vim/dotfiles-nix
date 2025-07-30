@@ -6,7 +6,8 @@ in {
     ./hyprland
     ./terminal
     ./rofi
-    ./ui
+    ./cursor.nix
+    ./qutebrowser
   ];
 
   home.username = setting.user.username;

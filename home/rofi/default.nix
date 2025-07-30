@@ -44,7 +44,7 @@ in {
         text-color = mkLiteral "@foreground";
         background-color = mkLiteral "@background";
         border = mkLiteral "2px";
-        border-color = mkLiteral "@primary";
+        border-color = mkLiteral "@foreground";
         border-radius = mkLiteral "@radius";
         transparency = "real";
       };

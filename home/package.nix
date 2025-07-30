@@ -5,9 +5,7 @@ with pkgs; [
   feh
   nautilus
 
-  dconf
-  gruvbox-dark-gtk
-  thunar
+  inkscape
 
   # sqlmap
   # nmap

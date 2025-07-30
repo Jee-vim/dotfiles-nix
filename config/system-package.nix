@@ -26,7 +26,7 @@
     typescript
     typescript-language-server
     lua-language-server
-    vscode-css-language-server # CSS, HTML and JSON
+    # vscode-css-language-server # CSS, HTML and JSON
     docker-compose
     nil # nix lang server
     alejandra # nix formatter

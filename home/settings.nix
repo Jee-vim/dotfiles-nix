@@ -10,9 +10,9 @@
   };
 
   style = {
-    rounded = "8";
-    radius = "8px";
-    opacity = 0.95;
+    rounded = "0";
+    radius = "0px";
+    opacity = 0.75;
   };
 
   image = {
@@ -27,6 +27,7 @@
     battery = "bash /home/jee/.dotfiles/home/hyprland/script/battery.sh";
     powermenu = "/home/jee/.dotfiles/home/rofi/script/powermenu.sh";
     network = "/home/jee/.dotfiles/home/rofi/script/network.sh";
+    monitorAssign = "/home/jee/.dotfiles/home/hyprland/script/monitor-assign.sh";
   };
 
   color = {

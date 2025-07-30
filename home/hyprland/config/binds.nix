@@ -9,6 +9,7 @@ in {
     "$mod, Return, exec, kitty"
     "$mod, Q, killactive,"
     "$mod, F, exec, hyprshot -m output -m active --clipboard-only"
+    # "exec-once = ${settings.script.monitorAssign}"
     "$mod, M, exec, hyprshot -m output -o /home/jee/Screenshots"
     "$mod, X, exit,"
     "$mod, E, exec, thunar"
@@ -71,5 +72,9 @@ in {
   bindm = [
     "$mod, mouse:272, movewindow"
     "$mod, mouse:273, resizewindow"
+  ];
+  bindl = [
+    ",monitoradded,exec,~/.config/hypr/scripts/ws6-assign.sh"
+    ",monitorremoved,exec,~/.config/hypr/scripts/ws6-assign.sh"
   ];
 }

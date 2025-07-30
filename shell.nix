@@ -4,12 +4,13 @@ with import <nixpkgs> {};
       python3
       python3Packages.pip
       python3Packages.requests
-      # python3Packages.websockets
-      # python3Packages.loguru
-      # python3Packages.flask
-      # python3Packages.crewai
-      # python3Packages.gunicorn
-      # python3Packages.flask-cors
+      python3Packages.python-binance
+      # python3Packages.ta
+      python3Packages.pandas
+      python3Packages.numpy
+      python3Packages.websockets
+      python3Packages.python-telegram-bot
+      python3Packages.python-dotenv
     ];
   }
 # NOTE if u have a problem during install package pip
