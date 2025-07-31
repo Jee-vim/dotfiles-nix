@@ -7,7 +7,7 @@ in {
       positionX = "center";
       positionY = "top";
       layer = "overlay";
-      control-center-margin-top = 10;
+      control-center-margin-top = 0;
       control-center-margin-bottom = 50;
       control-center-margin-right = 10;
       control-center-margin-left = 10;

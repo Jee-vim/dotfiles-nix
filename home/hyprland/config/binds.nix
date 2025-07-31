@@ -8,6 +8,7 @@ in {
   bind = [
     "$mod, Return, exec, kitty"
     "$mod, Q, killactive,"
+    "$mod, W, exec, hyprctl dispatch movewindow mon:+1 && hyprctl dispatch focusmonitor +1"
     "$mod, F, exec, hyprshot -m output -m active --clipboard-only"
     # "exec-once = ${settings.script.monitorAssign}"
     "$mod, M, exec, hyprshot -m output -o /home/jee/Screenshots"
