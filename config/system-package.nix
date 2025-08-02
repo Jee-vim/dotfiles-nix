@@ -9,6 +9,7 @@
     btop
     openconnect
     gcc
+    dconf
 
     # Clipboard & Screenshot Tools
     wl-clipboard

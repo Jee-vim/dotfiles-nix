@@ -8,7 +8,7 @@ in {
       positionY = "top";
       layer = "overlay";
       control-center-margin-top = 0;
-      control-center-margin-bottom = 50;
+      control-center-margin-bottom = 100;
       control-center-margin-right = 10;
       control-center-margin-left = 10;
       notification-icon-size = 64;
@@ -35,6 +35,7 @@ in {
         };
         dnd = {
           text = "Do Not Disturb";
+          enabled = false;
         };
         label = {
           max-lines = 3;

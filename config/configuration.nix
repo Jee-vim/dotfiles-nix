@@ -110,6 +110,7 @@ in {
     pulse.enable = true;
   };
   services.openssh.enable = true;
+  services.dbus.packages = with pkgs; [dconf];
 
   system.stateVersion = "24.11";
 }
