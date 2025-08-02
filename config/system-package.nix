@@ -21,12 +21,12 @@
     # Development Tools
     neovim
     nodejs_22
-    pnpm_10
+    nodePackages.pnpm
     lua-language-server
     typescript
     typescript-language-server
     lua-language-server
-    # vscode-css-language-server # CSS, HTML and JSON
+    nodePackages.vscode-langservers-extracted
     docker-compose
     nil # nix lang server
     alejandra # nix formatter

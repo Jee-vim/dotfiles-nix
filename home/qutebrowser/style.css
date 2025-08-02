@@ -1,0 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* chatgpt  */
+#page-header { display: none !important; }
+#thread-bottom-container>div:nth-child(2) { display: none !important; }
