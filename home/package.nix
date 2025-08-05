@@ -4,9 +4,14 @@ with pkgs; [
   hyprpaper
   feh
   nautilus
-
   inkscape
+  libnotify
+  pamixer
+  brightnessctl
 
+  nmap
+  tshark
+  bettercap
   # sqlmap
   # nmap
   # lynx

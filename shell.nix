@@ -5,7 +5,7 @@ with import <nixpkgs> {};
       python3Packages.pip
       python3Packages.requests
       python3Packages.python-binance
-      # python3Packages.ta
+      python3Packages.scikit-learn
       python3Packages.pandas
       python3Packages.numpy
       python3Packages.websockets

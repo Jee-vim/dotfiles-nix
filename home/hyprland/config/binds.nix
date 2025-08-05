@@ -8,17 +8,20 @@ in {
   bind = [
     "$mod, Return, exec, kitty"
     "$mod, Q, killactive,"
+    "$mod, Esc, exit," # back to tty
     "$mod, W, exec, hyprctl dispatch movewindow mon:+1 && hyprctl dispatch focusmonitor +1"
-    "$mod, F, exec, hyprshot -m output -m active --clipboard-only"
+    "$mod, S, exec, hyprshot -m region --clipboard-only"
+    "$mod SHIFT, S, exec, hyprshot -m output -o ~/Screenshots"
     # "exec-once = ${settings.script.monitorAssign}"
-    "$mod, M, exec, hyprshot -m output -o /home/jee/Screenshots"
-    "$mod, X, exit,"
     "$mod, E, exec, thunar"
     "$mod, V, togglefloating,"
     "$mod, I, exec, swaync-client -t -sw"
-    "SUPER, P, pseudo,"
-    "Alt, O, exec, ${settings.script.powermenu}"
-    "Alt, N, exec, ${settings.script.network}"
+    "$mod, O, exec, ${settings.script.powermenu}"
+    "$mod, N, exec, ${settings.script.network}"
+    "$mod, K, exec, ${settings.script.volume} up"
+    "$mod, J, exec, ${settings.script.volume} down"
+    "$mod SHIFT, K, exec, ${settings.script.brightness} up"
+    "$mod SHIFT, J, exec, ${settings.script.brightness} down"
     "Alt, Return, exec, rofi -show drun"
     "CTRL, right, resizeactive, 100 0"
     "CTRL, left, resizeactive, -100 0"
@@ -62,8 +65,8 @@ in {
     "$mod SHIFT, 0, movetoworkspace, 10"
 
     # Example special workspace (scratchpad)
-    "$mod, S, togglespecialworkspace, magic"
-    "$mod SHIFT, S, movetoworkspace, special:magic"
+    # "$mod, S, togglespecialworkspace, magic"
+    # "$mod SHIFT, S, movetoworkspace, special:magic"
 
     # Scroll through existing workspaces with mainMod + scroll
     "$mod, mouse_down, workspace, e+1"

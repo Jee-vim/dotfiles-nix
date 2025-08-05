@@ -14,7 +14,7 @@ in {
       notification-icon-size = 64;
       notification-body-image-height = 100;
       notification-body-image-width = 200;
-      timeout = 10;
+      timeout = 5;
       timeout-low = 5;
       timeout-critical = 0;
       fit-to-screen = true;
@@ -45,17 +45,9 @@ in {
           image-size = 96;
           image-radius = settings.style.rounded;
         };
-        volume = {
-          label = "󰕾";
-        };
-        backlight = {
-          label = "󰃟";
-        };
       };
       widgets = [
         "mpris"
-        "volume"
-        "backlight"
         "title"
         "dnd"
         "notifications"
@@ -63,8 +55,8 @@ in {
     };
     style = ''
       * {
-        font-family: FiraCode;
-        font-weight: bold;
+        font-family: GeistMono Nerd Font Mono;
+        transition: 0.3s;
       }
       .control-center .notification-row:focus,
       .control-center .notification-row:hover {
@@ -206,6 +198,7 @@ in {
       .widget-title {
         color: ${settings.color.white};
         background: ${settings.color.background};
+        font-weight: 800;
         font-size: 1rem;
         border-radius: ${settings.style.rounded}px;
       }
@@ -224,6 +217,7 @@ in {
       .widget-dnd {
         background: ${settings.color.background};
         border-radius: ${settings.style.rounded}px;
+        font-weight: 800;
         font-size: 1rem;
         color: ${settings.color.white};
       }
@@ -278,31 +272,6 @@ in {
       .topbar-buttons>button {
         border: none;
         background: transparent
-      }
-      .widget-volume {
-        background: ${settings.color.backgroundAlt};
-        padding: 5px;
-        border-radius: ${settings.style.rounded}px;
-        font-size: x-large;
-        color: ${settings.color.white};
-      }
-      .widget-volume>box>button {
-        background: ${settings.color.primary};
-        border: none
-      }
-      .per-app-volume {
-        background-color: ${settings.color.background};
-        padding: 4px 8px 8px;
-        margin: 0 8px 8px;
-        border-radius: ${settings.style.rounded}px;
-      }
-      .widget-backlight {
-        background: ${settings.color.backgroundAlt};
-        padding: 5px;
-        margin: 10px 10px 5px 10px;
-        border-radius: ${settings.style.rounded}px;
-        font-size: x-large;
-        color: ${settings.color.white}
       }
     '';
   };

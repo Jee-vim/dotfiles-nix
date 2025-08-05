@@ -30,6 +30,8 @@
     powermenu = "/home/jee/.dotfiles/home/rofi/script/powermenu.sh";
     network = "/home/jee/.dotfiles/home/rofi/script/network.sh";
     monitorAssign = "/home/jee/.dotfiles/home/hyprland/script/monitor-assign.sh";
+    volume = "/home/jee/.dotfiles/home/hyprland/script/volume.sh";
+    brightness = "/home/jee/.dotfiles/home/hyprland/script/brightness.sh";
   };
 
   color = {
