@@ -74,7 +74,8 @@ in {
       c.content.blocking.adblock.lists = [
         'https://easylist.to/easylist/easylist.txt'
         'https://easylist.to/easylist/easyprivacy.txt'
-        'https://adblockfilters.com/abp.filters.txt'
+        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"
+        "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/youtube.txt"
       ]
     '';
   };

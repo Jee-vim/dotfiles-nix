@@ -58,10 +58,10 @@ in {
         font-family: GeistMono Nerd Font Mono;
         transition: 0.3s;
       }
+
       .control-center .notification-row:focus,
       .control-center .notification-row:hover {
-        opacity: 0.9;
-        background: ${settings.color.background}
+        background: transparent
       }
       .notification-row {
         outline: none;
@@ -69,12 +69,12 @@ in {
         padding: 0;
       }
       .notification {
-        background: ${settings.color.background};
+        background: transparent;
         padding: 0;
         margin: 0px;
       }
       .notification-content {
-        background: ${settings.color.background};
+        background-color: ${settings.color.backgroundRgb};
         padding: 10px;
         border-radius: ${settings.style.rounded}px;
         border: 2px solid ${settings.color.primary};
@@ -120,11 +120,11 @@ in {
       }
       .notification-action:first-child {
         border-bottom-left-radius: ${settings.style.rounded}px;
-        background: ${settings.color.background}
+        background: ${settings.color.backgroundRgb}
       }
       .notification-action:last-child {
         border-bottom-right-radius: ${settings.style.rounded}px;
-        background: ${settings.color.background}
+        background: ${settings.color.backgroundRgb}
       }
       .inline-reply {
         margin-top: 8px
@@ -138,7 +138,7 @@ in {
       }
       .inline-reply-button {
         margin-left: 4px;
-        background: ${settings.color.background};
+        background: ${settings.color.backgroundRgb};
         border: 1px solid ${settings.color.primary};
         border-radius: ${settings.style.rounded}px;
         color: ${settings.color.white}
@@ -179,9 +179,9 @@ in {
         text-shadow: none
       }
       .control-center {
-        background: ${settings.color.background};
-        /* border: 2px solid ${settings.color.yellow}; */
+        background-color: ${settings.color.backgroundRgb};
         border-radius: ${settings.style.rounded}px;
+        /* border: 2px solid ${settings.color.yellow}; */
       }
       .control-center-list {
         background: ${settings.color.violet}
@@ -192,12 +192,9 @@ in {
       .floating-notifications {
         background: transparent
       }
-      .blank-window {
-        background: alpha(black, 0)
-      }
       .widget-title {
         color: ${settings.color.white};
-        background: ${settings.color.background};
+        background: transparent;
         font-weight: 800;
         font-size: 1rem;
         border-radius: ${settings.style.rounded}px;
@@ -206,16 +203,16 @@ in {
         font-size: 0.8rem;
         color: ${settings.color.white};
         text-shadow: none;
-        background: ${settings.color.backgroundAlt};
+        background: ${settings.color.backgroundRgbAlt};
         box-shadow: none;
         border-radius: ${settings.style.rounded}px;
       }
       .widget-title>button:hover {
         background: ${settings.color.red};
-        color: ${settings.color.background};
+        color: ${settings.color.backgroundRgb};
       }
       .widget-dnd {
-        background: ${settings.color.background};
+        background: transparent;
         border-radius: ${settings.style.rounded}px;
         font-weight: 800;
         font-size: 1rem;
@@ -224,7 +221,7 @@ in {
       .widget-dnd>switch {
         border-radius: ${settings.style.rounded}px;
         border: 1px solid ${settings.color.white};
-        background: ${settings.color.backgroundAlt};
+        background: ${settings.color.backgroundRgbAlt};
       }
       .widget-dnd>switch:checked {
         background: ${settings.color.primary};

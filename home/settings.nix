@@ -10,8 +10,8 @@
   };
 
   style = {
-    rounded = "0";
-    radius = "0px";
+    rounded = "8";
+    radius = "8px";
     opacity = 0.75;
   };
 
@@ -35,6 +35,8 @@
   };
 
   color = {
+    backgroundRgb = "rgba(40, 40, 40, 0.5)";
+    backgroundRgbAlt = "rgba(29, 32, 33, 0.5)";
     background = "#282828";
     backgroundAlt = "#1d2021";
     foreground = "#ebdbb2";

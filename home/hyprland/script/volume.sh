@@ -21,7 +21,7 @@ esac
 vol=$(pamixer --get-volume-human)
 
 if [ "$vol" = "muted" ]; then
-  notify-send -a "Volume" "🔇 Muted"
+  notify-send "Volume" "🔇 Muted"
 else
-  notify-send -a "Volume" "󰕾  Volume: $vol"
+  notify-send "Volume" "󰕾  Volume: $vol"
 fi

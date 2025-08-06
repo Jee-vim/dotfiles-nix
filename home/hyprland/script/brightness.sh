@@ -19,4 +19,4 @@ bright=$(brightnessctl get)
 max=$(brightnessctl max)
 percent=$(( bright * 100 / max ))
 
-notify-send -a "Brightness" "󰃟  Brightness: $percent%"
+notify-send "Brightness" "󰃟  Brightness: $percent%"
