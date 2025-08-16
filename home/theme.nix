@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -21,20 +21,18 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk"; # Uses GTK theme for Qt apps
-    style.name = "gtk2"; # Fallback style
+    platformTheme.name = "gtk";
+    style.name = "gtk2";
   };
 
-  # Better theming support for all apps
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  # Environment variables for consistency
   home.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1"; # Better Firefox theming
-    GTK_THEME = "Arc-Dark:dark";
+    MOZ_USE_XINPUT2 = "1";
+    GTK_THEME = "Gruvbox-Dark:dark";
     QT_STYLE_OVERRIDE = "gtk2";
     XCURSOR_THEME = "Bibata-Modern-Classic";
     QT_QPA_PLATFORMTHEME = "gtk2";
@@ -43,7 +41,7 @@
 
   home.packages = with pkgs; [
     libsForQt5.qt5ct
-    gtk-engine-murrine # For GTK2 theme support
-    pkgs.adwaita-icon-theme # Fallback icons
+    gtk-engine-murrine
+    adwaita-icon-theme
   ];
 }
