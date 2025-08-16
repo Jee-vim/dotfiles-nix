@@ -8,6 +8,9 @@ with pkgs; [
   libnotify
   pamixer
   brightnessctl
+  xfce.thunar
+  xfce.thunar-archive-plugin
+  xfce.thunar-volman
 
   nmap
   tshark

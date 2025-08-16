@@ -6,7 +6,8 @@ in {
     ./hyprland
     ./terminal
     ./rofi
-    ./cursor.nix
+    # ./cursor.nix
+    ./theme.nix
     ./qutebrowser
   ];
 
