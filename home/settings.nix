@@ -12,7 +12,7 @@
   style = {
     rounded = "8";
     radius = "8px";
-    opacity = 0.75;
+    opacity = 1.75;
   };
 
   image = {
@@ -35,8 +35,8 @@
   };
 
   color = {
-    backgroundRgb = "rgba(40, 40, 40, 0.5)";
-    backgroundRgbAlt = "rgba(29, 32, 33, 0.5)";
+    backgroundRgb = "rgba(40, 40, 40, 0.9)";
+    backgroundRgbAlt = "rgba(29, 32, 33, 0.9)";
     background = "#282828";
     backgroundAlt = "#1d2021";
     foreground = "#ebdbb2";

@@ -53,7 +53,7 @@ in {
     isNormalUser = true;
     home = "/home/${setting.user.username}";
     description = setting.user.username;
-    extraGroups = ["wheel" "networkmanager" "docker"];
+    extraGroups = ["wheel" "networkmanager" "docker" "dialout"];
   };
 
   security.sudo.extraRules = [
@@ -111,6 +111,8 @@ in {
   };
   services.openssh.enable = true;
   services.dbus.packages = with pkgs; [dconf];
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
 
   system.stateVersion = "24.11";
 }

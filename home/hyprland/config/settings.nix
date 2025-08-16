@@ -19,11 +19,11 @@ in {
     "kitty"
   ];
 
-  layerrule = [
-    "blur, swaync-control-center"
-    "ignorezero, swaync-notification-window"
-    "animation slide top, swaync-control-center"
-  ];
+  # layerrule = [
+  #   "blur, swaync-control-center"
+  #   "ignorezero, swaync-notification-window"
+  #   "animation slide top, swaync-control-center"
+  # ];
 
   general = {
     gaps_in = 5;
