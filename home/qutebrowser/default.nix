@@ -24,6 +24,10 @@ in {
       config.set('content.user_stylesheets', ['~/.dotfiles/home/qutebrowser/style.css'])
       config.bind('<Alt-r>', 'config-source')
 
+      config.bind(',m','spawn umpv {url}') # for block ads yt (play using umpv)
+      config.bind(';M','hint --rapid links spawn umpv {hint-url}')
+      config.bind('pl','hint links spawn umpv {hint-url}')
+
       config.set("content.autoplay", False)
       config.set("content.cookies.accept", "no-3rdparty")
       config.set("content.canvas_reading", False)
