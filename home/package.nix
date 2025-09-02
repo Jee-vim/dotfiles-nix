@@ -8,15 +8,13 @@ with pkgs; [
   libnotify
   pamixer
   brightnessctl
-  xfce.thunar
-  xfce.thunar-archive-plugin
-  xfce.thunar-volman
+  zig
+  zls
 
-  nmap
-  tshark
-  bettercap
-  # sqlmap
   # nmap
+  # tshark
+  # bettercap
+  # sqlmap
   # lynx
   # nuclei
   # httprobe

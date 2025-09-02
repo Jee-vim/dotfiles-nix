@@ -6,8 +6,13 @@
       package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.fetchFromGitHub {
+        owner = "SylEleuth";
+        repo = "gruvbox-plus-icon-pack";
+        rev = "144d470";
+        sha256 = "1ijal9qjvl9idmka8yq60wdm99svplb9ppf2hd08i1fym75madia";
+      };
     };
     cursorTheme = {
       name = "Bibata-Modern-Classic";
