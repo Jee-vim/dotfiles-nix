@@ -11,12 +11,13 @@
 
       listener = [
         {
-          timeout = 1800;
-          on-timeout = "hyprlock";
+          # warn 1 min before shutdown
+          timeout = 4140; # 1h10m - 60s
+          on-timeout = "notify-send '⚠️ System will shut down in 1 minute!' 'Touch or Type anything to cancel'";
         }
         {
           # shutdown
-          timeout = 3600;
+          timeout = 4200; # 1h10m
           on-timeout = "poweroff";
         }
       ];
