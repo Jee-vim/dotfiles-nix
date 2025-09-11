@@ -8,7 +8,6 @@ with pkgs; [
   libnotify
   pamixer
   brightnessctl
-  zig
   zls
 
   # nmap

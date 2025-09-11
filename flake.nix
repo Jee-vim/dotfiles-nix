@@ -2,6 +2,7 @@
   description = "my flake";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    zig.url = "github:mitchellh/zig-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -9,6 +10,7 @@
   };
   outputs = {
     nixpkgs,
+    zig,
     home-manager,
     ...
   } @ inputs: let
@@ -16,9 +18,11 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    packages.${system}.zig = zig.packages.${system}.master;
     nixosConfigurations = {
       jee = lib.nixosSystem {
         inherit system;
+        specialArgs = {inherit inputs;};
         modules = [./config/configuration.nix];
       };
     };
