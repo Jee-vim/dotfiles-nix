@@ -35,7 +35,7 @@
     docker-compose
     nil # nix lang server
     alejandra # nix formatter
-    inputs.zig.packages.${pkgs.system}.master # latest zig (fetch inside flake)
+    inputs.zig.packages.${pkgs.system}."0.15.1"
 
     # File System & Compatibility
     pkgs.nix-ld # Compatibility layer for dynamic linking in Nix

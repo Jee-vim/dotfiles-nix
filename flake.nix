@@ -18,7 +18,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    packages.${system}.zig = zig.packages.${system}.master;
+    packages.${system}.zig = zig.packages.${system}."0.15.1";
     nixosConfigurations = {
       jee = lib.nixosSystem {
         inherit system;
