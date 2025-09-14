@@ -2,8 +2,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-gtk-theme;
+      name = "Arc-Dark";
+      package = pkgs.arc-theme;
     };
     iconTheme = {
       name = "Gruvbox-Plus-Dark";
@@ -37,7 +37,7 @@
 
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
-    GTK_THEME = "Gruvbox-Dark:dark";
+    GTK_THEME = "Arc-Dark";
     QT_STYLE_OVERRIDE = "gtk2";
     XCURSOR_THEME = "Bibata-Modern-Classic";
     QT_QPA_PLATFORMTHEME = "gtk2";
@@ -48,5 +48,7 @@
     libsForQt5.qt5ct
     gtk-engine-murrine
     adwaita-icon-theme
+    gradience
+    arc-theme
   ];
 }

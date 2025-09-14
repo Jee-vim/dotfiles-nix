@@ -14,10 +14,15 @@
     openconnect
     gcc
     dconf
-
-    # Clipboard & Screenshot Tools
+    libnotify
+    pamixer
+    brightnessctl
     wl-clipboard
-    hyprshot
+    xarchiver
+    p7zip
+    unzip
+    unrar
+    feh
 
     # Audio Management
     pulseaudioFull # cli
@@ -36,14 +41,13 @@
     nil # nix lang server
     alejandra # nix formatter
     inputs.zig.packages.${pkgs.system}."0.15.1"
-
-    # File System & Compatibility
-    pkgs.nix-ld # Compatibility layer for dynamic linking in Nix
+    inputs.zls.packages.${pkgs.system}.default
 
     # Applications
     postman
-    brave
-    telegram-desktop
     discord-ptb
+
+    # File System & Compatibility
+    pkgs.nix-ld # Compatibility layer for dynamic linking in Nix
   ];
 }

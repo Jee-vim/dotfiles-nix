@@ -2,22 +2,10 @@
 with pkgs; [
   swaynotificationcenter
   hyprpaper
-  feh
-  nautilus
-  inkscape
-  libnotify
-  pamixer
-  brightnessctl
-  zls
-
-  # nmap
-  # tshark
-  # bettercap
-  # sqlmap
-  # lynx
-  # nuclei
-  # httprobe
-  # nikto
+  hyprshot
+  xfce.thunar
+  xfce.thunar-archive-plugin
+  xfce.thunar-volman
 
   # Recording and Share Screen
   obs-studio
@@ -27,4 +15,9 @@ with pkgs; [
   gst_all_1.gstreamer # fitur OBS
   v4l-utils # virtual camera support
   mpv # video player
+
+  # Applications
+  brave
+  telegram-desktop
+  inkscape
 ]
