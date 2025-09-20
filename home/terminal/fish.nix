@@ -22,6 +22,9 @@
       alias prs "pnpm run start"
       alias prb "pnpm run build"
       alias prf "pnpm run format"
+      alias zrb "zig run build"
+      alias zr "zig run"
+      alias zb "zig build"
 
       set -gx PATH ~/.npm-global/bin $PATH
       set -x EDITOR nvim

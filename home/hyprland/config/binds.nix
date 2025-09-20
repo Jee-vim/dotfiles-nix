@@ -22,6 +22,7 @@ in {
     "$mod, J, exec, ${settings.script.volume} down"
     "$mod SHIFT, K, exec, ${settings.script.brightness} up"
     "$mod SHIFT, J, exec, ${settings.script.brightness} down"
+    "$mod, TAB, workspace, previous"
     "Alt, Return, exec, rofi -show drun"
     "CTRL, right, resizeactive, 100 0"
     "CTRL, left, resizeactive, -100 0"
