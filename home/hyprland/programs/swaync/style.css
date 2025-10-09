@@ -99,7 +99,7 @@ scrollbar slider {
 
 /* Notification default action */
 .notification-default-action {
-    padding: 4px;
+    padding: 20px;
     margin: 0;
     box-shadow: none;
     background: transparent;

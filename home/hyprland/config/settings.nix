@@ -36,8 +36,11 @@ in {
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";
-    # col.active_border_color = "rgba(4c7766ee)";
-    # col.inactive_border_color = "rgba(282828aa)";
+    # "col.active_border_color" = "rgba(4c7766ee)";
+    # "col.inactive_border_color" = "rgba(282828aa)";
+    # "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
+    "col.active_border" = "rgba(8ec07cff) rgba(8ec07cff) 45deg";
+    "col.inactive_border" = "0x00000000";
   };
 
   decoration = {
