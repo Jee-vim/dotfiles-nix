@@ -41,17 +41,12 @@ in {
 
       c.statusbar.show = 'never'
       c.scrolling.bar = "never"
-      c.tabs.show = 'never'
+      c.tabs.show = 'switching'
       c.tabs.position = 'left'
       c.scrolling.smooth = True
 
       c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?ia=web&q={}',
-        '!go':     'https://www.google.com/search?q={}',
-        '!gh':     'https://github.com/search?q={}',
-        "!nix": "https://search.nixos.org/packages?query={}",
-        "!yt": "https://www.youtube.com/results?search_query={}",
-        "!r": "https://reddit.com/r/{}",
 
         # Dorking
         "!intitle": "https://www.google.com/search?q=intitle%3A\"{}\"",

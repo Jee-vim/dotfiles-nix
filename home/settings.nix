@@ -10,14 +10,14 @@
   };
 
   style = {
-    rounded = "8";
-    radius = "8px";
+    rounded = "0";
+    radius = "0px";
     opacity = 1.75;
   };
 
   image = {
     internal = "/home/jee/Wallpaper/gruvbox-village.jpg";
-    external = "/home/jee/Wallpaper/gruvbox-village.jpg";
+    external = "/home/jee/Wallpaper/tanjiro-kamado-gruv.jpg";
     lockscreen = "/home/jee/Wallpaper/gruvbox-village.jpg";
     profile = "/home/jee/Wallpaper/gruvbox-village.jpg";
   };
