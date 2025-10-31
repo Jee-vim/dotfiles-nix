@@ -114,5 +114,10 @@ in {
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
+  # dockerTools.buildImage = {
+  #   name = "my-super-duper-app";
+  #   contents = [pkgs.nodejs pkgs.bla_bla];
+  # };
+
   system.stateVersion = "24.11";
 }

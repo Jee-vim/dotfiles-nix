@@ -2,8 +2,10 @@ let
   settings = import ../../settings.nix;
 in {
   monitor = [
-    "${settings.monitor.internal},preferred,0x0,auto"
-    "${settings.monitor.external},preferred,1920x0,auto"
+    # "${settings.monitor.internal},preferred,0x0,auto" right
+    # "${settings.monitor.external},preferred,1920x0,auto" left
+    "${settings.monitor.external},preferred,0x0,auto" # above
+    "${settings.monitor.internal},preferred,0x1080,auto" # below
   ];
 
   env = [
@@ -31,15 +33,15 @@ in {
 
   general = {
     gaps_in = 7;
-    gaps_out = 7;
-    border_size = 2;
+    gaps_out = 9;
+    border_size = 3;
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";
     # "col.active_border_color" = "rgba(4c7766ee)";
     # "col.inactive_border_color" = "rgba(282828aa)";
     # "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
-    "col.active_border" = "rgba(8ec07cff) rgba(8ec07cff) 45deg";
+    "col.active_border" = "rgba(${settings.color.primaryHypr}ff) rgba(${settings.color.primaryHypr}ff) 45deg";
     "col.inactive_border" = "0x00000000";
   };
 
