@@ -160,16 +160,15 @@
     "ollama": {
       "flake": false,
       "locked": {
-        "lastModified": 1761862334,
-        "narHash": "sha256-L82446qpKTdMfeVEsxPt0lC35wEWK2o+IBDl7cY2GRM=",
+        "lastModified": 1761949408,
+        "narHash": "sha256-D61jCyOUYXyPgztgEAFHd2oL5IXsO5TnE2AGEHOnows=",
         "owner": "ollama",
         "repo": "ollama",
-        "rev": "db973c8fc2579e97fa4b8adea5cb88835138b3ee",
+        "rev": "392a270261dfb1d1cee1de3713836b503a7526ce",
         "type": "github"
       },
       "original": {
         "owner": "ollama",
-        "ref": "v0.12.8",
         "repo": "ollama",
         "type": "github"
       }

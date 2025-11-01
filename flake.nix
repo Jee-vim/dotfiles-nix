@@ -4,7 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     zig.url = "github:mitchellh/zig-overlay";
     zls.url = "github:zigtools/zls";
-    ollama.url = "github:ollama/ollama";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,14 +28,7 @@
       jee = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
-        modules = [
-          ./config/configuration.nix
-          inputs.ollama.nixosModules.default
-          {
-            service.ollama.enable = true;
-            # service.ollama.port = 1337;
-          }
-        ];
+        modules = [./config/configuration.nix];
       };
     };
     homeConfigurations.jee = home-manager.lib.homeManagerConfiguration {
