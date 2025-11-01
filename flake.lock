@@ -157,10 +157,28 @@
         "type": "github"
       }
     },
+    "ollama": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761862334,
+        "narHash": "sha256-L82446qpKTdMfeVEsxPt0lC35wEWK2o+IBDl7cY2GRM=",
+        "owner": "ollama",
+        "repo": "ollama",
+        "rev": "db973c8fc2579e97fa4b8adea5cb88835138b3ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ollama",
+        "ref": "v0.12.8",
+        "repo": "ollama",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "ollama": "ollama",
         "zig": "zig",
         "zls": "zls"
       }
