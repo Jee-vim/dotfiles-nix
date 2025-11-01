@@ -102,7 +102,7 @@ in {
     XDG_SESSION_DESKTOP = "Hyprland";
   };
 
-  services.ollama.enable = true;
+  # services.ollama.enable = true;
   services.libinput.enable = true;
   services.printing.enable = true;
   services.pipewire = {
