@@ -1,11 +1,11 @@
 {
   description = "my flake";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     zig.url = "github:mitchellh/zig-overlay";
     zls.url = "github:zigtools/zls";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -22,7 +22,7 @@
   in {
     packages.${system} = {
       zig = zig.packages.${system}."0.15.1";
-      zls = zls.packages.${system}.dfault;
+      zls = zls.packages.${system}.default;
     };
     nixosConfigurations = {
       jee = lib.nixosSystem {

@@ -113,6 +113,7 @@ in {
   services.dbus.packages = with pkgs; [dconf];
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
+  # services.ollama.enable = true;
 
   # dockerTools.buildImage = {
   #   name = "my-super-duper-app";
