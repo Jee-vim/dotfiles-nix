@@ -5,10 +5,9 @@ in {
   imports = [
     ./hyprland
     ./terminal
-    ./rofi
-    # ./cursor.nix
-    ./theme.nix
     ./qutebrowser
+    ./rofi.nix
+    ./theme.nix
   ];
 
   home.username = setting.user.username;

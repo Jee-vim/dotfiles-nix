@@ -20,18 +20,13 @@
   image = {
     internal = "/home/jee/Wallpaper/plain-fire-gradient.jpeg";
     external = "/home/jee/Wallpaper/plain-fire-gradient.jpeg";
-    lockscreen = "/home/jee/Wallpaper/gruvbox-village.jpg";
-    profile = "/home/jee/Wallpaper/gruvbox-village.jpg";
   };
 
   start_page = "/home/jee/.dotfiles/home/blank-page.html";
 
   script = {
-    greetings = "bash /home/jee/.dotfiles/home/hyprland/script/greeting.sh";
     battery = "bash /home/jee/.dotfiles/home/hyprland/script/battery.sh";
     powermenu = "/home/jee/.dotfiles/home/rofi/script/powermenu.sh";
-    network = "/home/jee/.dotfiles/home/rofi/script/network.sh";
-    monitorAssign = "/home/jee/.dotfiles/home/hyprland/script/monitor-assign.sh";
     volume = "/home/jee/.dotfiles/home/hyprland/script/volume.sh";
     brightness = "/home/jee/.dotfiles/home/hyprland/script/brightness.sh";
   };

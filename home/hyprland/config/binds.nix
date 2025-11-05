@@ -7,22 +7,18 @@ in {
   ];
   bind = [
     "$mod, Return, exec, kitty"
-    "$mod, Q, killactive,"
     "$mod, Esc, exit," # back to tty
+    "$mod, Q, killactive,"
+    "$mod, T, workspace, previous"
     "$mod, G, exec, hyprctl dispatch movewindow mon:+1 && hyprctl dispatch focusmonitor +1"
     "$mod, S, exec, hyprshot -m region --clipboard-only"
-    "$mod SHIFT, S, exec, hyprshot -m output -o ~/Screenshots"
-    "$mod, E, exec, thunar"
-    "$mod, V, togglefloating,"
-    "$mod, I, exec, swaync-client -t -sw"
+    "$mod, F, togglefloating,"
+    "$mod, I, exec, rofi -show drun"
     "$mod, O, exec, ${settings.script.powermenu}"
-    "$mod, N, exec, ${settings.script.network}"
     "$mod, U, exec, ${settings.script.volume} up"
     "$mod, Y, exec, ${settings.script.volume} down"
     "$mod SHIFT, U, exec, ${settings.script.brightness} up"
     "$mod SHIFT, Y, exec, ${settings.script.brightness} down"
-    "$mod, T, workspace, previous"
-    "Alt, Return, exec, rofi -show drun"
 
     # Move focus with $mod + arrow keys
     "$mod, h, movefocus, l"
