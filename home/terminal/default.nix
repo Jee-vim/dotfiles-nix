@@ -6,5 +6,6 @@
     ./tmux.nix
     ./vim.nix
     ./fastfetch.nix
+    ./ranger.nix
   ];
 }

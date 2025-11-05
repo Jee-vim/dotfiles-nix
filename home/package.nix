@@ -1,11 +1,7 @@
 {pkgs}:
 with pkgs; [
-  swaynotificationcenter
   hyprpaper
   hyprshot
-  xfce.thunar
-  xfce.thunar-archive-plugin
-  xfce.thunar-volman
 
   # Recording and Share Screen
   obs-studio

@@ -13,7 +13,6 @@ in {
     "$mod, G, exec, hyprctl dispatch movewindow mon:+1 && hyprctl dispatch focusmonitor +1"
     "$mod, S, exec, hyprshot -m region --clipboard-only"
     "$mod SHIFT, S, exec, hyprshot -m output -o ~/Screenshots"
-    "$mod, E, exec, thunar"
     "$mod, F, togglefloating,"
     "$mod, I, exec, rofi -show drun"
     "$mod, O, exec, ${settings.script.powermenu}"
