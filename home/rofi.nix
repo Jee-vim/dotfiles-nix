@@ -37,8 +37,8 @@ in {
         spacing = 0;
         border = 0;
 
-        width = mkLiteral "750px";
-        height = mkLiteral "300px";
+        width = mkLiteral "300px";
+        height = mkLiteral "400px";
       };
       window = {
         text-color = mkLiteral "@foreground";
@@ -49,8 +49,9 @@ in {
         transparency = "real";
       };
       mainbox = {
-        orientation = mkLiteral "horizontal";
-        children = mkLiteral "[imagebox, listview]";
+        orientation = mkLiteral "vertical";
+        # children = mkLiteral "[imagebox, listview]";
+        children = mkLiteral "[inputbar, listview]";
       };
       imagebox = {
         padding = mkLiteral "10px";
