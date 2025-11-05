@@ -9,10 +9,6 @@
     };
 
     extraConfig = ''
-      # General
-      set draw_borders true
-
-      # Image previews in Kitty
       set preview_images true
       set preview_images_method kitty
     '';
