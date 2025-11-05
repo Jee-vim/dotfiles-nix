@@ -12,7 +12,7 @@ in {
         "${settings.monitor.internal},${settings.image.internal}"
         "${settings.monitor.external},${settings.image.external}"
       ];
-      ipc = true;
+      ipc = false;
       splash = true;
       splash_offset = 20;
     };

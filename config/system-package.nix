@@ -18,6 +18,12 @@
     pamixer
     brightnessctl
     wl-clipboard
+    zip
+    unzip
+    p7zip
+    gzip
+    bzip2
+    file
 
     # Audio Management
     pulseaudioFull # cli
