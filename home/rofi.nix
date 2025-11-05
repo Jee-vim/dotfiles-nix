@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  settings = import ../settings.nix;
+  settings = import ./settings.nix;
 in {
   programs.rofi = {
     enable = true;

@@ -25,10 +25,9 @@
   start_page = "/home/jee/.dotfiles/home/blank-page.html";
 
   script = {
-    battery = "bash /home/jee/.dotfiles/home/hyprland/script/battery.sh";
-    powermenu = "/home/jee/.dotfiles/home/rofi/script/powermenu.sh";
-    volume = "/home/jee/.dotfiles/home/hyprland/script/volume.sh";
-    brightness = "/home/jee/.dotfiles/home/hyprland/script/brightness.sh";
+    powermenu = "/home/jee/.dotfiles/home/script/powermenu.sh";
+    volume = "/home/jee/.dotfiles/home/script/volume.sh";
+    brightness = "/home/jee/.dotfiles/home/script/brightness.sh";
   };
 
   color = {
