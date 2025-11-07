@@ -7,5 +7,6 @@
     ./vim.nix
     ./fastfetch.nix
     ./ranger.nix
+    ./notify.nix
   ];
 }
