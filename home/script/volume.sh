@@ -2,6 +2,7 @@
 
 # usage: ./volume.sh up|down|mute
 
+# change volume
 case "$1" in
   up)
     pamixer --increase 5
@@ -18,10 +19,16 @@ case "$1" in
     ;;
 esac
 
+# get status
 vol=$(pamixer --get-volume-human)
 
 if [ "$vol" = "muted" ]; then
-  notify-send "Volume" "🔇 Muted"
+  notify-send -a "Volume" "🔇 Muted" -h string:x-canonical-private-synchronous:volume
 else
-  notify-send "Volume" "󰕾  Volume: $vol"
+  # strip '%' and ensure it’s numeric for the hint
+  vol_num=$(pamixer --get-volume)
+  notify-send -a "Volume" "󰕾 Volume: ${vol_num}%" \
+    -h int:value:"$vol_num" \
+    -h string:x-canonical-private-synchronous:volume \
+    -t 1000
 fi
