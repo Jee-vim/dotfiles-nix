@@ -14,11 +14,6 @@
         sha256 = "1ijal9qjvl9idmka8yq60wdm99svplb9ppf2hd08i1fym75madia";
       };
     };
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };

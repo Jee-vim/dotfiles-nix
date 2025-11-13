@@ -16,4 +16,5 @@ with pkgs; [
   brave
   telegram-desktop
   inkscape
+  insomnia
 ]
