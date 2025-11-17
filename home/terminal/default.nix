@@ -8,5 +8,6 @@
     ./fastfetch.nix
     ./ranger.nix
     ./notify.nix
+    ./ghostty.nix
   ];
 }

@@ -34,7 +34,7 @@ in {
   general = {
     gaps_in = 7;
     gaps_out = 9;
-    border_size = 3;
+    border_size = 1;
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";
@@ -42,7 +42,7 @@ in {
     # "col.inactive_border_color" = "rgba(282828aa)";
     # "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
     "col.active_border" = "rgba(${settings.color.primaryHypr}ff) rgba(${settings.color.primaryHypr}ff) 45deg";
-    "col.inactive_border" = "0x00000000";
+    "col.inactive_border" = "rgba(${settings.color.secondaryHypr}ff) rgba(${settings.color.secondaryHypr}ff) 45deg";
   };
 
   decoration = {

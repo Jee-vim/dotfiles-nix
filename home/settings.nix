@@ -38,6 +38,7 @@
     foreground = "#ebdbb2";
     primary = "#4c7766";
     primaryHypr = "8ec07c";
+    secondaryHypr = "282828";
     # primaryHypr = "fe8019";
     # primary = "#fe8019";
 
