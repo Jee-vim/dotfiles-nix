@@ -34,6 +34,7 @@
     backgroundRgb = "rgba(40, 40, 40, 0.9)";
     backgroundRgbAlt = "rgba(29, 32, 33, 0.9)";
     background = "#282828";
+    backgroundLight = "#3c3836";
     backgroundAlt = "#1d2021";
     foreground = "#ebdbb2";
     primary = "#4c7766";

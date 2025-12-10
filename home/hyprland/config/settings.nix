@@ -14,6 +14,7 @@ in {
   ];
 
   exec-once = [
+    "waybar"
     "hypridle"
     "hyprpaper"
     "swaync"
@@ -33,8 +34,8 @@ in {
 
   general = {
     gaps_in = 7;
-    gaps_out = 9;
-    border_size = 1;
+    gaps_out = 0;
+    border_size = 0;
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";

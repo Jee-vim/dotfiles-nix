@@ -9,7 +9,7 @@ in {
     ./rofi.nix
     ./theme.nix
     ./cursor.nix
-    ./sway.nix
+    ./waybar
   ];
 
   home.username = setting.user.username;
