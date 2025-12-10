@@ -15,6 +15,4 @@ with pkgs; [
   # Applications
   brave
   telegram-desktop
-  inkscape
-  insomnia
 ]
