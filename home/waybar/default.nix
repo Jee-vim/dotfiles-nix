@@ -1,5 +1,5 @@
 let
-  settings = import ./settings.nix;
+  settings = import ../settings.nix;
 in {
   programs.waybar = {
     enable = true;
@@ -10,9 +10,9 @@ in {
         position = "top";
         height = 32;
 
-        modules-left = ["custom/logo" "custom/cat"];
+        modules-left = ["custom/cat-1" "custom/cat-2" "custom/cat-3"];
         modules-center = ["hyprland/workspaces"];
-        modules-right = ["network" "battery" "pulseaudio" "clock" "tray"];
+        modules-right = ["network" "battery" "pulseaudio" "clock"];
 
         "hyprland/window" = {
           format = "{}";
@@ -52,9 +52,17 @@ in {
           format = "  ";
           tooltip = false;
         };
-        "custom/cat" = {
+        "custom/cat-1" = {
           format = "  ";
           tooltip-format = "Miawww";
+        };
+        "custom/cat-2" = {
+          format = "  ";
+          tooltip-format = "Miawww";
+        };
+        "custom/cat-3" = {
+          format = "  ";
+          tooltip-format = "Rawrrr";
         };
 
         clock = {
@@ -78,11 +86,6 @@ in {
           format-ethernet = "{ipaddr}";
           format-disconnecte = " ";
           on-click = "kitty -e nmtui connect";
-        };
-        "tray" = {
-          "icon-size" = 16;
-          "icon-theme" = "Papirus";
-          "spacing" = 2;
         };
 
         battery = {
@@ -145,22 +148,30 @@ in {
         padding: 0 10px;
       }
 
-      #custom-logo, #custom-cat {
-        padding: 0 10px;
-        margin-bottom: -10px;
+      #custom-cat-1 {
+        min-width: 50px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-image: url("/home/jee/.dotfiles/home/waybar/bongo-1.png");
       }
-      #custom-cat {
+      #custom-cat-2,#custom-cat-3 {
+        padding: 0 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      #custom-cat-2 {
         min-width: 50px;
-        background-image: url("/home/jee/.dotfiles/bongo.png");
+        background-image: url("/home/jee/.dotfiles/home/waybar/bongo-2.png");
+        margin-bottom: -11px;
+        background-size: cover;
       }
-      #custom-logo {
-        min-width: 30px;
-        background-image: url("/home/jee/.dotfiles/nixos.png");
+      #custom-cat-3 {
+        min-width: 50px;
+        background-image: url("/home/jee/.dotfiles/home/waybar/bongo-3.png");
+        background-size: contain;
+        margin-bottom: -1px;
       }
-
       tooltip {
           background: ${settings.color.background};
           border-radius: 7px;
