@@ -38,7 +38,8 @@ in {
       "workspace 1, class:^(brave-browser)$" # hyprctl clients | grep 'class'
       "workspace 2, class:^(Postman)$"
       "workspace 3, class:^(org.telegram.desktop)$"
-      "workspace 6, class:^(kitty)$"
+      "workspace 4, class:^(discord-ptb)$"
+      "workspace 5, class:^(kitty)$"
     ];
 
     workspace = [
@@ -47,7 +48,8 @@ in {
       "1, monitor:${settings.monitor.internal}"
       "2, monitor:${settings.monitor.internal}"
       "3, monitor:${settings.monitor.internal}"
-      "6, monitor:${settings.monitor.external}"
+      "4, monitor:${settings.monitor.internal}"
+      "5, monitor:${settings.monitor.external}"
     ];
   };
 }

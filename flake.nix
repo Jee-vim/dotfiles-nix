@@ -21,7 +21,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     packages.${system} = {
-      zig = zig.packages.${system}."0.15.1";
+      zig = zig.packages.${system}."0.15.2";
       zls = zls.packages.${system}.default;
     };
     nixosConfigurations = {

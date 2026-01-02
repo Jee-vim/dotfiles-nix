@@ -2,10 +2,10 @@ let
   settings = import ../../settings.nix;
 in {
   monitor = [
-    # "${settings.monitor.internal},preferred,0x0,auto" right
-    # "${settings.monitor.external},preferred,1920x0,auto" left
-    "${settings.monitor.external},preferred,0x0,auto" # above
-    "${settings.monitor.internal},preferred,0x1080,auto" # below
+    # "${settings.monitor.internal},preferred,1920x0,auto" left
+    # "${settings.monitor.external},preferred,0x0,auto" right
+    # "${settings.monitor.external},preferred,0x0,auto" # top
+    # "${settings.monitor.internal},preferred,0x1080,auto" # bottom
   ];
 
   env = [

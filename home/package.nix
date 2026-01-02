@@ -3,6 +3,9 @@ with pkgs; [
   hyprpaper
   hyprshot
 
+  nuclei
+  subfinder
+
   # Recording and Share Screen
   obs-studio
   wlroots # Wayland support
@@ -15,4 +18,5 @@ with pkgs; [
   # Applications
   brave
   telegram-desktop
+  xautoclick
 ]
