@@ -19,4 +19,5 @@ with pkgs; [
   brave
   telegram-desktop
   xautoclick
+  localsend
 ]

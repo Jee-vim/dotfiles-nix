@@ -16,22 +16,23 @@ in {
     hostName = "Nix";
     nameservers = ["127.0.0.1"];
     firewall = {
-      enable = false;
+      enable = true;
+      allowPing = false;
       # Block all incoming traffic by default
       # rejectPackets = true;
     };
     networkmanager = {
       enable = true;
       dns = "none"; # Prevent NetworkManager from overriding DNS
-      plugins = with pkgs; [
-        networkmanager-fortisslvpn
-        networkmanager-iodine
-        networkmanager-l2tp
-        networkmanager-openconnect
-        networkmanager-openvpn
-        networkmanager-vpnc
-        networkmanager-sstp
-      ];
+      # plugins = with pkgs; [
+      #   networkmanager-fortisslvpn
+      #   networkmanager-iodine
+      #   networkmanager-l2tp
+      #   networkmanager-openconnect
+      #   networkmanager-openvpn
+      #   networkmanager-vpnc
+      #   networkmanager-sstp
+      # ];
     };
   };
   # services.tor = {
@@ -42,18 +43,20 @@ in {
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {
+      require_dnssec = true;
+      require_nolog = true;
+      require_nofilter = false;
       server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri" "mullvad-adblock-doh"];
     };
   };
 
   time.timeZone = "Asia/Jakarta";
 
-  virtualisation.docker.enable = true;
   users.users.jee = {
     isNormalUser = true;
     home = "/home/${setting.user.username}";
     description = setting.user.username;
-    extraGroups = ["wheel" "networkmanager" "docker" "dialout"];
+    extraGroups = ["wheel" "networkmanager" "dialout"];
   };
 
   security.sudo.extraRules = [
@@ -62,7 +65,6 @@ in {
       commands = [
         {
           command = "ALL";
-          options = ["NOPASSWD"];
         }
       ];
     }
@@ -110,11 +112,12 @@ in {
     enable = true;
     pulse.enable = true;
   };
-  services.openssh.enable = true;
+  services.openssh.enable = false;
   services.dbus.packages = with pkgs; [dconf];
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
+  # virtualisation.docker.enable = true;
   # dockerTools.buildImage = {
   #   name = "my-super-duper-app";
   #   contents = [pkgs.nodejs pkgs.bla_bla];
