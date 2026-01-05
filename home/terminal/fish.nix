@@ -30,5 +30,40 @@
         exec tmux
       end
     '';
+
+    functions.rm = {
+      description = "Guard rm -rf with explicit YES confirmation";
+      body = ''
+        set args $argv
+        set needs_confirm 0
+
+        for arg in $args
+          if test "$arg" = "-rf" -o "$arg" = "-fr"
+            set needs_confirm 1
+            break
+          end
+        end
+
+        if test $needs_confirm -eq 1
+          echo "You are about to run: rm $args"
+          read --prompt-str="Type YES to proceed: " confirm
+          if test "$confirm" != "YES"
+            echo "Aborted."
+            return 1
+          end
+
+          # Hard block dangerous paths
+          for target in $args
+            switch $target
+              case "/" "~" "/home" "/home/*"
+                echo "Refusing to rm -rf critical path: $target"
+                return 1
+            end
+          end
+        end
+
+        command rm $args
+      '';
+    };
   };
 }
