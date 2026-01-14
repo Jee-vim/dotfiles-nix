@@ -6,7 +6,7 @@ case "$choice" in
   "Output (file)")
     hyprshot -m output -o "$HOME/Screenshots"
     ;;
-  "Region")
+  "Region (file)")
     hyprshot -m region -o "$HOME/Screenshots"
     ;;
   "Region (clipboard)")
