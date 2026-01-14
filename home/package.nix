@@ -3,9 +3,6 @@ with pkgs; [
   hyprpaper
   hyprshot
 
-  nuclei
-  subfinder
-
   # Recording and Share Screen
   obs-studio
   wlroots # Wayland support

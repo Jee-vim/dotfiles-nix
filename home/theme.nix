@@ -42,8 +42,6 @@
   home.packages = with pkgs; [
     libsForQt5.qt5ct
     gtk-engine-murrine
-    adwaita-icon-theme
-    gradience
     arc-theme
   ];
 }

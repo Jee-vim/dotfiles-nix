@@ -50,7 +50,5 @@
 
     # File System & Compatibility
     pkgs.nix-ld # Compatibility layer for dynamic linking in Nix
-    mangohud
-    protonup
   ];
 }

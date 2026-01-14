@@ -25,6 +25,7 @@
       set -gx PATH ~/.npm-global/bin $PATH
       set -x EDITOR nvim
       set -U fish_greeting
+      set -gx PATH $HOME/.foundry/bin $PATH
 
       if status is-interactive; and not set -q TMUX
         exec tmux

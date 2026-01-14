@@ -28,6 +28,7 @@
     powermenu = "/home/jee/.dotfiles/home/script/powermenu.sh";
     volume = "/home/jee/.dotfiles/home/script/volume.sh";
     brightness = "/home/jee/.dotfiles/home/script/brightness.sh";
+    screenshot = "/home/jee/.dotfiles/home/script/screenshot.sh";
   };
 
   color = {
