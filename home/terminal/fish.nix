@@ -33,37 +33,29 @@
     '';
 
     functions.rm = {
-      description = "Guard rm -rf with explicit YES confirmation";
+      description = "Require sudo authentication before rm -rf";
       body = ''
-        set args $argv
-        set needs_confirm 0
+        set need_sudo 0
+           for arg in $argv
+             if string match -qr -- "-.*[rf].*" $arg
+               set need_sudo 1
+               break
+             end
+           end
 
-        for arg in $args
-          if test "$arg" = "-rf" -o "$arg" = "-fr"
-            set needs_confirm 1
-            break
-          end
-        end
+           if test $need_sudo -eq 1
+             echo "Authentication required for rm -rf"
+             sudo -v || return 1
+           end
 
-        if test $needs_confirm -eq 1
-          echo "You are about to run: rm $args"
-          read --prompt-str="Type YES to proceed: " confirm
-          if test "$confirm" != "YES"
-            echo "Aborted."
-            return 1
-          end
+           for target in $argv
+             if test "$target" = "/" -o "$target" = "~" -o "$target" = "$HOME"
+               echo "Refusing to rm -rf critical path: $target"
+               return 1
+             end
+           end
 
-          # Hard block dangerous paths
-          for target in $args
-            switch $target
-              case "/" "~" "/home" "/home/*"
-                echo "Refusing to rm -rf critical path: $target"
-                return 1
-            end
-          end
-        end
-
-        command rm $args
+           command rm $argv
       '';
     };
   };
