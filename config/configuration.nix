@@ -4,6 +4,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./system-package.nix
+    ./nginx/default.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
