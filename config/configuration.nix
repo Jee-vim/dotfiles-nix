@@ -16,7 +16,7 @@ in {
     hostName = "Nix";
     nameservers = ["127.0.0.1"];
     firewall = {
-      enable = true;
+      enable = false;
       allowPing = false;
       # Block all incoming traffic by default
       # rejectPackets = true;
@@ -106,6 +106,7 @@ in {
   };
 
   # services.ollama.enable = true;
+  services.cron.enable = true;
   services.libinput.enable = true;
   services.printing.enable = true;
   services.pipewire = {

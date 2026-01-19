@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     # CLI Utilities
+    cron
     ripgrep
     wget
     fastfetch

@@ -18,11 +18,6 @@ with import <nixpkgs> {};
       # python3Packages.websockets
       # python3Packages.python-telegram-bot
       # python3Packages.python-dotenv
-
-      # python3Packages.solana
-      python3Packages.base58
-      # python3Packages.eth-account
-      # python3Packages.web3
     ];
   }
 # NOTE if u have a problem during install package pip
