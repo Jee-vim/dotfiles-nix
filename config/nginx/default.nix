@@ -8,12 +8,6 @@
   };
   services.nginx = {
     enable = true;
-    virtualHosts = {
-      _ = {
-        enableACME = true;
-        forceSSL = true;
-      };
-    };
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
