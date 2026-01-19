@@ -40,7 +40,7 @@
     lua-language-server
     nodePackages.vscode-langservers-extracted
     docker-compose
-    nil # nix lang server
+    nixd # nix lang server
     alejandra # nix formatter
     inputs.zig.packages.${pkgs.system}."0.15.1"
     inputs.zls.packages.${pkgs.system}.default

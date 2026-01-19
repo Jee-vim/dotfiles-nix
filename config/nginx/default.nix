@@ -1,6 +1,6 @@
 {secrets, ...}: {
   imports = [
-    ./portfolio.nix
+    ./host.nix
   ];
   security.acme = {
     acceptTerms = true;
