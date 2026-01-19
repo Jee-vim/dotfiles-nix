@@ -1,6 +1,4 @@
-{...}: let
-  secrets = import ../../secrets.nix;
-in {
+{secrets, ...}: {
   imports = [
     ./portfolio.nix
   ];
@@ -20,5 +18,5 @@ in {
     recommendedOptimisation = true;
     recommendedProxySettings = true;
   };
-  networking.firewall.allowedTCPPorts = [80];
+  networking.firewall.allowedTCPPorts = [80 443];
 }

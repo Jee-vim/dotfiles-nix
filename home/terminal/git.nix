@@ -25,7 +25,6 @@ in {
       ".venv"
       ".next"
       "node_modules"
-      "secrets.nix"
     ];
   };
 }

@@ -1,6 +1,10 @@
 {
   description = "my flake";
   inputs = {
+    secrets = {
+      url = "path:./secrets.nix";
+      flake = false;
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     zig.url = "github:mitchellh/zig-overlay";
     zls.url = "github:zigtools/zls";
@@ -27,7 +31,10 @@
     nixosConfigurations = {
       jee = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          secrets = import inputs.secrets;
+        };
         modules = [./config/configuration.nix];
       };
     };

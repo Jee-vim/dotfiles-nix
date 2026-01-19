@@ -162,9 +162,22 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "secrets": "secrets",
         "zig": "zig",
         "zls": "zls"
       }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "path": "./secrets.nix",
+        "type": "path"
+      },
+      "original": {
+        "path": "./secrets.nix",
+        "type": "path"
+      },
+      "parent": []
     },
     "systems": {
       "locked": {
