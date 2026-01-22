@@ -4,7 +4,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./system-package.nix
-    ./nginx/default.nix
+    # ./nginx/default.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -57,7 +57,7 @@ in {
     isNormalUser = true;
     home = "/home/${setting.user.username}";
     description = setting.user.username;
-    extraGroups = ["wheel" "networkmanager" "dialout"];
+    extraGroups = ["wheel" "networkmanager" "dialout" "docker"];
   };
 
   security.sudo.extraRules = [
@@ -119,7 +119,7 @@ in {
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
   # dockerTools.buildImage = {
   #   name = "my-super-duper-app";
   #   contents = [pkgs.nodejs pkgs.bla_bla];

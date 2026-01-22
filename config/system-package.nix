@@ -32,6 +32,7 @@
 
     # Development Tools
     neovim
+    python3
     nodejs_22
     nodePackages.pnpm
     lua-language-server

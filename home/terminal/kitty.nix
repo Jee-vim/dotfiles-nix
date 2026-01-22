@@ -11,7 +11,7 @@ in {
       window_padding_width = 3;
       background_opacity = settings.style.opacity;
       allow_remote_control = "yes";
-      scrolling_lines = 1500;
+      # scrolling_lines = 1500;
       url_color = settings.color.primary;
       url_style = "curly";
       open_url_with = "default";

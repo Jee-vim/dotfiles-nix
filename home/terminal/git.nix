@@ -4,7 +4,7 @@ in {
   programs.git = {
     enable = true;
     userName = "${style.user.name}";
-    userEmail = "${secrets.email}";
+    # userEmail = "${secrets.email}";
     extraConfig = {
       init.defaultBranch = "main";
       color.ui = "auto";

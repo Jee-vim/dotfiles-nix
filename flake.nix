@@ -5,11 +5,11 @@
       url = "path:./secrets.nix";
       flake = false;
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     zig.url = "github:mitchellh/zig-overlay";
     zls.url = "github:zigtools/zls";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
