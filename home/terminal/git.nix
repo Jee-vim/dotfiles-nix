@@ -1,11 +1,10 @@
-{secrets, ...}: let
+{...}: let
   style = import ../settings.nix;
 in {
   programs.git = {
     enable = true;
-    userName = "${style.user.name}";
-    # userEmail = "${secrets.email}";
-    extraConfig = {
+    settings = {
+      user.name = "${style.user.name}";
       init.defaultBranch = "main";
       color.ui = "auto";
       push = {
