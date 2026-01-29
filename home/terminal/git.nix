@@ -23,6 +23,7 @@ in {
       ".env"
       ".venv"
       ".next"
+      "__pycache__"
       "node_modules"
     ];
   };

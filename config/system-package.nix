@@ -39,6 +39,7 @@
     typescript
     typescript-language-server
     lua-language-server
+    astro-language-server
     nodePackages.vscode-langservers-extracted
     docker-compose
     nixd # nix lang server
