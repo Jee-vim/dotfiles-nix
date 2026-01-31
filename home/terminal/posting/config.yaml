@@ -1,0 +1,10 @@
+theme:
+  name: gruvbox-dark
+  primary: "#458588"
+  secondary: "#d79921"
+  accent: "#d65d0e"
+  background: "#282828"
+  surface: "#3c3836"
+  error: "#cc241d"
+  success: "#98971a"
+  warning: "#fabd2f"

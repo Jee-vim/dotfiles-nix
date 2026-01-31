@@ -17,4 +17,5 @@ with pkgs; [
   telegram-desktop
   xautoclick
   localsend
+  posting
 ]

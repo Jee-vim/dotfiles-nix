@@ -125,5 +125,11 @@ in {
   #   contents = [pkgs.nodejs pkgs.bla_bla];
   # };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+    enableTCPIP = true;
+  };
+
   system.stateVersion = "24.11";
 }
