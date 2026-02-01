@@ -8,6 +8,5 @@
     ./fastfetch.nix
     ./ranger.nix
     ./notify.nix
-    ./posting/default.nix
   ];
 }

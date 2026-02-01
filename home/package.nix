@@ -17,5 +17,5 @@ with pkgs; [
   telegram-desktop
   xautoclick
   localsend
-  posting
+  jq # json formmatter
 ]
