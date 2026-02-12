@@ -19,7 +19,7 @@
 
   image = {
     internal = "/home/jee/Wallpaper/plain-fire-gradient.jpeg";
-    external = "/home/jee/Wallpaper/plain-fire-gradient.jpeg";
+    external = "/home/jee/Wallpaper/gruv-material.png";
   };
 
   start_page = "/home/jee/.dotfiles/home/blank-page.html";

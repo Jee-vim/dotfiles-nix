@@ -65,7 +65,7 @@ in {
     touchpad.natural_scroll = false;
   };
 
-  gestures.workspace_swipe = true;
+  # gestures.workspace_swipe = true;
 
   animations = {
     enabled = true;
