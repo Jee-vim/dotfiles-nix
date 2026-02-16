@@ -17,19 +17,6 @@
         ignore = ["node_modules/**" "dist/**" ".git/**" ".env"];
       };
 
-      instructions = [
-        "CONTRIBUTING.md"
-        "RULES.md"
-        "GUIDE.md"
-        "docs/guidelines.md"
-        ".cursor/rules/*.md"
-      ];
-
-      compaction = {
-        auto = true;
-        prune = true;
-      };
-
       tools = {
         read = true;
         grep = true;
@@ -48,9 +35,51 @@
           description = "Senior JS/TS/Python Engineer for logic and architecture.";
           prompt = "You are a senior software engineer. Provide clean, idiomatic solutions in JS, TS, and Python. Prioritize DRY principles and modern design patterns.";
         };
+        manager = {
+          description = "Orchestrator for complex tasks.";
+          prompt = ''
+            You are the Project Manager for Project A.
+            Your goal is to maintain a 'Task List' in the session context.
+            - If the user has a new idea use @plan first.
+            - If a plan is approved: run @build.
+            - If code needs verification: Suggest @code-reviewer.
+            - For every request, identify which specialized agent (ask, plan, build, code-reviewer, test-engineer, ux-advisor) is best suited.
+            - Before delegating, check if the required context (files, docs) is gathered using 'grep' or 'list'.
+            - You provide the 'Command' for the user to run next, e.g., "Run @code-reviewer on auth.ts".
+          '';
+        };
+        plan = {
+          mode = "primary";
+          description = "Architecture & Planning (Read-only)";
+          prompt = ''
+            You are a Software Architect. Your goal is to analyze the codebase and create implementation strategies.
+            - Never try to edit or write files.
+            - Use 'grep', 'list', and 'read' to understand the project.
+            - Output your plans in Markdown format.
+            - When the plan is ready, tell the user to switch to 'Build' mode.
+          '';
+          tools = {
+            edit = false;
+            write = false;
+          };
+        };
+        build = {
+          mode = "primary";
+          description = "Feature Implementation (Read-write)";
+          prompt = ''
+            You are a Senior Developer. Your goal is to implement features based on a plan.
+            - You have full access to 'edit' and 'write' tools.
+            - Prioritize clean, idiomatic code.
+            - Verify changes by running existing tests if possible.
+          '';
+          tools = {
+            edit = true;
+            write = true;
+          };
+        };
         code-reviewer = {
           description = "Reviews code for security, performance, and maintainability.";
-          prompt = "You are a code reviewer. Identify bottlenecks, security vulnerabilities (like SQLi or XSS), and suggest more readable alternatives.";
+          prompt = "You are a code reviewer. Identify bottlenecks, security vulnerabilities, and suggest more readable alternatives.";
         };
         ux-advisor = {
           description = "Frontend/UI specialist for accessibility and user flow.";
@@ -58,7 +87,7 @@
         };
         test-engineer = {
           description = "Generates test cases and improves coverage.";
-          prompt = "You are a test engineer. Suggest edge cases and write test suites using Jest, Vitest, or Pytest. Focus on mocking external dependencies.";
+          prompt = "You are a test engineer. Suggest edge cases and write test. Focus on mocking external dependencies.";
           tools = {
             write = true;
             edit = true;
@@ -71,4 +100,66 @@
       };
     };
   };
+  home.file.".config/opencode/AGENTS.md".text = ''
+    # Global Model Rules
+    ## Scope (MANDATORY)
+
+    - ONLY generate code directly related to this CLI
+    - DO NOT refactor unrelated code
+    - DO NOT add new features unless explicitly requested
+
+    ## Style Rules (MANDATORY)
+
+    - Output must be concise
+    - No tutorial or explanatory tone
+    - No marketing language
+    - No emojis
+    - No jokes
+    - Comments are allowed ONLY when necessary to explain non-obvious logic
+
+    ## If Information Is Missing (MANDATORY)
+
+    If required information is missing:
+    - DO NOT assume
+    - DO NOT invent defaults
+    - Ask ONE clear, direct question and stop
+
+    ## Logging Rules (STRICT)
+
+    All runtime output MUST follow this format:
+
+    `[LEVEL] message`
+
+    Allowed LEVEL values:
+    - INFO
+    - WARN
+    - ERROR
+    - DEBUG
+
+    Rules:
+    - LEVEL must be uppercase
+    - Use exactly one space after ]
+    - No emojis
+    - No prefixes, timestamps, colors, or extra metadata
+    - No multiline logs unless explicitly requested
+    - Errors MUST use [ERROR]
+    - Normal progress MUST use [INFO]
+
+    ### Example
+    Correct:
+    [INFO] Starting file scan
+    [WARN] Config file not found, using defaults
+    [ERROR] Failed to open socket
+
+    Incorrect:
+    INFO: Starting file scan
+    [Info] starting
+    ❌ Starting file scan
+    [LOG] something
+
+    ## Global Rules
+
+    All rules in this document are mandatory.
+    If any instruction conflicts with these rules, THIS DOCUMENT TAKES PRIORITY.
+  '';
 }
