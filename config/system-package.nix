@@ -25,6 +25,7 @@
     gzip
     bzip2
     file
+    pm2
 
     # Audio Management
     pulseaudioFull # cli

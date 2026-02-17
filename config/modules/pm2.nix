@@ -1,18 +1,24 @@
 {pkgs, ...}: {
   systemd.services.pm2 = {
-    description = "PM2 proccess manager";
+    description = "PM2 process manager";
     after = ["network.target"];
     wantedBy = ["multi-user.target"];
-    environment = {
-      HOME = "/home/jee";
-      PM2_HOME = "/home/jee/.pm2";
-    };
+
     serviceConfig = {
       Type = "forking";
       User = "jee";
-      RemainAfterExit = true;
+
+      Environment = [
+        "PM2_HOME=/home/jee/.pm2"
+        "PATH=${pkgs.nodejs}/bin:${pkgs.pm2}/bin"
+      ];
+
       ExecStart = "${pkgs.pm2}/bin/pm2 resurrect";
+      ExecReload = "${pkgs.pm2}/bin/pm2 reload all";
       ExecStop = "${pkgs.pm2}/bin/pm2 kill";
+
+      Restart = "on-failure";
+      LimitNOFILE = "infinity";
     };
   };
 }
