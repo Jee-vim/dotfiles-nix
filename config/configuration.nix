@@ -1,10 +1,13 @@
-{pkgs, ...}: let
-  setting = import ../home/settings.nix;
-in {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./system-package.nix
-    # ./nginx/default.nix
+    ./modules/networking.nix
+    ./modules/users.nix
+    ./modules/fonts.nix
+    ./modules/environment.nix
+    ./modules/services.nix
+    ./modules/virtualisation.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -13,117 +16,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking = {
-    hostName = "Nix";
-    nameservers = ["127.0.0.1"];
-    firewall = {
-      enable = false;
-      allowPing = false;
-      # Block all incoming traffic by default
-      # rejectPackets = true;
-    };
-    networkmanager = {
-      enable = true;
-      dns = "none"; # Prevent NetworkManager from overriding DNS
-      # plugins = with pkgs; [
-      #   networkmanager-fortisslvpn
-      #   networkmanager-iodine
-      #   networkmanager-l2tp
-      #   networkmanager-openconnect
-      #   networkmanager-openvpn
-      #   networkmanager-vpnc
-      #   networkmanager-sstp
-      # ];
-    };
-  };
-  # services.tor = {
-  #   enable = true;
-  #   client.enable = true;
-  #   client.transparentProxy.enable = true; # Redirects all traffic
-  # };
-  services.dnscrypt-proxy2 = {
-    enable = true;
-    settings = {
-      require_dnssec = true;
-      require_nolog = true;
-      require_nofilter = false;
-      server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri" "mullvad-adblock-doh"];
-    };
-  };
-
   time.timeZone = "Asia/Jakarta";
-
-  users.users.jee = {
-    isNormalUser = true;
-    home = "/home/${setting.user.username}";
-    description = setting.user.username;
-    extraGroups = ["wheel" "networkmanager" "dialout" "docker"];
-  };
-
-  security.sudo.extraRules = [
-    {
-      users = [setting.user.username];
-      commands = [
-        {
-          command = "ALL";
-        }
-      ];
-    }
-  ];
-
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.sauce-code-pro
-      nerd-fonts.geist-mono
-      nerd-fonts.commit-mono
-      nerd-fonts.iosevka
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        serif = ["JetBrainszMono Nerd Font"];
-        sansSerif = ["JetBrainszMono Nerd Font"];
-        monospace = ["JetBrainszMono Nerd Font"];
-      };
-    };
-  };
-
-  programs.nix-ld.enable = true;
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  hardware.graphics.enable = true;
-  # services.udev.packages = with pkgs; [v4l-utils];
-
-  environment.variables = {
-    WLR_NO_HARWARE_CURSORS = "1";
-    XKB_DEFAULT_LAYOUT = "us";
-    XKB_DEFAULT_VARIANT = "";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-  };
-
-  services.ollama.enable = true;
-  services.cron.enable = true;
-  services.libinput.enable = true;
-  services.printing.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-  services.openssh.enable = false;
-  services.dbus.packages = with pkgs; [dconf];
-  services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
-
-  virtualisation.docker.enable = true;
-  # dockerTools.buildImage = {
-  #   name = "my-super-duper-app";
-  #   contents = [pkgs.nodejs pkgs.bla_bla];
-  # };
 
   services.postgresql = {
     enable = true;
