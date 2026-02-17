@@ -1,4 +1,4 @@
-{
+rec {
   user = {
     name = "Jee";
     username = "jee";
