@@ -147,7 +147,7 @@ in {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: url("/home/jee/.dotfiles/home/waybar/bongo-1.png");
+        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-1.png");
       }
       #custom-cat-2,#custom-cat-3 {
         padding: 0 10px;
@@ -156,13 +156,13 @@ in {
       }
       #custom-cat-2 {
         min-width: 50px;
-        background-image: url("/home/jee/.dotfiles/home/waybar/bongo-2.png");
+        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-2.png");
         margin-bottom: -11px;
         background-size: cover;
       }
       #custom-cat-3 {
         min-width: 50px;
-        background-image: url("/home/jee/.dotfiles/home/waybar/bongo-3.png");
+        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-3.png");
         background-size: contain;
         margin-bottom: -1px;
       }

@@ -4,6 +4,10 @@
     username = "jee";
   };
 
+  # Centralized home directory - use this instead of hardcoded paths
+  homeDir = "/home/jee";
+  dotfilesPath = "${homeDir}/.dotfiles";
+
   monitor = {
     internal = "eDP-1";
     external = "HDMI-A-1";
@@ -18,17 +22,17 @@
   };
 
   image = {
-    internal = "/home/jee/Wallpaper/plain-fire-gradient.jpeg";
-    external = "/home/jee/Wallpaper/gruv-material.png";
+    internal = "${homeDir}/Wallpaper/plain-fire-gradient.jpeg";
+    external = "${homeDir}/Wallpaper/gruv-material.png";
   };
 
-  start_page = "/home/jee/.dotfiles/home/blank-page.html";
+  start_page = "${dotfilesPath}/home/blank-page.html";
 
   script = {
-    powermenu = "/home/jee/.dotfiles/home/script/powermenu.sh";
-    volume = "/home/jee/.dotfiles/home/script/volume.sh";
-    brightness = "/home/jee/.dotfiles/home/script/brightness.sh";
-    screenshot = "/home/jee/.dotfiles/home/script/screenshot.sh";
+    powermenu = "${dotfilesPath}/home/script/powermenu.sh";
+    volume = "${dotfilesPath}/home/script/volume.sh";
+    brightness = "${dotfilesPath}/home/script/brightness.sh";
+    screenshot = "${dotfilesPath}/home/script/screenshot.sh";
   };
 
   color = {

@@ -6,14 +6,14 @@ in {
     ./hyprland
     ./terminal
     ./qutebrowser
-    ./rofi.nix
+    ./rofi
     ./theme.nix
-    ./cursor.nix
+    ./cursor
     ./waybar
   ];
 
   home.username = setting.user.username;
-  home.homeDirectory = "/home/${setting.user.username}";
+  home.homeDirectory = setting.homeDir;
   home.packages = package;
   dconf.enable = true;
 

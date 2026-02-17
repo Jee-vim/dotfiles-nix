@@ -56,7 +56,7 @@ in {
       imagebox = {
         padding = mkLiteral "10px";
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url('/home/jee/Wallpaper/gruvbox-village.jpg', height)";
+        background-image = mkLiteral "url('${settings.homeDir}/Wallpaper/gruvbox-village.jpg', height)";
         orientation = mkLiteral "vertical";
         children = mkLiteral "[inputbar, mode-switcher]";
       };
