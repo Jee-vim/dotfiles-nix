@@ -2,9 +2,10 @@
   programs.opencode = {
     enable = true;
     settings = {
-      "$schema" = "https://opencode.ai/config.json";
+      "\$schema" = "https://opencode.ai/config.json";
       theme = "gruvbox";
       disabled_providers = ["openai"];
+      instructions = ["~/.config/opencode/AGENTS.md"];
 
       keybinds = {
         command_list = "ctrl+l";
@@ -24,6 +25,7 @@
         glob = true;
         list = true;
         todowrite = true;
+        todoread = true;
         skill = true;
         question = true;
         write = false;
@@ -36,6 +38,7 @@
           prompt = "You are a senior software engineer. Provide clean, idiomatic solutions in JS, TS, and Python. Prioritize DRY principles and modern design patterns.";
         };
         manager = {
+          mode = "primary";
           description = "Orchestrator for complex tasks.";
           prompt = ''
             You are the Project Manager for Project A.
@@ -47,9 +50,19 @@
             - Before delegating, check if the required context (files, docs) is gathered using 'grep' or 'list'.
             - You provide the 'Command' for the user to run next, e.g., "Run @code-reviewer on auth.ts".
           '';
+          permission = {
+            read = "allow";
+            grep = "allow";
+            glob = "allow";
+            list = "allow";
+            todowrite = "allow";
+            todoread = "allow";
+            question = "allow";
+            task = "allow";
+            webfetch = "allow";
+          };
         };
         plan = {
-          mode = "primary";
           description = "Architecture & Planning (Read-only)";
           prompt = ''
             You are a Software Architect. Your goal is to analyze the codebase and create implementation strategies.
@@ -58,13 +71,12 @@
             - Output your plans in Markdown format.
             - When the plan is ready, tell the user to switch to 'Build' mode.
           '';
-          tools = {
-            edit = false;
-            write = false;
+          permission = {
+            edit = "deny";
+            write = "deny";
           };
         };
         build = {
-          mode = "primary";
           description = "Feature Implementation (Read-write)";
           prompt = ''
             You are a Senior Developer. Your goal is to implement features based on a plan.
@@ -72,9 +84,9 @@
             - Prioritize clean, idiomatic code.
             - Verify changes by running existing tests if possible.
           '';
-          tools = {
-            edit = true;
-            write = true;
+          permission = {
+            edit = "allow";
+            write = "allow";
           };
         };
         code-reviewer = {
@@ -88,14 +100,17 @@
         test-engineer = {
           description = "Generates test cases and improves coverage.";
           prompt = "You are a test engineer. Suggest edge cases and write test. Focus on mocking external dependencies.";
-          tools = {
-            write = true;
-            edit = true;
+          permission = {
+            write = "allow";
+            edit = "allow";
           };
         };
         style-enforcer = {
           description = "Maintains team coding standards.";
           prompt = "You are a style enforcer. Verify naming conventions (camelCase for JS, snake_case for Python) and ensure consistent file structures.";
+          permission = {
+            edit = "allow";
+          };
         };
       };
     };
