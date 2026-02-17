@@ -5,7 +5,7 @@
     enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver # VAAPI driver for Intel GPUs
-      intel-ucode       # CPU microcode updates
+      # intel-ucode       # CPU microcode updates
     ];
   };
 
@@ -14,7 +14,7 @@
     enable = true;
     extraPackages = with pkgs; [
       mesa
-      intel-ucode
+      # intel-ucode
     ];
   };
 }
