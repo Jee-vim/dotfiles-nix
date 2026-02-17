@@ -9,6 +9,7 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
+    DISCORD_USE_WAYLAND = "0";
   };
 
   programs.nix-ld.enable = true;
