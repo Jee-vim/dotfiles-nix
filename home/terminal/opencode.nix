@@ -117,6 +117,11 @@
   };
   home.file.".config/opencode/AGENTS.md".text = ''
     # Global Model Rules
+    ## Environment Context
+      - **OS**: NixOS
+      - **Shell**: Fish
+      - **Editor**: Neovim
+
     ## Scope (MANDATORY)
 
     - ONLY generate code directly related to this CLI
