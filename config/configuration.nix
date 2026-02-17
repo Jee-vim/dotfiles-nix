@@ -8,6 +8,7 @@
     ./modules/environment.nix
     ./modules/services.nix
     ./modules/virtualisation.nix
+    ./modules/pm2.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
