@@ -15,7 +15,7 @@ with pkgs; [
   # Applications
   brave
   telegram-desktop
-  xautoclick
-  localsend
-  jq # json formmatter
+  # xautoclick
+  # localsend
+  # jq # json formmatter
 ]

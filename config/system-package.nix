@@ -42,11 +42,11 @@
     lua-language-server
     astro-language-server
     nodePackages.vscode-langservers-extracted
-    docker-compose
+    # docker-compose
     nixd # nix lang server
     alejandra # nix formatter
-    inputs.zig.packages.${pkgs.system}."0.15.1"
-    inputs.zls.packages.${pkgs.system}.default
+    # inputs.zig.packages.${pkgs.system}."0.15.1"
+    # inputs.zls.packages.${pkgs.system}.default
 
     # Applications
     postman
