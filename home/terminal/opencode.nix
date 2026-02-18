@@ -122,6 +122,19 @@
       - **Shell**: Fish
       - **Editor**: Neovim
 
+    ## File Operationals (MANDATORY)
+    Always use Python to read/write/edit files, not bash, rm, rm -rf, heredocs or sed.
+    Avoid 'cd' - use absolute paths intead.
+    Avoid interactive commands (git add -i, etc) - they will hang.
+
+    Safe delete using Python:
+    import os
+    os.remove('/path/to/file')
+
+    Or for directories:
+    import shutil
+    shutil.rmtree('/path/to/dir')
+
     ## Scope (MANDATORY)
 
     - ONLY generate code directly related to this CLI
