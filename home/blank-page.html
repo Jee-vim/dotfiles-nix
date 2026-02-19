@@ -32,16 +32,14 @@
         color: var(--fg-color);
         font-family: "IBM Plex Mono", monospace;
         margin: 0;
-        padding: 2rem;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 1rem;
+        height: 90vh;
       }
 
       .container {
-        max-width: 800px;
+        max-width: 500px;
         width: 100%;
+        overflow:hidden
       }
 
       #search {
@@ -49,14 +47,14 @@
         padding: 1rem;
         font-size: 1.2rem;
         background-color: #3c3836;
-        border: none;
         color: var(--fg-color);
+        border: none;
         outline: none;
       }
 
       .social-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .social-item {
@@ -77,18 +75,12 @@
       .gmail { border-top: 3px solid var(--yellow); }
       .whatsapp { border-top: 3px solid var(--green); }
       .proton { border-top: 3px solid var(--purple); }
-      .figma { border-top: 3px solid var(--purple); }
 
-      /* Zig */
-      .zig {
-        border-top: 3px solid var(--yellow);
-      }
-      .zig:hover i {
-        color: var(--yellow);
-      }
-
-      .gmail:hover i { color: var(--yellow); }
-      .proton:hover i { color: var(--purple); }
+      .github:hover  { color: var(--fg-color); }
+      .gmail:hover   { color: var(--yellow); }
+      .proton:hover  { color: var(--purple); }
+      .youtube:hover  { color: var(--red); }
+      .whatsapp:hover  { color: var(--green); }
     </style>
   </head>
 
@@ -102,11 +94,6 @@
           <div>GitHub</div>
         </a>
 
-        <a href="https://youtube.com" class="social-item youtube">
-          <i class="fab fa-youtube"></i>
-          <div>YouTube</div>
-        </a>
-
         <a href="https://mail.google.com" class="social-item gmail">
           <i class="fas fa-envelope"></i>
           <div>Gmail</div>
@@ -117,25 +104,16 @@
           <div>Proton</div>
         </a>
 
+        <a href="https://youtube.com" class="social-item youtube">
+          <i class="fab fa-youtube"></i>
+          <div>YouTube</div>
+        </a>
+
         <a href="https://web.whatsapp.com" class="social-item whatsapp">
           <i class="fab fa-whatsapp"></i>
           <div>WhatsApp</div>
         </a>
 
-        <a href="https://www.figma.com" class="social-item figma">
-          <i class="fab fa-figma"></i>
-          <div>Figma</div>
-        </a>
-
-        <a href="https://ziggit.dev" class="social-item zig">
-          <i class="fas fa-message"></i>
-          <div>Ziggit</div>
-        </a>
-
-        <a href="https://ziglang.org/documentation/master/" class="social-item zig">
-          <i class="fas fa-bolt"></i>
-          <div>Zig Docs</div>
-        </a>
       </div>
     </div>
 
@@ -146,13 +124,11 @@
         if (e.key === "Enter") {
           const q = this.value.trim();
           const shortcuts = {
-            gi: "https://github.com",
+            gh: "https://github.com",
             yt: "https://youtube.com",
             gm: "https://mail.google.com",
-            pm: "https://mail.proton.me",
-            fg: "https://www.figma.com",
-            zg: "https://ziggit.dev",
-            zd: "https://ziglang.org/documentation/master/",
+            pr: "https://mail.proton.me",
+            wa: "https://web.whatsapp.com/",
           };
 
           window.location.href =
