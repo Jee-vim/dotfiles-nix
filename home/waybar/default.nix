@@ -10,7 +10,7 @@ in {
         position = "top";
         height = 32;
 
-        modules-left = ["custom/cat-1" "custom/cat-2" "custom/cat-3"];
+        modules-left = ["custom/cat-1" "custom/cat-2"];
         modules-center = ["hyprland/workspaces"];
         modules-right = ["network" "battery" "pulseaudio" "clock"];
 
@@ -51,10 +51,6 @@ in {
           tooltip-format = "Miawww";
         };
         "custom/cat-2" = {
-          format = "  ";
-          tooltip-format = "Miawww";
-        };
-        "custom/cat-3" = {
           format = "  ";
           tooltip-format = "Rawrrr";
         };
@@ -142,27 +138,20 @@ in {
         padding: 0 10px;
       }
 
-      #custom-cat-1 {
-        min-width: 50px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-1.png");
-      }
-      #custom-cat-2,#custom-cat-3 {
+      #custom-cat-1,#custom-cat-2 {
         padding: 0 10px;
         background-position: center;
         background-repeat: no-repeat;
       }
-      #custom-cat-2 {
+      #custom-cat-1 {
         min-width: 50px;
-        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-2.png");
+        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-1.png");
         margin-bottom: -11px;
         background-size: cover;
       }
-      #custom-cat-3 {
+      #custom-cat-2 {
         min-width: 50px;
-        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-3.png");
+        background-image: url("${settings.dotfilesPath}/home/waybar/bongo-2.png");
         background-size: contain;
         margin-bottom: -1px;
       }
@@ -178,32 +167,22 @@ in {
           padding-bottom: 5px;
       }
       #workspaces button {
-          color: #313244;
+          color: ${settings.color.backgroundLight};
           margin-right: 5px;
           padding-right: 0px;
           padding-left: 0px;
       }
 
-      #workspaces button.active {
+      #workspaces button.persistent {
           color:  ${settings.color.foreground};
       }
 
-      #workspaces button.focused {
-          color: ${settings.color.foreground};
-          border-radius: 13px;
-      }
-
-      #workspaces button.persistent {
-          color:  ${settings.color.white};
+      #workspaces button.visible {
+          color: ${settings.color.primary};
       }
 
       #workspaces button.empty {
           color: ${settings.color.backgroundLight};
-      }
-
-      #workspaces button.active,
-      #workspaces button.visible {
-          color: ${settings.color.foreground};
       }
 
       #workspaces button.urgent {

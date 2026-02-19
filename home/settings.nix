@@ -22,8 +22,8 @@ rec {
   };
 
   image = {
-    internal = "${homeDir}/Wallpaper/plain-fire-gradient.jpeg";
-    external = "${homeDir}/Wallpaper/gruv-material.png";
+    internal = "${homeDir}/Wallpaper/solar-system.jpg";
+    external = "${homeDir}/Wallpaper/solar-system.jpg";
   };
 
   start_page = "${dotfilesPath}/home/blank-page.html";
