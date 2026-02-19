@@ -1,6 +1,6 @@
 {
   imports = [
-    ./programs/hypridle.nix
+    # ./programs/hypridle.nix
     ./programs/hyprpaper.nix
     ./config/rules.nix
   ];

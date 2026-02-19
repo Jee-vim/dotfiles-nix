@@ -22,8 +22,8 @@ rec {
   };
 
   image = {
-    internal = "${homeDir}/Wallpaper/solar-system.jpg";
-    external = "${homeDir}/Wallpaper/solar-system.jpg";
+    internal = "${homeDir}/Wallpaper/space-shuttle.png";
+    external = "${homeDir}/Wallpaper/space-shuttle.png";
   };
 
   start_page = "${dotfilesPath}/home/blank-page.html";
@@ -37,16 +37,12 @@ rec {
 
   color = {
     backgroundRgb = "rgba(40, 40, 40, 0.9)";
-    backgroundRgbAlt = "rgba(29, 32, 33, 0.9)";
-    background = "#282828";
+    background = "#1d2021";
     backgroundLight = "#3c3836";
-    backgroundAlt = "#1d2021";
     foreground = "#ebdbb2";
     primary = "#4c7766";
     primaryHypr = "8ec07c";
     secondaryHypr = "282828";
-    # primaryHypr = "fe8019";
-    # primary = "#fe8019";
 
     red = "#cc241d";
     green = "#98971a";

@@ -60,13 +60,13 @@ in {
       }
 
       c.colors.completion.fg = "${sett.color.foreground}"
-      c.colors.completion.odd.bg = "${sett.color.backgroundAlt}"
+      c.colors.completion.odd.bg = "${sett.color.background}"
       c.colors.completion.even.bg = "${sett.color.background}"
-      c.colors.statusbar.normal.bg = "${sett.color.backgroundAlt}"
+      c.colors.statusbar.normal.bg = "${sett.color.background}"
       c.colors.statusbar.normal.fg = "${sett.color.foreground}"
       c.colors.statusbar.insert.bg = "${sett.color.aqua}"
-      c.colors.statusbar.insert.fg = "${sett.color.backgroundAlt}"
-      c.colors.tabs.bar.bg = "${sett.color.backgroundAlt}"
+      c.colors.statusbar.insert.fg = "${sett.color.background}"
+      c.colors.tabs.bar.bg = "${sett.color.background}"
       c.colors.tabs.selected.odd.bg = "${sett.color.aqua}"
 
       c.content.blocking.method = 'adblock'

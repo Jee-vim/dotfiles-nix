@@ -22,7 +22,6 @@ in {
     in {
       "*" = {
         background = mkLiteral settings.color.background;
-        background-alt = mkLiteral settings.color.backgroundAlt;
         foreground = mkLiteral settings.color.foreground;
         foreground-alt = mkLiteral settings.color.foreground;
         primary = mkLiteral settings.color.primary;
@@ -62,7 +61,7 @@ in {
       };
       inputbar = {
         text-color = mkLiteral "@foreground";
-        background-color = mkLiteral "@background-alt";
+        background-color = mkLiteral "@background";
         padding = mkLiteral "10px 8px";
         spacing = mkLiteral "8px";
         border-radius = mkLiteral "@radius";
@@ -84,7 +83,7 @@ in {
         scrollbar = true;
       };
       scrollbar = {
-        background-color = mkLiteral "@background-alt";
+        background-color = mkLiteral "@background";
         handle-color = mkLiteral "@primary";
         margin-left = mkLiteral "6px";
         handle-width = mkLiteral "5px";
@@ -119,7 +118,7 @@ in {
         cursor = mkLiteral "pointer";
       };
       "button selected" = {
-        background-color = mkLiteral "@background-alt";
+        background-color = mkLiteral "@background";
         text-color = mkLiteral "@foreground";
       };
     };
