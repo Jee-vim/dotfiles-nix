@@ -2,7 +2,9 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      alias vi nvim
+      alias v nvim
+      alias hm "home-manager switch --flake .#jee"
+      alias nb "sudo nixos-rebuild switch --flake .#jee"
       alias ga "git add $1"
       alias gc "git commit -m $1"
       alias gs "git status --short"

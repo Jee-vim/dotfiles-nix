@@ -2,6 +2,7 @@
 with pkgs; [
   hyprpaper
   hyprshot
+  quickshell
 
   # Recording and Share Screen
   obs-studio

@@ -121,6 +121,7 @@
       - **OS**: NixOS
       - **Shell**: Fish
       - **Editor**: Neovim
+    Make sure kept that in mind also if using python lang put the pip lib inside shell.nix or ask first on how to manage pip lib
 
     ## File Operationals (MANDATORY)
     Always use Python to read/write/edit files, not bash, rm, rm -rf, heredocs or sed.
