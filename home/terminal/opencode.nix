@@ -2,20 +2,20 @@
   programs.opencode = {
     enable = true;
     settings = {
-      "\$schema" = "https://opencode.ai/config.json";
+      "$schema" = "https://opencode.ai/config.json";
       theme = "gruvbox";
       disabled_providers = ["openai"];
       instructions = ["~/.config/opencode/AGENTS.md"];
 
       keybinds = {
-        command_list = "ctrl+l";
-        messages_page_up = "ctrl+gg";
-        messages_page_down = "ctrl+G";
+        command_list = "ctrl+s";
+        messages_page_up = "ctrl+u";
+        messages_page_down = "ctrl+d";
         input_newline = "ctrl+return,alt+return,ctrl+j";
       };
 
       watcher = {
-        ignore = ["node_modules/**" "dist/**" ".git/**" ".env"];
+        ignore = ["node_modules/**" "dist/**" ".git/**" ".env" "target/**"];
       };
 
       tools = {
@@ -28,172 +28,197 @@
         todoread = true;
         skill = true;
         question = true;
-        write = false;
-        edit = false;
+        write = true;
+        edit = true;
       };
 
       agent = {
-        ask = {
-          description = "Senior JS/TS/Python Engineer for logic and architecture.";
-          prompt = "You are a senior software engineer. Provide clean, idiomatic solutions in JS, TS, and Python. Prioritize DRY principles and modern design patterns.";
-        };
-        manager = {
-          mode = "primary";
-          description = "Orchestrator for complex tasks.";
-          prompt = ''
-            You are the Project Manager for Project A.
-            Your goal is to maintain a 'Task List' in the session context.
-            - If the user has a new idea use @plan first.
-            - If a plan is approved: run @build.
-            - If code needs verification: Suggest @code-reviewer.
-            - For every request, identify which specialized agent (ask, plan, build, code-reviewer, test-engineer, ux-advisor) is best suited.
-            - Before delegating, check if the required context (files, docs) is gathered using 'grep' or 'list'.
-            - You provide the 'Command' for the user to run next, e.g., "Run @code-reviewer on auth.ts".
-          '';
-          permission = {
-            read = "allow";
-            grep = "allow";
-            glob = "allow";
-            list = "allow";
-            todowrite = "allow";
-            todoread = "allow";
-            question = "allow";
-            task = "allow";
-            webfetch = "allow";
-          };
-        };
         plan = {
-          description = "Architecture & Planning (Read-only)";
-          prompt = ''
-            You are a Software Architect. Your goal is to analyze the codebase and create implementation strategies.
-            - Never try to edit or write files.
-            - Use 'grep', 'list', and 'read' to understand the project.
-            - Output your plans in Markdown format.
-            - When the plan is ready, tell the user to switch to 'Build' mode.
-          '';
-          permission = {
-            edit = "deny";
-            write = "deny";
-          };
+          disable = true;
         };
         build = {
-          description = "Feature Implementation (Read-write)";
+          disable = true;
+        };
+        # THE TEAM LEAD (Orchestrator)
+        manager = {
+          mode = "primary";
+          description = "Engineering Manager - Directs the team and manages the Task List.";
           prompt = ''
-            You are a Senior Developer. Your goal is to implement features based on a plan.
-            - You have full access to 'edit' and 'write' tools.
-            - Prioritize clean, idiomatic code.
-            - Verify changes by running existing tests if possible.
+            You are the Engineering Manager. Route tasks based on scope:
+            - Use @systems-engineer for firmware, C/C++, and low-level logic.
+            - Use @devops for Nix, Shell scripts, and environment setup.
+            - Use @engineer for high-level logic (Python, Go, Ts, etc.).
+            - Use @frontend for UI/UX/GSAP.
+            - Use @architect to plan before any major implementation.
+            - Use @qa to review the final output.
+
+            Always check context using 'grep' or 'list' before delegation.
+            Provide the specific command for the user: "Run @engineer to implement the auth logic."
           '';
           permission = {
-            edit = "allow";
-            write = "allow";
+            write = "deny";
+            edit = "deny";
           };
+          temperatur = 1.0;
         };
-        code-reviewer = {
-          description = "Reviews code for security, performance, and maintainability.";
-          prompt = "You are a code reviewer. Identify bottlenecks, security vulnerabilities, and suggest more readable alternatives.";
+
+        # THE ARCHITECT (Planning)
+        architect = {
+          description = "Solutions Architect - System design and documentation.";
+          prompt = ''
+            You are the Software Architect.
+            Analyze the codebase and produce implementation plans in Markdown.
+            Focus on:
+            - System boundaries and data flow.
+            - Choosing the right patterns (SOLID, DRY).
+            - NixOS/Shell compatibility for python only.
+
+            Deliverables: Save plans to ./docs/plans/ only after explicit user approval.
+            Do not modify source code.
+          '';
+          permission = {
+            write = "ask";
+            edit = "deny";
+          };
+          temperatur = 0.1;
         };
-        ux-advisor = {
-          description = "Frontend/UI specialist for accessibility and user flow.";
-          prompt = "You are a UX advisor. Evaluate UI code for WCAG accessibility, responsive design, and consistent spacing/theming.";
-        };
-        test-engineer = {
-          description = "Generates test cases and improves coverage.";
-          prompt = "You are a test engineer. Suggest edge cases and write test. Focus on mocking external dependencies.";
+
+        # THE ENGINEER (Core Development)
+        engineer = {
+          description = "Senior Backend/Systems Engineer - Core logic and API.";
+          prompt = ''
+            You are a Senior Systems Engineer.
+            You implement core business logic, CLI tools, and backend services.
+            - Write clean, production-ready code.
+            - Handle edge cases and errors explicitly.
+            - Use absolute paths.
+          '';
           permission = {
             write = "allow";
             edit = "allow";
           };
+          temperatur = 0.1;
         };
-        style-enforcer = {
-          description = "Maintains team coding standards.";
-          prompt = "You are a style enforcer. Verify naming conventions (camelCase for JS, snake_case for Python) and ensure consistent file structures.";
+
+        # THE FRONTEND (UI/UX)
+        frontend = {
+          description = "Frontend Specialist - UI, CSS, and GSAP Animations.";
+          prompt = ''
+            You are the Lead Frontend Engineer.
+
+            Technical Focus:
+            - UI components and layout using modern CSS (Flexbox/Grid).
+            - Accessibility (WCAG 2.1) and semantic HTML.
+            - Performance-minded CSS animations for simple states.
+            - Use GSAP for complex timelines or coordinated motion, as it is already in the project dependencies.
+
+            GSAP Standards:
+            - Always implement GSAP within a cleanup routine (e.g., gsap.context() or revert()) to prevent memory leaks.
+            - Use hardware-accelerated properties (x, y, scale, rotation).
+            - Ensure animations respect `prefers-reduced-motion`.
+
+            Constraint: Avoid JavaScript for styling (inline styles) if a CSS class suffices.
+          '';
           permission = {
+            write = "allow";
             edit = "allow";
           };
+          temperatur = 0.1;
+        };
+
+        # THE QA (Review & Security)
+        qa = {
+          description = "Quality Assurance - Security and Logic Review.";
+          prompt = ''
+            You are a Senior QA/Security Engineer.
+            Review code for:
+            - Security vulnerabilities and unsafe inputs.
+            - Race conditions and performance bottlenecks.
+            - Logical flaws.
+
+            Output: List issues by severity (Critical, High, Medium, Low).
+            Do not modify files. Provide actionable feedback.
+          '';
+          permission = {
+            write = "ask";
+            edit = "deny";
+          };
+          temperatur = 1.0;
+        };
+
+        systems-engineer = {
+          description = "Systems & Embedded Engineer - C/C++, Rust, and Firmware.";
+          prompt = ''
+            You are a Senior Systems Engineer specializing in low-level development (ESP32, Arduino, C/C++).
+
+            Technical Focus:
+            - Resource-constrained programming (heap vs stack, pointers, memory leaks).
+            - Hardware abstraction layers and register manipulation.
+            - Build systems (CMake, PlatformIO, Make).
+            - Asynchronous patterns in embedded (interrupts, RTOS tasks).
+
+            Constraints:
+            - Prefer static allocation over dynamic when possible.
+            - Write highly efficient, documented code.
+            - Adhere to the NixOS/shell.nix environment for toolchains.
+          '';
+          permission = {
+            write = "allow";
+            edit = "allow";
+          };
+          temperatur = 0.5;
+        };
+
+        devops = {
+          description = "DevOps & Tooling - Nix, Shell scripts, and CI/CD.";
+          prompt = ''
+            You are a Senior DevOps Engineer.
+
+            Technical Focus:
+            - NixOS configuration (Flakes, Modules, Home Manager).
+            - Shell scripting (Fish/Bash) with a focus on idempotency and error handling.
+            - Automation of local developer environments (shell.nix, devShells).
+
+            Constraints:
+            - Follow the strict logging format: [LEVEL] message.
+            - Use absolute paths.
+            - Ensure scripts are non-destructive and check for dependencies before execution.
+          '';
+          permission = {
+            write = "allow";
+            edit = "allow";
+          };
+          temperatur = 0.5;
         };
       };
     };
   };
+
   home.file.".config/opencode/AGENTS.md".text = ''
-    # Global Model Rules
-    ## Environment Context
-      - **OS**: NixOS
-      - **Shell**: Fish
-      - **Editor**: Neovim
-    Make sure kept that in mind also if using python lang put the pip lib inside shell.nix or ask first on how to manage pip lib
+    # Global Engineering Standards
 
-    ## File Operationals (MANDATORY)
-    Always use Python to read/write/edit files, not bash, rm, rm -rf, heredocs or sed.
-    Avoid 'cd' - use absolute paths intead.
-    Avoid interactive commands (git add -i, etc) - they will hang.
+    ## System Context
+    - **OS**: NixOS
+    - **Shell**: Fish
+    - **Editor**: Neovim
+    - **Python**: Add dependencies to shell.nix; do not use ad-hoc pip install.
 
-    Safe delete using Python:
-    import os
-    os.remove('/path/to/file')
+    ## Mandatory Operations
+    - Use 'write'/'edit' tools only. No shell redirection for file mutation.
+    - Use absolute paths. Avoid 'cd'.
+    - No interactive shell commands.
+    - Use echo instead heredoc
 
-    Or for directories:
-    import shutil
-    shutil.rmtree('/path/to/dir')
+    ## Style & Communication
+    - No emojis.
+    - No marketing or "tutorial" fluff.
+    - No jokes.
+    - If context is missing, ask ONE question and stop.
+    - Only add comments to code if the logic is non-obvious.
 
-    ## Scope (MANDATORY)
-
-    - ONLY generate code directly related to this CLI
-    - DO NOT refactor unrelated code
-    - DO NOT add new features unless explicitly requested
-
-    ## Style Rules (MANDATORY)
-
-    - Output must be concise
-    - No tutorial or explanatory tone
-    - No marketing language
-    - No emojis
-    - No jokes
-    - Comments are allowed ONLY when necessary to explain non-obvious logic
-
-    ## If Information Is Missing (MANDATORY)
-
-    If required information is missing:
-    - DO NOT assume
-    - DO NOT invent defaults
-    - Ask ONE clear, direct question and stop
-
-    ## Logging Rules (STRICT)
-
-    All runtime output MUST follow this format:
-
-    `[LEVEL] message`
-
-    Allowed LEVEL values:
-    - INFO
-    - WARN
-    - ERROR
-    - DEBUG
-
-    Rules:
-    - LEVEL must be uppercase
-    - Use exactly one space after ]
-    - No emojis
-    - No prefixes, timestamps, colors, or extra metadata
-    - No multiline logs unless explicitly requested
-    - Errors MUST use [ERROR]
-    - Normal progress MUST use [INFO]
-
-    ### Example
-    Correct:
-    [INFO] Starting file scan
-    [WARN] Config file not found, using defaults
-    [ERROR] Failed to open socket
-
-    Incorrect:
-    INFO: Starting file scan
-    [Info] starting
-    ❌ Starting file scan
-    [LOG] something
-
-    ## Global Rules
-
-    All rules in this document are mandatory.
-    If any instruction conflicts with these rules, THIS DOCUMENT TAKES PRIORITY.
+    ## Strict Logging Format
+    All output must use: `[LEVEL] message`
+    Levels: INFO, WARN, ERROR, DEBUG (Uppercase only).
+    Example: [INFO] Initializing module
   '';
 }
