@@ -12,7 +12,7 @@ in {
 
         modules-left = ["custom/cat-1" "custom/cat-2"];
         modules-center = ["hyprland/workspaces"];
-        modules-right = ["network" "battery" "pulseaudio" "clock"];
+        modules-right = ["network#vpn" "network" "battery" "pulseaudio" "clock"];
 
         "hyprland/window" = {
           format = "{}";
@@ -42,10 +42,6 @@ in {
           };
         };
 
-        "custom/logo" = {
-          format = "  ";
-          tooltip = false;
-        };
         "custom/cat-1" = {
           format = "  ";
           tooltip-format = "Miawww";
@@ -70,12 +66,24 @@ in {
           };
         };
 
+        "network#vpn" = {
+          interface = "wg0";
+          format = "󰌆 ";
+          format-disconnected = "󰌆 ";
+          tooltip-format-ethernet = "VPN: {ifname} Connected";
+          tooltip-format-disconnected = "VPN: Disconnected";
+          on-click = "nmcli connection up wg0"; # Adjust if your connection name differs
+          on-click-right = "nmcli connection down wg0";
+        };
         network = {
-          format-wifi = " ";
-          tooltip-format = "{essid} ({signalStrength}%)";
-          format-ethernet = "{ipaddr}";
-          format-disconnecte = " ";
-          on-click = "kitty -e nmtui connect";
+          format-wifi = "󰤨 ";
+          format-ethernet = "󰈀 ";
+          format-disconnected = " ";
+
+          tooltip-format = "{essid} ({signalStrength}%)\nIP: {ipaddr}\n󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}";
+
+          on-click = "nmcli device disconnect wlps0";
+          on-click-right = "kitty -e nmtui";
         };
 
         battery = {
@@ -126,12 +134,15 @@ in {
           color: ${settings.color.foreground};
       }
 
-      #workspaces button {
-        padding: 0 6px;
-      }
-
       #clock {
         font-weight: 600;
+      }
+      #network.vpn {
+          color: ${settings.color.foreground};
+      }
+
+      #network.vpn.disconnected {
+          color: ${settings.color.backgroundLight};
       }
 
       #network, #battery, #clock, #pulseaudio {
@@ -157,7 +168,7 @@ in {
       }
       tooltip {
           background: ${settings.color.background};
-          border-radius: 7px;
+          border-radius: ${settings.style.radius};
           border-width: 1px;
           border-style: solid;
           border-color: ${settings.color.primary};
@@ -166,6 +177,14 @@ in {
           padding-top: 5px;
           padding-bottom: 5px;
       }
+
+      #workspaces button:hover {
+          background: transparent;
+          box-shadow: inherit; /* Prevents default GTK button shadows */
+          text-shadow: inherit;
+          border-width: 0px;
+      }
+
       #workspaces button {
           color: ${settings.color.backgroundLight};
           margin-right: 5px;
