@@ -207,7 +207,7 @@
     - Use 'write'/'edit' tools only. No shell redirection for file mutation.
     - Use absolute paths. Avoid 'cd'.
     - No interactive shell commands.
-    - Use echo instead heredoc
+    - Use echo instead heredoc and use ' not "
 
     ## Style & Communication
     - No emojis.
