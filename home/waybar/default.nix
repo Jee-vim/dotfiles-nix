@@ -7,13 +7,13 @@ in {
     settings = {
       mainBar = {
         layer = "top";
-        position = "left";
-        width = 34;
+        position = "top";
+        height = 30;
         spacing = 0;
         fixed-center = true;
 
         modules-left = ["hyprland/workspaces"];
-        modules-right = ["network#vpn" "network" "pulseaudio" "battery" "clock"];
+        modules-right = ["network#vpn" "network" "battery" "clock"];
 
         "hyprland/workspaces" = {
           format = "<b>{id}</b>";
@@ -25,7 +25,7 @@ in {
         };
 
         clock = {
-          format = "<b>{:%H\n%M}</b>";
+          format = "<b>{:%H:%M}</b>";
           tooltip-format = "{:%d %B, %H:%M}";
         };
 
@@ -56,16 +56,6 @@ in {
           format-icons = [" " " " " " " " " "];
           tooltip-format = "{capacity}% - {timeTo}";
         };
-
-        pulseaudio = {
-          format = "{icon}";
-          format-muted = "󰝟 ";
-          format-icons = {
-            headphone = " ";
-            default = ["" " " " "];
-          };
-          on-click = "pavucontrol";
-        };
       };
     };
 
@@ -78,46 +68,45 @@ in {
       }
 
       window#waybar {
-        background: rgba(0, 0, 0, 0); /* Transparent background for floating look */
+        background: rgba(0, 0, 0, 0);
       }
 
-      /* Main Container Style */
+      /* Main Container Style - horizontal for top bar */
       .modules-left, .modules-right {
         background: ${settings.color.background};
         border: 1px solid ${settings.color.backgroundLight};
-        border-radius: 10px;
-        margin: 5px 2px;
-        padding: 5px 0px;
+        border-radius: 8px;
+        margin: 4px 8px;
+        padding: 4px;
+      }
+
+      /* Workspace buttons - horizontal layout */
+      #workspaces {
+        min-width: 0;
       }
 
       #workspaces button {
-        padding: 10px 0;
-        margin: 2px 0;
+        padding: 2px 4px;
         font-weight: 800;
-        font-size: 15px;
         color: ${settings.color.foreground};
         transition: all 0.2s ease-in-out;
+        border-radius: 4px;
       }
 
-      #workspaces button.active {
-        color: ${settings.color.primary};
-        border-left: 3px solid ${settings.color.primary};
+      #workspaces button.active,#workspaces button:hover {
+        color: ${settings.color.background};
+        background: ${settings.color.foreground};
       }
 
       #workspaces button.urgent {
         color: ${settings.color.redLight};
       }
 
-      #workspaces button:hover {
-        color: ${settings.color.primary};
-        border-left: 3px solid ${settings.color.primary};
-      }
-
-      /* Individual Module Styling */
-      #clock, #network, #battery, #pulseaudio, #vpn {
+      /* Individual Module Styling - horizontal padding */
+      #clock, #network, #battery, #vpn {
         color: ${settings.color.foreground};
-        padding: 8px 0;
-        margin: 0 4px;
+        padding: 2px 4px;
+        margin: 0 2px;
       }
 
       #battery.critical:not(.charging) {
@@ -138,7 +127,7 @@ in {
 
       tooltip {
         background: ${settings.color.background};
-        border: 1px solid ${settings.color.primary};
+        border: 1px solid ${settings.color.backgroundLight};
         border-radius: 8px;
       }
     '';
