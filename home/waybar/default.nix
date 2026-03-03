@@ -12,8 +12,7 @@ in {
         spacing = 0;
         fixed-center = true;
 
-        modules-left = ["hyprland/workspaces"];
-        modules-right = ["network#vpn" "network" "battery" "clock"];
+        modules-center = ["hyprland/workspaces" "custom/separator" "network#vpn" "network" "battery" "clock"];
 
         "hyprland/workspaces" = {
           format = "<b>{id}</b>";
@@ -22,6 +21,11 @@ in {
           sort-by-number = true;
 
           format-icons = {};
+        };
+
+        "custom/separator" = {
+          format = "│";
+          tooltip = false;
         };
 
         clock = {
@@ -72,7 +76,7 @@ in {
       }
 
       /* Main Container Style - horizontal for top bar */
-      .modules-left, .modules-right {
+      .modules-center {
         background: ${settings.color.background};
         border: 1px solid ${settings.color.backgroundLight};
         border-radius: 8px;
@@ -103,10 +107,14 @@ in {
       }
 
       /* Individual Module Styling - horizontal padding */
-      #clock, #network, #battery, #vpn {
+      #clock, #network, #battery, #vpn, #custom-separator {
         color: ${settings.color.foreground};
         padding: 2px 4px;
         margin: 0 2px;
+      }
+
+      #custom-separator {
+        color: ${settings.color.backgroundLight};
       }
 
       #battery.critical:not(.charging) {
