@@ -36,6 +36,14 @@
         edit = true;
       };
 
+      agent = {
+        plan = {
+          disable = true;
+        };
+        build = {
+          disable = true;
+        };
+      };
     };
   };
 
