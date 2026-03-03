@@ -36,20 +36,37 @@ Example: [INFO] Initializing module
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
+| pm | Project management, task delegation, workflow orchestration | First contact for all tasks, manages team delegation |
 | planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
 | code-reviewer | Code quality and maintainability | After writing/modifying code |
-| security-reviewer | Vulnerability detection | Before commits, sensitive code |
+| security-reviewer | Vulnerability detection | Before commits, sensitive code, user input handling |
 | build-error-resolver | Fix build/type errors | When build fails |
-| refactor-cleaner | Dead code cleanup | Code maintenance |
+| refactor-cleaner | Dead code cleanup | Code maintenance, removing unused code |
+| engineer | Backend/Systems Engineer - Core logic, API | Python, Go, TypeScript backend development |
+| frontend | Frontend Specialist - UI, CSS, animations | React/Next.js, CSS, GSAP animations |
+| devops | DevOps and tooling - CI/CD, Nix, Shell | NixOS, automation, CI/CD pipelines |
+| systems-engineer | Systems and Embedded Engineer | C/C++, Rust, ESP32, Arduino, firmware |
+| tdd-guide | Test-Driven Development specialist | Writing tests first, 80%+ coverage |
+| e2e-runner | End-to-end testing specialist | E2E tests with Playwright/Agent Browser |
+| doc-updater | Documentation and codemap specialist | Updating docs, codemaps, READMEs |
 
 ## Agent Orchestration
 
 Use agents proactively without user prompt:
+- All tasks → **pm** (first point of contact for delegation)
 - Complex feature requests → **planner**
 - Code just written/modified → **code-reviewer**
 - Bug fix or new feature → **tdd-guide**
 - Architectural decision → **planner**
 - Security-sensitive code → **security-reviewer**
+- Build errors → **build-error-resolver**
+- Dead code cleanup → **refactor-cleaner**
+- Backend development → **engineer**
+- Frontend/UI work → **frontend**
+- DevOps/automation → **devops**
+- Embedded/firmware → **systems-engineer**
+- E2E testing → **e2e-runner**
+- Documentation updates → **doc-updater**
 
 Use parallel execution for independent operations — launch multiple agents simultaneously.
 
