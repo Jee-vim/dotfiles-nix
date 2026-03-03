@@ -8,6 +8,6 @@
     ./fastfetch.nix
     ./ranger.nix
     ./notify.nix
-    ./opencode.nix
+    ./opencode
   ];
 }
