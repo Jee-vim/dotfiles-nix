@@ -23,13 +23,13 @@ planner -> tdd-guide -> code-reviewer
 ### refactor
 Safe refactoring workflow:
 ```
-architect -> code-reviewer -> tdd-guide
+planner -> code-reviewer -> tdd-guide
 ```
 
 ### security
 Security-focused review:
 ```
-security-reviewer -> code-reviewer -> architect
+security-reviewer -> code-reviewer -> planner
 ```
 
 ## Execution Pattern
@@ -142,7 +142,7 @@ For independent checks, run agents in parallel:
 Run simultaneously:
 - code-reviewer (quality)
 - security-reviewer (security)
-- architect (design)
+- planner (design)
 
 ### Merge Results
 Combine outputs into single report
@@ -160,7 +160,7 @@ $ARGUMENTS:
 ## Custom Workflow Example
 
 ```
-/orchestrate custom "architect,tdd-guide,code-reviewer" "Redesign caching layer"
+/orchestrate custom "planner,tdd-guide,code-reviewer" "Redesign caching layer"
 ```
 
 ## Tips

@@ -61,6 +61,8 @@ const result = await db.query(query, [userId]);
 
 ### Code Quality (HIGH)
 
+- **Logic flaws** — Incorrect business logic, off-by-one errors, incorrect comparisons
+- **Race conditions** — Concurrent access without proper synchronization
 - **Large functions** (>50 lines) — Split into smaller, focused functions
 - **Large files** (>800 lines) — Extract modules by responsibility
 - **Deep nesting** (>4 levels) — Use early returns, extract helpers
@@ -69,6 +71,28 @@ const result = await db.query(query, [userId]);
 - **console.log statements** — Remove debug logging before merge
 - **Missing tests** — New code paths without test coverage
 - **Dead code** — Commented-out code, unused imports, unreachable branches
+- **Logic flaws** — Incorrect business logic, edge cases not handled, incorrect operators
+
+```typescript
+// BAD: Logic flaw - off-by-one error
+if (i <= arr.length) { }  // accesses arr[arr.length]
+
+// GOOD: Correct boundary check
+if (i < arr.length) { }
+```
+
+```typescript
+// BAD: Race condition - concurrent state mutation
+let count = 0;
+async function increment() {
+  const current = count;  // read
+  await doSomething();
+  count = current + 1;     // write (may have changed!)
+}
+
+// GOOD: Atomic operation or lock
+await mutex.runExclusive(() => { count++; });
+```
 
 ```typescript
 // BAD: Deep nesting + mutation

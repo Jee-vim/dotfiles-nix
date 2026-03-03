@@ -36,8 +36,7 @@ Example: [INFO] Initializing module
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
-| planner | Implementation planning | Complex features, refactoring |
-| architect | System design and scalability | Architectural decisions |
+| planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
 | code-reviewer | Code quality and maintainability | After writing/modifying code |
 | security-reviewer | Vulnerability detection | Before commits, sensitive code |
 | build-error-resolver | Fix build/type errors | When build fails |
@@ -49,7 +48,7 @@ Use agents proactively without user prompt:
 - Complex feature requests → **planner**
 - Code just written/modified → **code-reviewer**
 - Bug fix or new feature → **tdd-guide**
-- Architectural decision → **architect**
+- Architectural decision → **planner**
 - Security-sensitive code → **security-reviewer**
 
 Use parallel execution for independent operations — launch multiple agents simultaneously.
