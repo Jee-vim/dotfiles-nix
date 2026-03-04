@@ -9,7 +9,8 @@ Located in `~/.claude/agents/`:
 | planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
 | tdd-guide | Test-driven development | New features, bug fixes |
 | code-reviewer | Code review | After writing code |
-| security-reviewer | Security analysis | Before commits |
+| blue-team | Security analysis | Before commits |
+| red-team | Penetration testing | Security audits, offensive testing |
 | build-error-resolver | Fix build errors | When build fails |
 | e2e-runner | E2E testing | Critical user flows |
 | refactor-cleaner | Dead code cleanup | Code maintenance |

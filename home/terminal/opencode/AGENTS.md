@@ -39,7 +39,8 @@ Example: [INFO] Initializing module
 | pm | Project management, task delegation, workflow orchestration | First contact for all tasks, manages team delegation |
 | planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
 | code-reviewer | Code quality and maintainability | After writing/modifying code |
-| security-reviewer | Vulnerability detection | Before commits, sensitive code, user input handling |
+| blue-team | Vulnerability detection | Before commits, sensitive code, user input handling |
+| red-team | Penetration testing, vulnerability assessment | Security audits, offensive security testing |
 | build-error-resolver | Fix build/type errors | When build fails |
 | refactor-cleaner | Dead code cleanup | Code maintenance, removing unused code |
 | engineer | Backend/Systems Engineer - Core logic, API | Python, Go, TypeScript backend development |
@@ -57,8 +58,8 @@ Use agents proactively without user prompt:
 - Complex feature requests → **planner**
 - Code just written/modified → **code-reviewer**
 - Bug fix or new feature → **tdd-guide**
-- Architectural decision → **planner**
-- Security-sensitive code → **security-reviewer**
+- Security-sensitive code → **blue-team**
+- Penetration testing → **red-team**
 - Build errors → **build-error-resolver**
 - Dead code cleanup → **refactor-cleaner**
 - Backend development → **engineer**
@@ -84,7 +85,7 @@ Use parallel execution for independent operations — launch multiple agents sim
 
 **Secret management:** NEVER hardcode secrets. Use environment variables or a secret manager. Validate required secrets at startup. Rotate any exposed secrets immediately.
 
-**If security issue found:** STOP → use security-reviewer agent → fix CRITICAL issues → rotate exposed secrets → review codebase for similar issues.
+**If security issue found:** STOP → use blue-team agent → fix CRITICAL issues → rotate exposed secrets → review codebase for similar issues.
 
 ## Coding Style
 

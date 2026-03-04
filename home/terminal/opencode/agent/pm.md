@@ -26,7 +26,8 @@ Route tasks to the appropriate agent:
 | UI, CSS, animations | @frontend |
 | Architecture planning | @planner |
 | Code review | @code-reviewer |
-| Security review | @security-reviewer |
+| Security review | @blue-team |
+| Penetration testing | @red-team |
 | Tests, TDD | @tdd-guide |
 | E2E testing | @e2e-runner |
 | Dead code cleanup | @refactor-cleaner |
