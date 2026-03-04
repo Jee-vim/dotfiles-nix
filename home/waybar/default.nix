@@ -97,9 +97,10 @@ in {
         border-radius: 4px;
       }
 
-      #workspaces button.active,#workspaces button:hover {
+      #workspaces button.active, #workspaces button:hover {
         color: ${settings.color.background};
         background: ${settings.color.foreground};
+        padding: 2px 10px;
       }
 
       #workspaces button.urgent {
@@ -135,6 +136,7 @@ in {
 
       tooltip {
         background: ${settings.color.background};
+        color: ${settings.color.foreground};
         border: 1px solid ${settings.color.backgroundLight};
         border-radius: 8px;
       }

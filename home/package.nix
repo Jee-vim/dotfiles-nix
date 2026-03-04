@@ -2,7 +2,7 @@
 with pkgs; [
   hyprpaper
   hyprshot
-  # quickshell
+  quickshell
   ttyper
 
   # Recording and Share Screen
@@ -19,5 +19,4 @@ with pkgs; [
   telegram-desktop
   # xautoclick
   # localsend
-  # jq # json formmatter
 ]
