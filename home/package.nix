@@ -4,6 +4,7 @@ with pkgs; [
   hyprshot
   quickshell
   ttyper
+  cava
 
   # Recording and Share Screen
   obs-studio

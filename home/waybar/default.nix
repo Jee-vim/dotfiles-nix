@@ -12,7 +12,7 @@ in {
         spacing = 0;
         fixed-center = true;
 
-        modules-center = ["hyprland/workspaces" "custom/separator" "network#vpn" "network" "battery" "clock"];
+        modules-center = ["hyprland/workspaces" "custom/separator" "cava" "custom/separator" "network#vpn" "network" "battery" "clock"];
 
         "hyprland/workspaces" = {
           format = "<b>{id}</b>";
@@ -21,6 +21,16 @@ in {
           sort-by-number = true;
 
           format-icons = {};
+        };
+
+        cava = {
+          # ... your other settings ...
+          bars = 12;
+          # These icons are thin vertical pipes
+          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+
+          # Optional: ensure it's not trying to fill the whole bar
+          bar_delimiter = 0;
         };
 
         "custom/separator" = {
@@ -108,7 +118,7 @@ in {
       }
 
       /* Individual Module Styling - horizontal padding */
-      #clock, #network, #battery, #vpn, #custom-separator {
+      #clock, #network, #battery, #vpn, #custom-separator, #cava {
         color: ${settings.color.foreground};
         padding: 2px 4px;
         margin: 0 2px;
