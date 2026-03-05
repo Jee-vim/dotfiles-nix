@@ -8,11 +8,11 @@ in {
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 44;
         spacing = 0;
         fixed-center = true;
 
-        modules-center = ["hyprland/workspaces" "custom/separator" "cava" "custom/separator" "network#vpn" "network" "battery" "clock"];
+        modules-center = ["hyprland/workspaces" "cava" "temperature" "cpu" "memory" "network#vpn" "network" "battery" "clock"];
 
         "hyprland/workspaces" = {
           format = "<b>{id}</b>";
@@ -24,23 +24,17 @@ in {
         };
 
         cava = {
-          # ... your other settings ...
           bars = 12;
-          # These icons are thin vertical pipes
           format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
-
-          # Optional: ensure it's not trying to fill the whole bar
+          format = "│{}│";
           bar_delimiter = 0;
-        };
-
-        "custom/separator" = {
-          format = "│";
-          tooltip = false;
+          sleep_timer = 1;
+          hide_on_silence = true;
         };
 
         clock = {
           format = "<b>{:%H:%M}</b>";
-          tooltip-format = "{:%d %B, %H:%M}";
+          tooltip-format = "{:%d %B}";
         };
 
         "network#vpn" = {
@@ -54,21 +48,48 @@ in {
 
         network = {
           format-wifi = "󰤨 ";
-          format-ethernet = "󰈀 ";
-          format-disconnected = "󰤮 ";
-          tooltip-format = "{essid}\n󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}";
-          on-click-right = "kitty -e nmtui";
+          format-ethernet = " ";
+          format-disconnected = "󰤭 ";
+          tooltip-format = "{essid}\n {bandwidthUpBytes}\n {bandwidthDownBytes}";
+          on-click = "nmcli device disconnect wlp2s0";
+          on-click-middle = "nmcli device connect wlp2s0";
+          on-click-right = "kitty -e nmtui connect";
         };
 
         battery = {
           states = {
-            warning = 30;
-            critical = 15;
+            critical = 20;
           };
-          format = "{icon}";
-          format-charging = "󱐋";
+          format = "";
+          format-critical = " {capacity}%";
+          format-charging = "󱐋 {capacity}%";
           format-icons = [" " " " " " " " " "];
           tooltip-format = "{capacity}% - {timeTo}";
+        };
+        temperature = {
+          critical-threshold = 80;
+          format = "";
+          format-critical = "";
+        };
+        cpu = {
+          format = "";
+          format-medium = " ";
+          format-high = " ";
+          on-click = "kitty -e btop";
+          states = {
+            medium = 30;
+            high = 80;
+          };
+        };
+        memory = {
+          format = "";
+          format-medium = " ";
+          format-high = " ";
+          on-click = "kitty -e btop";
+          states = {
+            medium = 50;
+            high = 85;
+          };
         };
       };
     };
@@ -97,10 +118,12 @@ in {
       /* Workspace buttons - horizontal layout */
       #workspaces {
         min-width: 0;
+        margin-right: 4px;
       }
 
       #workspaces button {
         padding: 2px 4px;
+        margin: 0 1px;
         font-weight: 800;
         color: ${settings.color.foreground};
         transition: all 0.2s ease-in-out;
@@ -118,14 +141,28 @@ in {
       }
 
       /* Individual Module Styling - horizontal padding */
-      #clock, #network, #battery, #vpn, #custom-separator, #cava {
+      #clock, #network, #battery, #vpn, #cava, #cpu, #memory, #temperature {
         color: ${settings.color.foreground};
         padding: 2px 4px;
         margin: 0 2px;
       }
 
-      #custom-separator {
-        color: ${settings.color.backgroundLight};
+      #cpu.medium, #memory.medium {
+        color: ${settings.color.yellowLight};
+      }
+
+      #cpu.high, #memory.high, #temperature.critical {
+        color: ${settings.color.redLight};
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      #cava.empty, #cpu.empty, #memory.empty, #temperature.empty, #battery.empty {
+          padding: 0;
+          margin: 0;
       }
 
       #battery.critical:not(.charging) {
