@@ -26,12 +26,6 @@ in {
     "systemctl --user restart xdg-desktop-portal" # Ensures portal services are running
   ];
 
-  # layerrule = [
-  #   "blur, swaync-control-center"
-  #   "ignorezero, swaync-notification-window"
-  #   "animation slide top, swaync-control-center"
-  # ];
-
   general = {
     gaps_in = 7;
     gaps_out = 0;
