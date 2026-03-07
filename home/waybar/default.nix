@@ -12,7 +12,7 @@ in {
         spacing = 0;
         fixed-center = true;
 
-        modules-center = ["hyprland/workspaces" "cava" "temperature" "cpu" "memory" "network#vpn" "network" "battery" "clock"];
+        modules-center = ["hyprland/workspaces" "cava" "temperature" "cpu" "memory" "vpn" "network" "battery" "clock"];
 
         "hyprland/workspaces" = {
           format = "<b>{id}</b>";
@@ -28,7 +28,7 @@ in {
           format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
           format = "│{}│";
           bar_delimiter = 0;
-          sleep_timer = 1;
+          sleep_timer = 2;
           hide_on_silence = true;
         };
 
@@ -37,7 +37,7 @@ in {
           tooltip-format = "{:%d %B}";
         };
 
-        "network#vpn" = {
+        vpn = {
           interface = "wg0";
           format = "󰌆 ";
           format-disconnected = "";
@@ -73,21 +73,17 @@ in {
         };
         cpu = {
           format = "";
-          format-medium = " ";
           format-high = " ";
           on-click = "kitty -e btop";
           states = {
-            medium = 30;
             high = 80;
           };
         };
         memory = {
           format = "";
-          format-medium = " ";
           format-high = " ";
           on-click = "kitty -e btop";
           states = {
-            medium = 50;
             high = 85;
           };
         };
@@ -104,21 +100,33 @@ in {
 
       window#waybar {
         background: rgba(0, 0, 0, 0);
+        transition: all 0.5s ease-in-out;
       }
 
-      /* Main Container Style - horizontal for top bar */
+      window#waybar:hover .modules-center {
+          background: ${settings.color.background};
+          opacity: 1;
+      }
+
+      #workspaces {
+        min-width: 0;
+        margin-right: 4px;
+      }
+
       .modules-center {
         background: ${settings.color.background};
         border: 1px solid ${settings.color.backgroundLight};
         border-radius: 8px;
         margin: 4px 8px;
         padding: 4px;
+        transition: all 0.3s cubic-bezier(.55,.055,.675,.19);
       }
 
-      /* Workspace buttons - horizontal layout */
-      #workspaces {
-        min-width: 0;
-        margin-right: 4px;
+      .modules-center.empty {
+          background: transparent;
+          border: none;
+          padding: 0;
+          margin: 0;
       }
 
       #workspaces button {
@@ -140,18 +148,13 @@ in {
         color: ${settings.color.redLight};
       }
 
-      /* Individual Module Styling - horizontal padding */
       #clock, #network, #battery, #vpn, #cava, #cpu, #memory, #temperature {
         color: ${settings.color.foreground};
         padding: 2px 4px;
         margin: 0 2px;
       }
 
-      #cpu.medium, #memory.medium {
-        color: ${settings.color.yellowLight};
-      }
-
-      #cpu.high, #memory.high, #temperature.critical {
+      #cpu.high, #memory.high, #temperature.critical:not(.charging) {
         color: ${settings.color.redLight};
         animation-name: blink;
         animation-duration: 0.5s;
@@ -163,15 +166,6 @@ in {
       #cava.empty, #cpu.empty, #memory.empty, #temperature.empty, #battery.empty {
           padding: 0;
           margin: 0;
-      }
-
-      #battery.critical:not(.charging) {
-        color: ${settings.color.redLight};
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
       }
 
       @keyframes blink {
