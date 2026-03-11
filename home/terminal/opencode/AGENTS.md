@@ -1,10 +1,6 @@
-# Agent Instructions
-
 ## System Context
 - **OS**: NixOS
 - **Shell**: Fish
-- **Editor**: Neovim
-- **Python**: Add dependencies to shell.nix; do not use ad-hoc pip install.
 
 ## Mandatory Operations
 - Use absolute paths. Avoid 'cd'.
@@ -17,6 +13,7 @@
 - No jokes.
 - If context is missing, ask ONE question and stop.
 - Only add comments to code if the logic is non-obvious.
+- Don't adding style if i didint ask
 
 ## Strict Logging Format
 All output must use: `[LEVEL] message`
@@ -71,22 +68,6 @@ Use agents proactively without user prompt:
 
 Use parallel execution for independent operations — launch multiple agents simultaneously.
 
-## Security Guidelines
-
-**Before ANY commit:**
-- No hardcoded secrets (API keys, passwords, tokens)
-- All user inputs validated
-- SQL injection prevention (parameterized queries)
-- XSS prevention (sanitized HTML)
-- CSRF protection enabled
-- Authentication/authorization verified
-- Rate limiting on all endpoints
-- Error messages don't leak sensitive data
-
-**Secret management:** NEVER hardcode secrets. Use environment variables or a secret manager. Validate required secrets at startup. Rotate any exposed secrets immediately.
-
-**If security issue found:** STOP → use blue-team agent → fix CRITICAL issues → rotate exposed secrets → review codebase for similar issues.
-
 ## Coding Style
 
 **Immutability (CRITICAL):** Always create new objects, never mutate. Return new copies with changes applied.
@@ -103,35 +84,6 @@ Use parallel execution for independent operations — launch multiple agents sim
 - Proper error handling, no hardcoded values
 - Readable, well-named identifiers
 
-## Testing Requirements
-
-**Minimum coverage: 80%**
-
-Test types (all required):
-1. **Unit tests** — Individual functions, utilities, components
-2. **Integration tests** — API endpoints, database operations
-3. **E2E tests** — Critical user flows
-
-**TDD workflow (mandatory):**
-1. Write test first (RED) — test should FAIL
-2. Write minimal implementation (GREEN) — test should PASS
-3. Refactor (IMPROVE) — verify coverage 80%+
-
-Troubleshoot failures: check test isolation → verify mocks → fix implementation (not tests, unless tests are wrong).
-
-## Development Workflow
-
-1. **Plan** — Use planner agent, identify dependencies and risks, break into phases
-2. **TDD** — Use tdd-guide agent, write tests first, implement, refactor
-3. **Review** — Use code-reviewer agent immediately, address CRITICAL/HIGH issues
-4. **Commit** — Conventional commits format, comprehensive PR summaries
-
-## Git Workflow
-
-**Commit format:** `<type>: <description>` — Types: feat, fix, refactor, docs, test, chore, perf, ci
-
-**PR workflow:** Analyze full commit history → draft comprehensive summary → include test plan → push with `-u` flag.
-
 ## Architecture Patterns
 
 **API response format:** Consistent envelope with success indicator, data payload, error message, and pagination metadata.
@@ -145,19 +97,3 @@ Troubleshoot failures: check test isolation → verify mocks → fix implementat
 **Context management:** Avoid last 20% of context window for large refactoring and multi-file features. Lower-sensitivity tasks (single edits, docs, simple fixes) tolerate higher utilization.
 
 **Build troubleshooting:** Use build-error-resolver agent → analyze errors → fix incrementally → verify after each fix.
-
-## Project Structure
-
-```
-agents/        
-skills/         
-commands/        
-```
-
-## Success Metrics
-
-- All tests pass with 80%+ coverage
-- No security vulnerabilities
-- Code is readable and maintainable
-- Performance is acceptable
-- User requirements are met
