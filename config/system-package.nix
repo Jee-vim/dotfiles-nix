@@ -51,10 +51,7 @@
     # Applications
     postman
     discord-ptb
-    wine
-    lutris
-    vulkan-loader
-    vulkan-tools
+    chromium
 
     # File System & Compatibility
     pkgs.nix-ld # Compatibility layer for dynamic linking in Nix
