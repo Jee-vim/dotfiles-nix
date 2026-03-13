@@ -18,7 +18,7 @@ rec {
     radius = "0px";
     # rounded = "10";
     # radius = "10px";
-    opacity = 1.75;
+    opacity = 0.75;
   };
 
   image = {

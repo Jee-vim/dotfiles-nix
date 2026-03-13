@@ -46,7 +46,7 @@ in {
     inactive_opacity = 1.8;
     blur = {
       enabled = true;
-      size = 8;
+      size = 4;
       passes = 1;
       vibrancy = 0.1000;
     };
