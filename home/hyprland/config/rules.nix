@@ -2,44 +2,43 @@ let
   settings = import ../../settings.nix;
 in {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
-      "dimaround, class:^(gcr-prompter)$"
-      "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
-      "dimaround, class:^(xdg-desktop-portal-gtk)$"
+    windowrule = [
+      "match:class ^(imv)$, float on"
+      "match:class ^(mpv)$, float on"
+      "match:class ^(SoundWireServer)$, float on"
+      "match:class ^(.sameboy-wrapped)$, float on"
+      "match:class ^(org.pulseaudio.pavucontrol)$, float on"
 
-      "float, class:^(blueman-manager)$"
-      "float, class:^(com.saivert.pwvucontrol)$"
-      "float, class:^(io.bassi.Amberol)$"
-      "float, class:^(io.github.celluloid_player.Celluloid)$"
-      "float, class:^(mpv)$"
-      "float, class:^(thunar)$"
-      "float, class:^(xdg-desktop-portal-gtk)$"
+      "match:class ^(rofi)$, pin on"
 
-      "float, title:^(File Upload)(.*)$"
-      "float, title:^(Library)(.*)$"
-      "float, title:^(Open File)(.*)$"
-      "float, title:^(Open Folder)(.*)$"
-      "float, title:^(Save As)(.*)$"
-      "float, title:^(Select a File)(.*)$"
 
-      "float, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
-      "pin, title:^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$"
+      "match:class ^(SoundWireServer)$, size 725 330"
 
-      "idleinhibit fullscreen, class:^(.*)$"
-      "idleinhibit fullscreen, title:^(.*)$"
-      "idleinhibit fullscreen, fullscreen:1"
+      "match:title ^(Volume Control)$, size 700 450"
+      "match:title ^(Volume Control)$, move 40 55%"
 
-      "suppressevent maximize, class:.*"
+      "match:title ^(Picture-in-Picture)$, pin on"
+      "match:title ^(Picture-in-Picture)$, float on"
 
-      "bordersize 0, floating:0, onworkspace:w[tv1]"
-      "rounding 0, floating:0, onworkspace:w[tv1]"
-      "bordersize 0, floating:0, onworkspace:f[1]"
-      "rounding 0, floating:0, onworkspace:f[1]"
-      "workspace 1, class:^(brave-browser)$" # hyprctl clients | grep 'class'
-      "workspace 2, class:^(Postman)$"
-      "workspace 3, class:^(org.telegram.desktop)$"
-      "workspace 4, class:^(discord-ptb)$"
-      "workspace 5, class:^(kitty)$"
+      "match:class ^(zen-beta)$, workspace 1"
+      "match:class ^(Aseprite)$, workspace 4"
+      "match:class ^(Audacious)$, workspace 5"
+      "match:class ^(com.obsproject.Studio)$, workspace 8"
+      "match:class ^(discord)$, workspace 10"
+      "match:class ^(WebCord)$, workspace 10"
+      "match:class ^(vesktop)$, workspace 10"
+
+      "match:class ^(mpv)$, idle_inhibit focus"
+
+      "match:class ^(xdg-desktop-portal-gtk)$, dim_around on"
+
+      "match:xwayland true, rounding 0"
+
+      # No gaps when only
+      "border_size 0, match:float 0, match:workspace w[tv1]"
+      "rounding 0, match:float 0, match:workspace w[tv1]"
+      "border_size 0, match:float 0, match:workspace f[1]"
+      "rounding 0, match:float 0, match:workspace f[1]"
     ];
 
     workspace = [
