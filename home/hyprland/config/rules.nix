@@ -4,31 +4,18 @@ in {
   wayland.windowManager.hyprland.settings = {
     windowrule = [
       "match:class ^(imv)$, float on"
-      "match:class ^(mpv)$, float on"
-      "match:class ^(SoundWireServer)$, float on"
-      "match:class ^(.sameboy-wrapped)$, float on"
       "match:class ^(org.pulseaudio.pavucontrol)$, float on"
 
       "match:class ^(rofi)$, pin on"
 
-
+      "match:class ^(SoundWireServer)$, float on"
       "match:class ^(SoundWireServer)$, size 725 330"
-
-      "match:title ^(Volume Control)$, size 700 450"
-      "match:title ^(Volume Control)$, move 40 55%"
 
       "match:title ^(Picture-in-Picture)$, pin on"
       "match:title ^(Picture-in-Picture)$, float on"
 
-      "match:class ^(zen-beta)$, workspace 1"
-      "match:class ^(Aseprite)$, workspace 4"
-      "match:class ^(Audacious)$, workspace 5"
-      "match:class ^(com.obsproject.Studio)$, workspace 8"
-      "match:class ^(discord)$, workspace 10"
-      "match:class ^(WebCord)$, workspace 10"
-      "match:class ^(vesktop)$, workspace 10"
-
-      "match:class ^(mpv)$, idle_inhibit focus"
+      "match:class ^(mpv)$, float on"
+      "match:class ^(mpv)$, size 1280 720"
 
       "match:class ^(xdg-desktop-portal-gtk)$, dim_around on"
 

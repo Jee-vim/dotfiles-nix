@@ -2,9 +2,7 @@
 with pkgs; [
   hyprpaper
   hyprshot
-  quickshell
   ttyper
-  cava
 
   # Recording and Share Screen
   obs-studio
@@ -19,5 +17,5 @@ with pkgs; [
   brave
   telegram-desktop
   # xautoclick
-  localsend
+  # localsend
 ]

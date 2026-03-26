@@ -3,8 +3,8 @@
     enable = true;
     interactiveShellInit = ''
       alias v nvim
-      alias hm "home-manager switch --flake .#jee"
-      alias nb "sudo nixos-rebuild switch --flake .#jee"
+      alias nix-h "home-manager switch --flake .#jee"
+      alias nix-b "sudo nixos-rebuild switch --flake .#jee"
       alias ga "git add $1"
       alias gc "git commit -m $1"
       alias gs "git status --short"

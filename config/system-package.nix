@@ -49,7 +49,6 @@
     # inputs.zls.packages.${pkgs.system}.default
 
     # Applications
-    postman
     discord-ptb
     chromium
 

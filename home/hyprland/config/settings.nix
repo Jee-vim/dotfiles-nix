@@ -14,11 +14,7 @@ in {
   ];
 
   exec-once = [
-    "waybar"
-    "hypridle"
     "hyprpaper"
-    "swaync"
-    "brave"
     "kitty"
     "systemctl --user set-environment GTK_THEME=Arc-Dark"
     "systemctl --user set-environment QT_STYLE_OVERRIDE=Arc-Dark"
@@ -33,9 +29,6 @@ in {
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";
-    # "col.active_border_color" = "rgba(4c7766ee)";
-    # "col.inactive_border_color" = "rgba(282828aa)";
-    # "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
     "col.active_border" = "rgba(${settings.color.primaryHypr}ff) rgba(${settings.color.primaryHypr}ff) 45deg";
     "col.inactive_border" = "rgba(${settings.color.secondaryHypr}ff) rgba(${settings.color.secondaryHypr}ff) 45deg";
   };
@@ -45,7 +38,7 @@ in {
     active_opacity = 1.0;
     inactive_opacity = 1.8;
     blur = {
-      enabled = true;
+      enabled = false;
       size = 4;
       passes = 1;
       vibrancy = 0.1000;
