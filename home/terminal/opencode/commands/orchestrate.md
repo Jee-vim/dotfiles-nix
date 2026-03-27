@@ -11,7 +11,7 @@ Sequential agent workflow for complex tasks.
 ### feature
 Full feature implementation workflow:
 ```
-planner -> tdd-guide -> code-reviewer -> blue-team
+planner -> tdd-guide -> code-reviewer -> security
 ```
 
 ### bugfix
@@ -29,7 +29,7 @@ planner -> code-reviewer -> tdd-guide
 ### security
 Security-focused review:
 ```
-blue-team -> code-reviewer -> planner
+security -> code-reviewer -> planner
 ```
 
 ## Execution Pattern
@@ -88,7 +88,7 @@ Executes:
    - Reviews implementation
    - Checks for issues
    - Suggests improvements
-   - Output: `HANDOFF: code-reviewer -> blue-team`
+   - Output: `HANDOFF: code-reviewer -> security`
 
 4. **Security Reviewer Agent**
    - Security audit
@@ -103,7 +103,7 @@ ORCHESTRATION REPORT
 ====================
 Workflow: feature
 Task: Add user authentication
-Agents: planner -> tdd-guide -> code-reviewer -> blue-team
+Agents: planner -> tdd-guide -> code-reviewer -> security
 
 SUMMARY
 -------
@@ -141,7 +141,7 @@ For independent checks, run agents in parallel:
 ### Parallel Phase
 Run simultaneously:
 - code-reviewer (quality)
-- blue-team (security)
+- security (security)
 - planner (design)
 
 ### Merge Results
@@ -167,6 +167,6 @@ $ARGUMENTS:
 
 1. **Start with planner** for complex features
 2. **Always include code-reviewer** before merge
-3. **Use blue-team** for auth/payment/PII
+3. **Use security** for auth/payment/PII
 4. **Keep handoffs concise** - focus on what next agent needs
 5. **Run verification** between agents if needed

@@ -36,8 +36,7 @@ Example: [INFO] Initializing module
 | pm | Project management, task delegation, workflow orchestration | First contact for all tasks, manages team delegation |
 | planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
 | code-reviewer | Code quality and maintainability | After writing/modifying code |
-| blue-team | Vulnerability detection | Before commits, sensitive code, user input handling |
-| red-team | Penetration testing, vulnerability assessment | Security audits, offensive security testing |
+| security | Security (defensive + offensive) | Security audits, vulnerability detection, penetration testing |
 | build-error-resolver | Fix build/type errors | When build fails |
 | refactor-cleaner | Dead code cleanup | Code maintenance, removing unused code |
 | engineer | Backend/Systems Engineer - Core logic, API | Python, Go, TypeScript backend development |
@@ -55,8 +54,8 @@ Use agents proactively without user prompt:
 - Complex feature requests → **planner**
 - Code just written/modified → **code-reviewer**
 - Bug fix or new feature → **tdd-guide**
-- Security-sensitive code → **blue-team**
-- Penetration testing → **red-team**
+- Security-sensitive code → **security**
+- Penetration testing → **security**
 - Build errors → **build-error-resolver**
 - Dead code cleanup → **refactor-cleaner**
 - Backend development → **engineer**

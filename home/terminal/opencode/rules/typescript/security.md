@@ -25,4 +25,4 @@ if (!apiKey) {
 
 ## Agent Support
 
-- Use **blue-team** skill for comprehensive security audits
+- Use **security** agent for comprehensive security audits
