@@ -1,8 +1,8 @@
 # Code Review
 
-Comprehensive security and quality review of uncommitted changes:
+Comprehensive security and quality review of uncommitted changes using **reviewer** agent:
 
-1. Get changed files: git diff --name-only HEAD
+1. Get changed files: `git diff --name-only HEAD`
 
 2. For each changed file, check for:
 
@@ -25,7 +25,6 @@ Comprehensive security and quality review of uncommitted changes:
 
 **Best Practices (MEDIUM):**
 - Mutation patterns (use immutable instead)
-- Emoji usage in code/comments
 - Missing tests for new code
 - Accessibility issues (a11y)
 

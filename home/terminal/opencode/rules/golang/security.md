@@ -24,6 +24,10 @@ if apiKey == "" {
   gosec ./...
   ```
 
+## Agent Support
+
+- Use **reviewer** agent for security-focused code review
+
 ## Context & Timeouts
 
 Always use `context.Context` for timeout control:

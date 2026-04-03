@@ -6,23 +6,18 @@ Located in `~/.claude/agents/`:
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
+| scout | Fast codebase reconnaissance | Understanding project structure, finding files, gathering context |
 | planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
-| tdd-guide | Test-driven development | New features, bug fixes |
-| code-reviewer | Code review | After writing code |
-| security | Security (blue + red team) | Security audits, vulnerability detection, penetration testing |
-| build-error-resolver | Fix build errors | When build fails |
-| e2e-runner | E2E testing | Critical user flows |
-| refactor-cleaner | Dead code cleanup | Code maintenance |
-| doc-updater | Documentation | Updating docs |
-| pm | Project management | Task delegation, workflow |
+| reviewer | Code review | After writing code |
+| worker | General purpose task execution | Running commands, executing tasks |
 
 ## Immediate Agent Usage
 
 No user prompt needed:
-1. Complex feature requests - Use **planner** agent
-2. Code just written/modified - Use **code-reviewer** agent
-3. Bug fix or new feature - Use **tdd-guide** agent
-4. Architectural decision - Use **planner** agent
+1. Quick context gathering - Use **scout** agent
+2. Complex feature requests - Use **planner** agent
+3. Code just written/modified - Use **reviewer** agent
+4. Task execution, running commands - Use **worker** agent
 
 ## Parallel Task Execution
 
@@ -30,20 +25,18 @@ ALWAYS use parallel Task execution for independent operations:
 
 ```markdown
 # GOOD: Parallel execution
-Launch 3 agents in parallel:
-1. Agent 1: Security analysis of auth module
-2. Agent 2: Performance review of cache system
-3. Agent 3: Type checking of utilities
+Launch 2 agents in parallel:
+1. Agent 1: Gather context with scout
+2. Agent 2: Review code with reviewer
 
 # BAD: Sequential when unnecessary
-First agent 1, then agent 2, then agent 3
+First scout, then reviewer
 ```
 
 ## Multi-Perspective Analysis
 
 For complex problems, use split role sub-agents:
-- Factual reviewer
-- Senior engineer
-- Security expert
-- Consistency reviewer
-- Redundancy checker
+- Scout (context gathering)
+- Planner (design)
+- Reviewer (quality)
+- Worker (execution)

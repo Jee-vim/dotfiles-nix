@@ -11,25 +11,25 @@ Sequential agent workflow for complex tasks.
 ### feature
 Full feature implementation workflow:
 ```
-planner -> tdd-guide -> code-reviewer -> security
+scout -> planner -> reviewer
 ```
 
 ### bugfix
 Bug investigation and fix workflow:
 ```
-planner -> tdd-guide -> code-reviewer
+scout -> planner -> reviewer
 ```
 
 ### refactor
 Safe refactoring workflow:
 ```
-planner -> code-reviewer -> tdd-guide
+scout -> planner -> reviewer
 ```
 
-### security
-Security-focused review:
+### quick
+Quick task execution:
 ```
-security -> code-reviewer -> planner
+worker
 ```
 
 ## Execution Pattern
@@ -72,28 +72,21 @@ Between agents, create handoff document:
 
 Executes:
 
-1. **Planner Agent**
+1. **Scout Agent**
+   - Gathers codebase context
+   - Identifies relevant files
+   - Output: `HANDOFF: scout -> planner`
+
+2. **Planner Agent**
    - Analyzes requirements
    - Creates implementation plan
    - Identifies dependencies
-   - Output: `HANDOFF: planner -> tdd-guide`
+   - Output: `HANDOFF: planner -> reviewer`
 
-2. **TDD Guide Agent**
-   - Reads planner handoff
-   - Writes tests first
-   - Implements to pass tests
-   - Output: `HANDOFF: tdd-guide -> code-reviewer`
-
-3. **Code Reviewer Agent**
+3. **Reviewer Agent**
    - Reviews implementation
    - Checks for issues
    - Suggests improvements
-   - Output: `HANDOFF: code-reviewer -> security`
-
-4. **Security Reviewer Agent**
-   - Security audit
-   - Vulnerability check
-   - Final approval
    - Output: Final Report
 
 ## Final Report Format
@@ -103,7 +96,7 @@ ORCHESTRATION REPORT
 ====================
 Workflow: feature
 Task: Add user authentication
-Agents: planner -> tdd-guide -> code-reviewer -> security
+Agents: scout -> planner -> reviewer
 
 SUMMARY
 -------
@@ -111,10 +104,9 @@ SUMMARY
 
 AGENT OUTPUTS
 -------------
+Scout: [summary]
 Planner: [summary]
-TDD Guide: [summary]
-Code Reviewer: [summary]
-Security Reviewer: [summary]
+Reviewer: [summary]
 
 FILES CHANGED
 -------------
@@ -124,28 +116,9 @@ TEST RESULTS
 ------------
 [Test pass/fail summary]
 
-SECURITY STATUS
----------------
-[Security findings]
-
 RECOMMENDATION
 --------------
 [SHIP / NEEDS WORK / BLOCKED]
-```
-
-## Parallel Execution
-
-For independent checks, run agents in parallel:
-
-```markdown
-### Parallel Phase
-Run simultaneously:
-- code-reviewer (quality)
-- security (security)
-- planner (design)
-
-### Merge Results
-Combine outputs into single report
 ```
 
 ## Arguments
@@ -154,19 +127,18 @@ $ARGUMENTS:
 - `feature <description>` - Full feature workflow
 - `bugfix <description>` - Bug fix workflow
 - `refactor <description>` - Refactoring workflow
-- `security <description>` - Security review workflow
-- `custom <agents> <description>` - Custom agent sequence
+- `quick <description>` - Quick task with worker
 
 ## Custom Workflow Example
 
 ```
-/orchestrate custom "planner,tdd-guide,code-reviewer" "Redesign caching layer"
+/orchestrate custom "scout,planner,reviewer" "Redesign caching layer"
 ```
 
 ## Tips
 
-1. **Start with planner** for complex features
-2. **Always include code-reviewer** before merge
-3. **Use security** for auth/payment/PII
+1. **Start with scout** for context gathering
+2. **Always include planner** for design
+3. **Always include reviewer** before merge
 4. **Keep handoffs concise** - focus on what next agent needs
 5. **Run verification** between agents if needed

@@ -15,4 +15,5 @@ Use **Playwright** as the E2E testing framework for critical user flows.
 
 ## Agent Support
 
-- **e2e-runner** - Playwright E2E testing specialist
+- **worker** - Execute tests, run commands
+- **reviewer** - Review test coverage and quality

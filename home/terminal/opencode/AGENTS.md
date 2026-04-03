@@ -33,37 +33,18 @@ Example: [INFO] Initializing module
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|
-| pm | Project management, task delegation, workflow orchestration | First contact for all tasks, manages team delegation |
+| scout | Fast codebase reconnaissance | Understanding project structure, finding files, gathering context |
 | planner | Implementation planning + system design | Complex features, refactoring, architectural decisions |
-| code-reviewer | Code quality and maintainability | After writing/modifying code |
-| security | Security (defensive + offensive) | Security audits, vulnerability detection, penetration testing |
-| build-error-resolver | Fix build/type errors | When build fails |
-| refactor-cleaner | Dead code cleanup | Code maintenance, removing unused code |
-| engineer | Backend/Systems Engineer - Core logic, API | Python, Go, TypeScript backend development |
-| frontend | Frontend Specialist - UI, CSS, animations | React/Next.js, CSS, GSAP animations |
-| devops | DevOps and tooling - CI/CD, Nix, Shell | NixOS, automation, CI/CD pipelines |
-| systems-engineer | Systems and Embedded Engineer | C/C++, Rust, ESP32, Arduino, firmware |
-| tdd-guide | Test-Driven Development specialist | Writing tests first, 80%+ coverage |
-| e2e-runner | End-to-end testing specialist | E2E tests with Playwright/Agent Browser |
-| doc-updater | Documentation and codemap specialist | Updating docs, codemaps, READMEs |
+| reviewer | Code quality and maintainability | After writing/modifying code |
+| worker | General purpose task execution | Running commands, executing tasks, general development work |
 
 ## Agent Orchestration
 
 Use agents proactively without user prompt:
-- All tasks → **pm** (first point of contact for delegation)
+- Quick context gathering → **scout**
 - Complex feature requests → **planner**
-- Code just written/modified → **code-reviewer**
-- Bug fix or new feature → **tdd-guide**
-- Security-sensitive code → **security**
-- Penetration testing → **security**
-- Build errors → **build-error-resolver**
-- Dead code cleanup → **refactor-cleaner**
-- Backend development → **engineer**
-- Frontend/UI work → **frontend**
-- DevOps/automation → **devops**
-- Embedded/firmware → **systems-engineer**
-- E2E testing → **e2e-runner**
-- Documentation updates → **doc-updater**
+- Code just written/modified → **reviewer**
+- Execute tasks, run commands → **worker**
 
 Use parallel execution for independent operations — launch multiple agents simultaneously.
 
@@ -89,10 +70,6 @@ Use parallel execution for independent operations — launch multiple agents sim
 
 **Repository pattern:** Encapsulate data access behind standard interface (findAll, findById, create, update, delete). Business logic depends on abstract interface, not storage mechanism.
 
-**Skeleton projects:** Search for battle-tested templates, evaluate with parallel agents (security, extensibility, relevance), clone best match, iterate within proven structure.
-
 ## Performance
 
 **Context management:** Avoid last 20% of context window for large refactoring and multi-file features. Lower-sensitivity tasks (single edits, docs, simple fixes) tolerate higher utilization.
-
-**Build troubleshooting:** Use build-error-resolver agent → analyze errors → fix incrementally → verify after each fix.

@@ -10,20 +10,17 @@ Test Types (ALL required):
 ## Test-Driven Development
 
 MANDATORY workflow:
-1. Write test first (RED)
-2. Run test - it should FAIL
-3. Write minimal implementation (GREEN)
-4. Run test - it should PASS
-5. Refactor (IMPROVE)
-6. Verify coverage (80%+)
-
-## Troubleshooting Test Failures
-
-1. Use **tdd-guide** agent
-2. Check test isolation
-3. Verify mocks are correct
-4. Fix implementation, not tests (unless tests are wrong)
+1. Use **scout** to understand codebase first
+2. Use **planner** to plan implementation with tests
+3. Write test first (RED)
+4. Run test - it should FAIL
+5. Write minimal implementation (GREEN)
+6. Run test - it should PASS
+7. Refactor (IMPROVE)
+8. Verify coverage (80%+)
 
 ## Agent Support
 
-- **tdd-guide** - Use PROACTIVELY for new features, enforces write-tests-first
+- **scout** - Understand codebase, find relevant files
+- **planner** - Plan implementation
+- **reviewer** - Review code quality
