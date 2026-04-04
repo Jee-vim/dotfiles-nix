@@ -2,7 +2,7 @@
 
 ## Available Agents
 
-Located in `~/.claude/agents/`:
+Located in `~/.opencode/agents/`:
 
 | Agent | Purpose | When to Use |
 |-------|---------|-------------|

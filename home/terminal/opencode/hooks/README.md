@@ -1,17 +1,17 @@
 
 # Hooks
 
-Hooks are event-driven automations that fire before or after Claude Code tool executions. They enforce code quality, catch mistakes early, and automate repetitive checks.
+Hooks are event-driven automations that fire before or after Opencode tool executions. They enforce code quality, catch mistakes early, and automate repetitive checks.
 
 ## How Hooks Work
 
 ```
-User request → Claude picks a tool → PreToolUse hook runs → Tool executes → PostToolUse hook runs
+User request → Opencode picks a tool → PreToolUse hook runs → Tool executes → PostToolUse hook runs
 ```
 
 - **PreToolUse** hooks run before the tool executes. They can **block** (exit code 2) or **warn** (stderr without blocking).
 - **PostToolUse** hooks run after the tool completes. They can analyze output but cannot block.
-- **Stop** hooks run after each Claude response.
+- **Stop** hooks run after each Opencode response.
 - **SessionStart/SessionEnd** hooks run at session lifecycle boundaries.
 - **PreCompact** hooks run before context compaction, useful for saving state.
 
@@ -51,7 +51,7 @@ User request → Claude picks a tool → PreToolUse hook runs → Tool executes 
 
 ### Disabling a Hook
 
-Remove or comment out the hook entry in `hooks.json`. If installed as a plugin, override in your `~/.claude/settings.json`:
+Remove or comment out the hook entry in `hooks.json`. If installed as a plugin, override in your `~/.opencode/settings.json`:
 
 ```json
 {
@@ -86,7 +86,7 @@ process.stdin.on('end', () => {
   const toolOutput = input.tool_output;    // Only available in PostToolUse
 
   // Warn (non-blocking): write to stderr
-  console.error('[Hook] Warning message shown to Claude');
+  console.error('[Hook] Warning message shown to Opencode');
 
   // Block (PreToolUse only): exit with code 2
   // process.exit(2);
