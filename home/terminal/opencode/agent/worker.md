@@ -1,3 +1,4 @@
+
 ---
 name: worker
 description: General purpose agent for executing tasks, running commands, and handling various development work.

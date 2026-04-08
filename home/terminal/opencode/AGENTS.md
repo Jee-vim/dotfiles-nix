@@ -8,6 +8,7 @@
 - Use echo instead heredoc and use ' instead "
 
 ## Style & Communication
+- For responses: Provide max 2 sentences or 50 words unless more explicitly requested.
 - No emojis.
 - No marketing or "tutorial" fluff.
 - No jokes.

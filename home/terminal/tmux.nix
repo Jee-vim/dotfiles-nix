@@ -41,6 +41,9 @@ in {
       # Escape time
       set -sg escape-time 7
 
+      set -g extended-keys on
+      set -g extended-keys-format csi-u
+
       # Turn off status line
       set -g status off
     '';
