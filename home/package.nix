@@ -12,7 +12,11 @@ with pkgs; [
   wf-recorder # Opsional, alternatif record for Wayland
   gst_all_1.gstreamer # fitur OBS
   v4l-utils # virtual camera support
+
   mpv # video player
+  ffmpeg
+  whisper-cpp
+  yt-dlp
 
   # Applications
   brave
