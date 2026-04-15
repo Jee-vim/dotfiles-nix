@@ -10,6 +10,7 @@
         "~/.config/opencode/rules/common/development-workflow.md"
         "~/.config/opencode/rules/common/coding-style.md"
         "~/.config/opencode/rules/common/git-workflow.md"
+        "~/.config/opencode/skills/caveman"
       ];
 
       keybinds = {
