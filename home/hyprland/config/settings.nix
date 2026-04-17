@@ -14,16 +14,15 @@ in {
   ];
 
   exec-once = [
-    "hyprpaper"
     "kitty"
-    "systemctl --user set-environment GTK_THEME=Arc-Dark"
-    "systemctl --user set-environment QT_STYLE_OVERRIDE=Arc-Dark"
-    "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
-    "systemctl --user restart xdg-desktop-portal" # Ensures portal services are running
+    # "systemctl --user set-environment GTK_THEME=Arc-Dark"
+    # "systemctl --user set-environment QT_STYLE_OVERRIDE=Arc-Dark"
+    # "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
+    # "systemctl --user restart xdg-desktop-portal" # Ensures portal services are running
   ];
 
   general = {
-    gaps_in = 7;
+    gaps_in = 4;
     gaps_out = 0;
     border_size = 0;
     resize_on_border = true;

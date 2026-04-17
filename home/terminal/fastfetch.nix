@@ -2,7 +2,11 @@
   programs.fastfetch = {
     enable = true;
     settings = {
-      logo = "none";
+      logo = {
+        source = "./ascii.txt";
+        type = "file";
+        height = 12;
+      };
       modules = [
         # Header
         "title"
@@ -11,39 +15,35 @@
         # System Info
         {
           type = "os";
-          key = "OS ";
+          key = " ";
         }
-        {
-          type = "host";
-          key = "HST";
-        }
+        # {
+        #   type = "host";
+        #   key = " ";
+        # }
         {
           type = "kernel";
-          key = "KRN";
+          key = " ";
         }
         {
           type = "packages";
-          key = "PKG";
+          key = " ";
         }
 
         # Desktop Environment
         {
-          type = "de";
-          key = "DE ";
-        }
-        {
           type = "wm";
-          key = "WM ";
+          key = " ";
         }
 
         # Shell/Terminal
         {
           type = "shell";
-          key = "SH ";
+          key = " ";
         }
         {
           type = "terminal";
-          key = "TER";
+          key = " ";
         }
 
         # Hardware
@@ -51,20 +51,12 @@
         # { type = "cpu"; key = "CPU"; }
         # { type = "gpu"; key = "GPU"; }
         {
-          type = "memory";
-          key = "RAM";
-        }
-        {
-          type = "swap";
-          key = "SWP";
-        }
-        {
           type = "disk";
-          key = "DSK";
+          key = " ";
         }
         {
           type = "battery";
-          key = "BAT";
+          key = " ";
         }
       ];
     };

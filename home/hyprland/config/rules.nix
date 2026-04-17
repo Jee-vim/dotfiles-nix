@@ -1,9 +1,6 @@
-let
-  settings = import ../../settings.nix;
-in {
+{
   wayland.windowManager.hyprland.settings = {
     windowrule = [
-      "match:class ^(imv)$, float on"
       "match:class ^(org.pulseaudio.pavucontrol)$, float on"
 
       "match:class ^(rofi)$, pin on"
@@ -31,11 +28,6 @@ in {
     workspace = [
       "w[tv1], gapsout:0, gapsin:0"
       "f[1], gapsout:0, gapsin:0"
-      "1, monitor:${settings.monitor.internal}"
-      "2, monitor:${settings.monitor.internal}"
-      "3, monitor:${settings.monitor.internal}"
-      "4, monitor:${settings.monitor.internal}"
-      "5, monitor:${settings.monitor.external}"
     ];
   };
 }
