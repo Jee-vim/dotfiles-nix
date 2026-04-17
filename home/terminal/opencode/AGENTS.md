@@ -14,7 +14,7 @@
 - No jokes.
 - If context is missing, ask ONE question and stop.
 - Only add comments to code if the logic is non-obvious.
-- Don't adding style if i didint ask
+- Don't adding/edit style if i didint ask
 
 ## Strict Logging Format
 All output must use: `[LEVEL] message`
