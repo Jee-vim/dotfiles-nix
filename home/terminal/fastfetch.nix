@@ -3,9 +3,10 @@
     enable = true;
     settings = {
       logo = {
-        source = "./ascii.txt";
+        source = ./ascii.txt;
         type = "file";
         height = 12;
+        width = 10;
       };
       modules = [
         # Header
@@ -15,7 +16,7 @@
         # System Info
         {
           type = "os";
-          key = " ";
+          key = " ";
         }
         # {
         #   type = "host";
@@ -27,23 +28,19 @@
         }
         {
           type = "packages";
-          key = " ";
+          key = "󰮯 ";
         }
 
         # Desktop Environment
         {
           type = "wm";
-          key = " ";
+          key = " ";
         }
 
         # Shell/Terminal
         {
-          type = "shell";
-          key = " ";
-        }
-        {
           type = "terminal";
-          key = " ";
+          key = " ";
         }
 
         # Hardware
