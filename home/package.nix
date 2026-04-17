@@ -1,6 +1,5 @@
 {pkgs}:
 with pkgs; [
-  hyprpaper
   hyprshot
   ttyper
   quickshell
