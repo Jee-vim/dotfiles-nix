@@ -2,11 +2,7 @@
   programs.fastfetch = {
     enable = true;
     settings = {
-      logo = {
-        source = ./nixos-gruvbox-logo.png;
-        type = "kitty";
-        height = 12;
-      };
+      logo = "none";
       modules = [
         # Header
         "title"
