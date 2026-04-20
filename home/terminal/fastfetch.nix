@@ -3,10 +3,9 @@
     enable = true;
     settings = {
       logo = {
-        source = ./ascii.txt;
-        type = "file";
+        source = ./nixos-gruvbox-logo.png;
+        type = "kitty";
         height = 12;
-        width = 10;
       };
       modules = [
         # Header
