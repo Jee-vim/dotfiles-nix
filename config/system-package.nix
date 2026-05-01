@@ -35,18 +35,15 @@
     neovim
     python3
     nodejs_22
-    nodePackages.pnpm
     lua-language-server
     typescript
     typescript-language-server
     lua-language-server
     astro-language-server
-    nodePackages.vscode-langservers-extracted
+    vue-language-server
     # docker-compose
     nixd # nix lang server
     alejandra # nix formatter
-    # inputs.zig.packages.${pkgs.system}."0.15.1"
-    # inputs.zls.packages.${pkgs.system}.default
 
     # Applications
     discord-ptb

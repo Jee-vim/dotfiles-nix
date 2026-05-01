@@ -14,17 +14,20 @@
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Jakarta";
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_16;
-    enableTCPIP = true;
-  };
+  # services.postgresql = {
+  #   enable = true;
+  #   package = pkgs.postgresql_16;
+  #   enableTCPIP = true;
+  # };
 
   system.stateVersion = "24.11";
 }
