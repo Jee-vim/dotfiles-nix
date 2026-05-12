@@ -12,6 +12,12 @@ in {
     ./waybar
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      yt-dlp = super.yt-dlp.override {deno = super.bun;};
+    })
+  ];
+
   home.username = setting.user.username;
   home.homeDirectory = setting.homeDir;
   home.packages = package;

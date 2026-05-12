@@ -12,10 +12,10 @@ with pkgs; [
   gst_all_1.gstreamer # fitur OBS
   v4l-utils # virtual camera support
 
-  mpv # video player
+  mpv
   ffmpeg
   whisper-cpp
-  yt-dlp
+  # (yt-dlp.override {javascriptSupport = false;})
 
   # Applications
   brave

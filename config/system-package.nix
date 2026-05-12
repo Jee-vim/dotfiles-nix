@@ -7,6 +7,7 @@
     # CLI Utilities
     cron
     ripgrep
+    nh
     wget
     fastfetch
     htop
@@ -35,6 +36,7 @@
     neovim
     python3
     nodejs_22
+    pnpm
     lua-language-server
     typescript
     typescript-language-server
