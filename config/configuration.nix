@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ./system-package.nix
+    ./home-manager.nix
     ./modules/networking.nix
     ./modules/users.nix
     ./modules/fonts.nix
@@ -22,12 +23,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Jakarta";
-
-  # services.postgresql = {
-  #   enable = true;
-  #   package = pkgs.postgresql_16;
-  #   enableTCPIP = true;
-  # };
 
   system.stateVersion = "24.11";
 }
