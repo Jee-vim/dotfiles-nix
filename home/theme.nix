@@ -1,12 +1,9 @@
 {pkgs, ...}: {
   gtk = {
     enable = true;
-    theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
-    };
+    theme = null;
     iconTheme = {
-      name = "Gruvbox-Plus-Dark";
+      name = "Grugsvbox-Plus-Dark";
       package = pkgs.fetchFromGitHub {
         owner = "SylEleuth";
         repo = "gruvbox-plus-icon-pack";
