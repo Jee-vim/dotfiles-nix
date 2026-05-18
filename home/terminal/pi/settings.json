@@ -1,0 +1,28 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "hideThinkingBlock": true,
+  "theme": "dark",
+  "collapseChangelog": true,
+  "quietStartup": true,
+  "transport": "sse",
+  "defaultProvider": "opencode",
+  "9router": {
+    "baseUrl": "http://localhost:20128/v1"
+  },
+  "compaction": {
+    "enabled": true
+  },
+  "images": {
+    "blockImages": true
+  },
+  "showHardwareCursor": true,
+  "treeFilterMode": "default",
+  "packages": [
+    "npm:pi-subagents",
+    "npm:pi-mcp-adapter"
+  ],
+  "defaultModel": "big-pickle",
+  "defaultThinkingLevel": "high",
+  "doubleEscapeAction": "tree",
+  "enableInstallTelemetry": true
+}
