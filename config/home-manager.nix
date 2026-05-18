@@ -8,7 +8,7 @@ in {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users."{setting.user.username}".imports = [../home];
+  home-manager.users."${setting.user.username}".imports = [../home];
 
   nixpkgs.overlays = [
     (self: super: {
