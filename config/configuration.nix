@@ -23,6 +23,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Jakarta";
-
   system.stateVersion = "24.11";
 }

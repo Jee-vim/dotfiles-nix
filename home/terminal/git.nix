@@ -1,10 +1,8 @@
 {...}: let
-  style = import ../settings.nix;
 in {
   programs.git = {
     enable = true;
     settings = {
-      user.name = "${style.user.name}";
       init.defaultBranch = "main";
       color.ui = "auto";
       push = {

@@ -1,4 +1,6 @@
-{secrets, ...}: {
+{inputs, ...}: let
+  secrets = import inputs.secrets;
+in {
   imports = [
     ./host.nix
   ];
