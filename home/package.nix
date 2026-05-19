@@ -12,6 +12,7 @@ with pkgs; [
   brave
   telegram-desktop
   discord-ptb
+  insomnia
   # xautoclick
   # localsend
 ]
