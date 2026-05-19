@@ -1,25 +1,17 @@
 {pkgs}:
 with pkgs; [
-  hyprshot
   ttyper
-  quickshell
-
-  # Recording and Share Screen
-  obs-studio
-  wlroots # Wayland support
-  xdg-desktop-portal-hyprland # Portal screen sharing
-  wf-recorder # Opsional, alternatif record for Wayland
-  gst_all_1.gstreamer # fitur OBS
-  v4l-utils # virtual camera support
-
+  hyprshot
   mpv
   ffmpeg
   whisper-cpp
-  # (yt-dlp.override {javascriptSupport = false;})
 
   # Applications
+  chromium
+  obs-studio
   brave
   telegram-desktop
+  discord-ptb
   # xautoclick
   # localsend
 ]

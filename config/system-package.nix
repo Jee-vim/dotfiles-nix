@@ -27,6 +27,11 @@
     bzip2
     file
     pm2
+    wlroots # Wayland support
+    xdg-desktop-portal-hyprland # Portal screen sharing
+    wf-recorder # Opsional, alternatif record for Wayland
+    gst_all_1.gstreamer # OBS feature
+    v4l-utils # virtual camera support
 
     # Audio Management
     pulseaudioFull # cli
@@ -46,10 +51,6 @@
     # docker-compose
     nixd # nix lang server
     alejandra # nix formatter
-
-    # Applications
-    discord-ptb
-    chromium
 
     # File System & Compatibility
     pkgs.nix-ld # Compatibility layer for dynamic linking in Nix
