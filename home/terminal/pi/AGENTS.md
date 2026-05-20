@@ -5,6 +5,7 @@
 ## Mandatory Operations
 - No interactive shell commands.
 - Use echo instead heredoc and use ' instead "
+- Create shell.nix if making a script in python or bash that need some 3dParty library instead use pip directly
 
 ## Style & Communication
 - For responses: Provide max 2 sentences or 50 words unless more explicitly requested.
@@ -14,6 +15,7 @@
 - If context is missing, ask ONE question and stop.
 - Only add comments to code if the logic is non-obvious.
 - Don't adding/edit style if i didint ask
+- Every agent must always use the caveman skill on every single conversation. using the caveman skill /skill:caveman
 
 ## Strict Logging Format
 All output/log must use: `[LEVEL] message`
@@ -36,17 +38,12 @@ Example: [INFO] Initializing module
 | reviewer | Code quality and maintainability | After writing/modifying code |
 | worker | General purpose task execution | Running commands, executing tasks, general development work |
 
-## Agent Orchestration
 
-Use agents proactively without user prompt:
-- Quick context gathering → **scout**
-- Complex feature requests → **planner**
-- Code just written/modified → **reviewer**
-- Execute tasks, run commands → **worker**
+## Agent Orchestration & State Transfer
 
-Use parallel execution for independent operations — launch multiple agents simultaneously.
-
-All agents must always load and execute tasks using the caveman skill defined at `/skills/caveman/SKILL.md`.
+- **Handoff Chain**: `scout` (gather state) → `planner` (write spec to `/tmp/plan.md`) → `worker` (execute plan) → `reviewer` (verify output).
+- **Parallel Limits**: Run parallel agents only on independent domains; never allow simultaneous writes to the same file.
+- **State Preservation**: Append structural context into absolute path temporary files rather than passing large text histories.
 
 ## Coding Style
 
@@ -59,6 +56,13 @@ All agents must always load and execute tasks using the caveman skill defined at
 - Proper error handling, no hardcoded values
 - Readable, well-named identifiers
 
+## UI & Layout Consistency
+
+**Viewport Safety:** Always use `svh` (Small Viewport Height) instead of `dvh` for mobile layout heights to prevent layout shifts from address bar resizing.
+**Component Lifecycle:** Enforce local, immutable state definitions within structural units; handle reactive bindings natively without third-party mutations.
+**Token Enforcement:** Utilize pre-defined CSS design variables exclusively; do not declare inline aesthetic mutations or invent arbitrary style tokens.
+**Style Reconnaissance:** Before adding new classes, search global styles at `global.css` or `index.css` to check for pre-existing utility definitions.
+
 ## Architecture Patterns
 
 **API response format:** Consistent envelope with success indicator, data payload, error message, and pagination metadata.
@@ -67,3 +71,5 @@ All agents must always load and execute tasks using the caveman skill defined at
 ## Performance
 
 **Context management:** Avoid last 20% of context window for large refactoring and multi-file features. Lower-sensitivity tasks (single edits, docs, simple fixes) tolerate higher utilization.
+**Token Reduction:** Clean text inputs before processing; strip all lockfiles, build logs, and binary outputs from the active agent context.
+**Caching Strategy:** Cache absolute path listings and tool search outputs at `/tmp/scout_cache` for 5 minutes instead of re-scanning the disk.
