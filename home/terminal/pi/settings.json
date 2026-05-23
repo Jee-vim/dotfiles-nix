@@ -5,10 +5,7 @@
   "collapseChangelog": true,
   "quietStartup": true,
   "transport": "sse",
-  "defaultProvider": "opencode",
-  "9router": {
-    "baseUrl": "http://localhost:20128/v1"
-  },
+  "defaultProvider": "openrouter",
   "compaction": {
     "enabled": true
   },
@@ -21,7 +18,7 @@
     "npm:pi-subagents",
     "npm:pi-mcp-adapter"
   ],
-  "defaultModel": "big-pickle",
+  "defaultModel": "openrouter/free",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enableInstallTelemetry": true

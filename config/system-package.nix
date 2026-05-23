@@ -32,6 +32,7 @@
     wf-recorder # Opsional, alternatif record for Wayland
     gst_all_1.gstreamer # OBS feature
     v4l-utils # virtual camera support
+    bluetui
 
     # Audio Management
     pulseaudioFull # cli

@@ -7,7 +7,14 @@
     enable = true;
     pulse.enable = true;
   };
-  services.openssh.enable = false;
+  services.openssh = {
+    enable = true;
+    ports = [22];
+    settings = {
+      PasswordAuthentication = true;
+      PermitRootLogin = "yes";
+    };
+  };
   services.dbus.packages = with pkgs; [dconf];
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
