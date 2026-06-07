@@ -52,6 +52,8 @@
     # docker-compose
     nixd # nix lang server
     alejandra # nix formatter
+    inputs.zig.packages.${pkgs.system}."0.16.0"
+    inputs.zls.packages.${pkgs.system}.default
 
     # File System & Compatibility
     pkgs.nix-ld # Compatibility layer for dynamic linking in Nix
