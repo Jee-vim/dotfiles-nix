@@ -1,4 +1,8 @@
-# GSAP Skills — Index for AI Agents
+---
+name: gsap
+description: Official GSAP skills.
+license: MIT
+---
 
 Use this file to discover which skill to load. Each skill lives in a directory of the same name under skills/ and contains SKILL.md.
 

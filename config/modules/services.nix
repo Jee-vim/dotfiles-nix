@@ -17,5 +17,4 @@
   };
   services.dbus.packages = with pkgs; [dconf];
   services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
 }

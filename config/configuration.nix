@@ -19,6 +19,7 @@
     "openssl-1.1.1w"
   ];
 
+  hardware.bluetooth.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
