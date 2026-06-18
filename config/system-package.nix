@@ -4,6 +4,14 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    #  Global bash script
+    (writeScriptBin "nix-clean" (builtins.readFile ../home/script/cleanup.sh))
+    (writeScriptBin "nix-clean-node" (builtins.readFile ../home/script/cleanup-node.sh))
+    (writeScriptBin "powermenu" (builtins.readFile ../home/script/powermenu.sh))
+    (writeScriptBin "volume" (builtins.readFile ../home/script/volume.sh))
+    (writeScriptBin "brightness" (builtins.readFile ../home/script/brightness.sh))
+    (writeScriptBin "screenshots" (builtins.readFile ../home/script/screenshot.sh))
+
     # CLI Utilities
     cron
     ripgrep

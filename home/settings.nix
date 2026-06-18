@@ -28,13 +28,6 @@ rec {
 
   start_page = "${dotfilesPath}/home/blank-page.html";
 
-  script = {
-    powermenu = "${dotfilesPath}/home/script/powermenu.sh";
-    volume = "${dotfilesPath}/home/script/volume.sh";
-    brightness = "${dotfilesPath}/home/script/brightness.sh";
-    screenshot = "${dotfilesPath}/home/script/screenshot.sh";
-  };
-
   color = {
     backgroundRgb = "rgba(40, 40, 40, 0.9)";
     background = "#1d2021";

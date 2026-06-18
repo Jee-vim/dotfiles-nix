@@ -13,12 +13,12 @@ in {
     "$mod, G, exec, hyprctl dispatch movewindow mon:+1 && hyprctl dispatch focusmonitor +1"
     "$mod, F, togglefloating,"
     "$mod, I, exec, rofi -show drun"
-    "$mod, S, exec, ${settings.script.screenshot}"
-    "$mod, O, exec, ${settings.script.powermenu}"
-    "$mod, U, exec, ${settings.script.volume} up"
-    "$mod, Y, exec, ${settings.script.volume} down"
-    "$mod SHIFT, U, exec, ${settings.script.brightness} up"
-    "$mod SHIFT, Y, exec, ${settings.script.brightness} down"
+    "$mod, S, exec, screenshots"
+    "$mod, O, exec, powermenu"
+    "$mod, U, exec, volume up"
+    "$mod, Y, exec, volume down"
+    "$mod SHIFT, U, exec, brightness up"
+    "$mod SHIFT, Y, exec, brightness down"
 
     # Move focus with $mod + arrow keys
     "$mod, h, movefocus, l"
