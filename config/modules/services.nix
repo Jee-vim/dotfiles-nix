@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  services.flatpak.enable = true;
   services.ollama.enable = false;
   services.cron.enable = true;
   services.libinput.enable = true;

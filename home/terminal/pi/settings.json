@@ -15,8 +15,6 @@
   "showHardwareCursor": true,
   "treeFilterMode": "default",
   "packages": [
-    "npm:pi-subagents",
-    "npm:pi-mcp-adapter",
     "npm:pi-hermes-memory"
   ],
   "defaultModel": "openrouter/free",
