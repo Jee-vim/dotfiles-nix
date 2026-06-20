@@ -7,6 +7,11 @@
 - Use echo instead heredoc and use ' instead "
 - Create shell.nix if making a script in python or bash that need some 3dParty library instead use pip directly
 
+## When using the Lightpanda MCP server:
+- Always use the `markdown` tool for webpage retrieval.
+- Never use `html` unless raw DOM inspection is explicitly requested.
+- Prefer `markdown(url)` over `goto(url)` followed by extraction.
+
 ## Style & Communication
 - For responses: Provide max 2 sentences or 50 words unless more explicitly requested.
 - No emojis.
