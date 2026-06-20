@@ -4,19 +4,9 @@
       "command": "npx",
       "args": ["-y", "ddg-mcp-search"]
     },
-    "playwright": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@playwright/mcp@latest",
-        "--headless"
-      ],
-      "directTools": [
-        "browser_handle_dialog",
-        "browser_navigate",
-        "browser_click",
-        "browser_wait_for"
-      ]
+    "lightpanda": {
+      "command": "lightpanda",
+      "args": ["mcp"]
     },
     "sequential-thinking": {
       "command": "npx",
