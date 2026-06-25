@@ -4,7 +4,6 @@ rec {
     username = "jee";
   };
 
-  # Centralized home directory - use this instead of hardcoded paths
   homeDir = "/home/jee";
   dotfilesPath = "${homeDir}/.dotfiles";
 
@@ -19,11 +18,6 @@ rec {
     # rounded = "10";
     # radius = "10px";
     opacity = 1.75;
-  };
-
-  image = {
-    internal = "${homeDir}/Wallpaper/space-shuttle.png";
-    external = "${homeDir}/Wallpaper/space-shuttle.png";
   };
 
   start_page = "${dotfilesPath}/home/blank-page.html";

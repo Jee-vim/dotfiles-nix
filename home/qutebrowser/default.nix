@@ -36,8 +36,8 @@ in {
       config.set("content.media.video_capture", False)
       config.set("content.notifications.enabled", False)
 
-      config.bind('<Alt-j>', 'tab-next')
-      config.bind('<Alt-k>', 'tab-prev')
+      config.bind('<Ctrl-j>', 'tab-next')
+      config.bind('<Ctrl-k>', 'tab-prev')
 
       c.statusbar.show = 'never'
       c.scrolling.bar = "never"
