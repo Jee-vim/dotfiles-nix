@@ -16,7 +16,7 @@
   "treeFilterMode": "default",
   "packages": [
     "npm:pi-mcp-adapter",
-    "npm:pi-hermes-memory"
+    "npm:pi-diet-memory"
   ],
   "defaultModel": "openrouter/free",
   "defaultThinkingLevel": "high",
