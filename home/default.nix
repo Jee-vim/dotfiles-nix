@@ -9,7 +9,6 @@ in {
     ./rofi
     ./theme.nix
     ./cursor
-    ./waybar
   ];
 
   home.username = setting.user.username;
