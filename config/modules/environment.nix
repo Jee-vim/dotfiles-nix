@@ -16,6 +16,15 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
     DISCORD_USE_WAYLAND = "0";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+  environment.localBinInPath = true;
+  environment.sessionVariables = {
+    PATH = [
+      "$HOME/.npm-global/bin"
+      "$HOME/.foundry/bin"
+    ];
   };
 
   programs.nix-ld.enable = true;

@@ -18,6 +18,7 @@ in {
       detect_urls = "yes";
       copy_on_select = "yes";
       shell = "fish";
+
       background = settings.color.background;
       foreground = settings.color.foreground;
       cursor = settings.color.whiteLight;
@@ -39,10 +40,35 @@ in {
       color14 = settings.color.aquaLight;
       color7 = settings.color.white;
       color15 = settings.color.whiteLight;
+
+      # --- Tab Bar Customization ---
+      tab_bar_style = "separator";
+      tab_separator = "\"\""; # Needs quotes escaped so Nix passes "" to kitty.conf
+      tab_bar_min_tabs = 2;
+      active_tab_font_style = "bold";
+      inactive_tab_font_style = "normal";
+
+      active_tab_foreground = settings.color.background;
+      active_tab_background = settings.color.aqua;
+
+      inactive_tab_foreground = settings.color.foreground;
+      inactive_tab_background = settings.color.background;
+
+      tab_title_template = " ({index}) {b:title} ";
+      active_tab_title_template = " ({index}) {b:title} ";
     };
     keybindings = {
       "ctrl+y" = "copy_to_clipboard";
       "ctrl+p" = "paste_from_clipboard";
+
+      "ctrl+]" = "next_tab";
+      "ctrl+[" = "previous_tab";
+
+      "ctrl+t" = "new_tab";
+      "ctrl+q" = "close_tab";
+
+      "ctrl+shift+page_up" = "move_tab_backward";
+      "ctrl+shift+page_down" = "move_tab_forward";
     };
   };
 }
