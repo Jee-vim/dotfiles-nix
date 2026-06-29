@@ -1,7 +1,7 @@
-{lib, ...}: {
+{
   networking = {
     hostName = "Nix";
-    nameservers = ["127.0.0.1"];
+    nameservers = ["1.0.0.1"]; # or 1.1.1.1
     firewall = {
       enable = false;
       allowPing = false;

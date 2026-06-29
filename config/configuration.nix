@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ./system-package.nix
     ./home-manager.nix
     ./modules/networking.nix
     ./modules/users.nix

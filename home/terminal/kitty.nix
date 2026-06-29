@@ -54,8 +54,8 @@ in {
       inactive_tab_foreground = settings.color.foreground;
       inactive_tab_background = settings.color.background;
 
-      tab_title_template = " ({index}) {b:title} ";
-      active_tab_title_template = " ({index}) {b:title} ";
+      tab_title_template = "  ({index}) {b:title}  ";
+      active_tab_title_template = "  ({index}) {b:title}  ";
     };
     keybindings = {
       "ctrl+y" = "copy_to_clipboard";
