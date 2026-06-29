@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  settings = import ../../home/settings.nix;
+in {
   systemd.services.pm2 = {
     description = "PM2 process manager";
     after = ["network.target"];
@@ -6,10 +8,10 @@
 
     serviceConfig = {
       Type = "forking";
-      User = "jee";
+      User = settings.user.username;
 
       Environment = [
-        "PM2_HOME=/home/jee/.pm2"
+        "PM2_HOME=${settings.homeDir}/.pm2"
         "PATH=${pkgs.nodejs}/bin:${pkgs.pm2}/bin"
       ];
 

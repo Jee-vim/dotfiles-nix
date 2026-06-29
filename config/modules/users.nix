@@ -1,4 +1,4 @@
-{lib, ...}: let
+let
   settings = import ../../home/settings.nix;
 in {
   users.users.${settings.user.username} = {
