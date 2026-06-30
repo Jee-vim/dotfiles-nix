@@ -1,17 +1,17 @@
 {pkgs, ...}: {
+  # confirm installation
+  # find $(nix build nixpkgs#volantes-cursors --no-link --print-out-paths)/share/icons -maxdepth 1
+  # or ls $(nix eval --raw nixpkgs#volantes-cursors)/share/icons
   gtk = {
     enable = true;
-    theme = null;
-    iconTheme = {
-      name = "Grugsvbox-Plus-Dark";
-      package = pkgs.fetchFromGitHub {
-        owner = "SylEleuth";
-        repo = "gruvbox-plus-icon-pack";
-        rev = "144d470";
-        sha256 = "1ijal9qjvl9idmka8yq60wdm99svplb9ppf2hd08i1fym75madia";
-      };
+    theme = {
+      package = pkgs.gruvbox-gtk-theme;
+      name = "Gruvbox-Dark";
     };
     gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
   };
@@ -19,21 +19,24 @@
   qt = {
     enable = true;
     platformTheme.name = "gtk";
-    style.name = "gtk2";
+    style.name = "adwaita-dark";
+  };
+
+  home.pointerCursor = {
+    name = "volantes_cursors";
+    package = pkgs.volantes-cursors;
+    size = 24;
+
+    gtk.enable = true;
+    x11.enable = true;
   };
 
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
-    GTK_THEME = "Arc-Dark";
-    QT_STYLE_OVERRIDE = "gtk2";
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    QT_QPA_PLATFORMTHEME = "gtk2";
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
   };
 
   home.packages = with pkgs; [
-    libsForQt5.qt5ct
     gtk-engine-murrine
-    arc-theme
   ];
 }

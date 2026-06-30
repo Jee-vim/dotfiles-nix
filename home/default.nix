@@ -8,7 +8,6 @@ in {
     ./qutebrowser
     ./rofi
     ./theme.nix
-    ./cursor
   ];
 
   home.username = setting.user.username;

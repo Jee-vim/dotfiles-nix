@@ -8,17 +8,9 @@ in {
     # "${settings.monitor.internal},preferred,0x1080,auto" # bottom
   ];
 
-  env = [
-    "XCURSOR_SIZE,24"
-    "HYPRCURSOR_SIZE,24"
-  ];
-
   exec-once = [
     "kitty"
-    # "systemctl --user set-environment GTK_THEME=Arc-Dark"
-    # "systemctl --user set-environment QT_STYLE_OVERRIDE=Arc-Dark"
-    # "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
-    # "systemctl --user restart xdg-desktop-portal" # Ensures portal services are running
+    "hyprctl setcursor volantes_cursors 24"
   ];
 
   general = {
