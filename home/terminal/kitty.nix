@@ -41,9 +41,8 @@ in {
       color7 = settings.color.white;
       color15 = settings.color.whiteLight;
 
-      # --- Tab Bar Customization ---
       tab_bar_style = "separator";
-      tab_separator = "\"\""; # Needs quotes escaped so Nix passes "" to kitty.conf
+      tab_separator = " | ";
       tab_bar_min_tabs = 2;
       active_tab_font_style = "bold";
       inactive_tab_font_style = "normal";
@@ -54,8 +53,8 @@ in {
       inactive_tab_foreground = settings.color.foreground;
       inactive_tab_background = settings.color.background;
 
-      tab_title_template = "  ({index}) {b:title}  ";
-      active_tab_title_template = "  ({index}) {b:title}  ";
+      tab_title_template = "({index}) {b:title}";
+      active_tab_title_template = "({index}) {b:title}";
     };
     keybindings = {
       "ctrl+y" = "copy_to_clipboard";
