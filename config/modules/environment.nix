@@ -19,7 +19,7 @@
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
-    DISCORD_USE_WAYLAND = "0";
+    # DISCORD_USE_WAYLAND = "0";
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
@@ -52,10 +52,8 @@
     htop-vim
     btop
     openconnect
-    gcc
     dconf
     libnotify
-    pamixer
     brightnessctl
     wl-clipboard
     zip
@@ -66,22 +64,20 @@
     file
     pm2
     wlroots # Wayland support
-    xdg-desktop-portal-hyprland # Portal screen sharing
     wf-recorder # Opsional, alternatif record for Wayland
     gst_all_1.gstreamer # OBS feature
     v4l-utils # virtual camera support
     bluetui
 
     # Audio Management
-    pulseaudioFull # cli
     pavucontrol # gui
+    pamixer # cli
 
     # Development Tools
     neovim
     python3
     nodejs_22
     pnpm
-    lua-language-server
     typescript
     typescript-language-server
     lua-language-server

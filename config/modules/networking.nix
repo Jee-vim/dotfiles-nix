@@ -1,7 +1,7 @@
 {
   networking = {
     hostName = "Nix";
-    nameservers = ["1.0.0.1"]; # or 1.1.1.1
+    nameservers = ["127.0.0.1"];
     firewall = {
       enable = false;
       allowPing = false;
@@ -19,6 +19,7 @@
       require_nolog = true;
       require_nofilter = false;
       server_names = ["cloudflare" "quad9-dnscrypt-ip4-filter-pri" "mullvad-adblock-doh"];
+      cache = true;
     };
   };
 }

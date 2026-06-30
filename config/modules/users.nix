@@ -8,10 +8,5 @@ in {
     extraGroups = ["wheel" "networkmanager" "dialout" "docker"];
   };
 
-  security.sudo.extraRules = [
-    {
-      users = [settings.user.username];
-      commands = [{ command = "ALL"; }];
-    }
-  ];
+  security.sudo.wheelNeedsPassword = true;
 }

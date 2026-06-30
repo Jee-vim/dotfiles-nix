@@ -6,6 +6,8 @@
   services.printing.enable = true;
   services.pipewire = {
     enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
   services.openssh = {
@@ -13,7 +15,7 @@
     ports = [22];
     settings = {
       PasswordAuthentication = true;
-      PermitRootLogin = "yes";
+      PermitRootLogin = "no";
     };
   };
   services.dbus.packages = with pkgs; [dconf];
