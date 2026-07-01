@@ -12,11 +12,14 @@ rec {
     external = "HDMI-A-1";
   };
 
+  image ={
+    internal= "/home/jee/Wallpaper/gruvbox-layer.png";
+    external= "/home/jee/Wallpaper/gruvbox-layer.png";
+  };
+
   style = {
     rounded = "0";
     radius = "0px";
-    # rounded = "10";
-    # radius = "10px";
     opacity = 1.75;
   };
 
@@ -29,7 +32,7 @@ rec {
     foreground = "#ebdbb2";
     primary = "#4c7766";
     primaryHypr = "8ec07c";
-    secondaryHypr = "282828";
+    secondaryHypr = "1d2021";
 
     red = "#cc241d";
     green = "#98971a";

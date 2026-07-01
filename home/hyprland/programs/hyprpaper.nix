@@ -4,14 +4,19 @@ in {
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [
-        "${settings.image.internal}"
-        "${settings.image.external}"
-      ];
+      # You no longer need the "preload" array at all with the new syntax!
+      
       wallpaper = [
-        "${settings.monitor.internal},${settings.image.internal}"
-        "${settings.monitor.external},${settings.image.external}"
+        {
+          monitor = "${settings.monitor.internal}";
+          path = "${settings.image.internal}";
+        }
+        {
+          monitor = "${settings.monitor.external}";
+          path = "${settings.image.external}";
+        }
       ];
+      
       ipc = false;
       splash = true;
       splash_offset = 20;
