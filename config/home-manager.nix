@@ -1,5 +1,5 @@
 {inputs, ...}: let
-  setting = import ../../home/settings.nix;
+  setting = import ../home/settings.nix;
 in {
   imports = [
     inputs.home-manager.nixosModules.home-manager
