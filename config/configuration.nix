@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ./home-manager.nix
+    ./modules/home-manager.nix
     ./modules/networking.nix
     ./modules/users.nix
     ./modules/fonts.nix

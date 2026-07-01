@@ -2,9 +2,6 @@
 with pkgs; [
   ttyper
   hyprshot
-  mpv
-  ffmpeg
-  whisper-cpp
 
   # Applications
   chromium
