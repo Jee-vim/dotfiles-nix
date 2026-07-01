@@ -15,6 +15,7 @@
   "showHardwareCursor": true,
   "treeFilterMode": "default",
   "packages": [
+    "npm:pi-kilocode",
     "npm:pi-mcp-adapter",
     "npm:pi-diet-memory"
   ],
