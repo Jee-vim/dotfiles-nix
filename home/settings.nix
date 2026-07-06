@@ -13,8 +13,8 @@ rec {
   };
 
   image ={
-    internal= "/home/jee/Wallpaper/gruvbox-layer.png";
-    external= "/home/jee/Wallpaper/gruvbox-layer.png";
+    internal= "/home/jee/Wallpaper/nixos-gruvbox-logo.png";
+    external= "/home/jee/Wallpaper/gruvbox-peiwen-yu.jpg";
   };
 
   style = {
@@ -31,7 +31,7 @@ rec {
     backgroundLight = "#3c3836";
     foreground = "#ebdbb2";
     primary = "#4c7766";
-    primaryHypr = "8ec07c";
+    primaryHypr = "ebdbb2";
     secondaryHypr = "1d2021";
 
     red = "#cc241d";

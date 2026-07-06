@@ -14,14 +14,14 @@ in {
   ];
 
   general = {
-    gaps_in = 4;
-    gaps_out = 8;
+    gaps_in = 6;
+    gaps_out = 14;
     border_size = 1;
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";
-    "col.active_border" = "rgba(${settings.color.primaryHypr}ff) rgba(${settings.color.primaryHypr}ff) 45deg";
-    "col.inactive_border" = "rgba(${settings.color.secondaryHypr}ff) rgba(${settings.color.secondaryHypr}ff) 45deg";
+    "col.active_border" = "rgba(${settings.color.primaryHypr}ff)";
+    "col.inactive_border" = "rgba(${settings.color.secondaryHypr}ff)";
   };
 
   decoration = {
