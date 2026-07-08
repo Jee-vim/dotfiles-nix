@@ -24,7 +24,7 @@ in {
         background = mkLiteral settings.color.background;
         foreground = mkLiteral settings.color.foreground;
         foreground-alt = mkLiteral settings.color.foreground;
-        primary = mkLiteral settings.color.primary;
+        primary = mkLiteral settings.color.foreground;
 
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
@@ -46,6 +46,8 @@ in {
         border-color = mkLiteral "@foreground";
         border-radius = mkLiteral "@radius";
         transparency = "real";
+        location = mkLiteral "center";
+        anchor = mkLiteral "north";
       };
       mainbox = {
         orientation = mkLiteral "vertical";
@@ -96,7 +98,7 @@ in {
         cursor = mkLiteral "pointer";
       };
       "element selected" = {
-        text-color = mkLiteral "@foreground-alt";
+        text-color = mkLiteral "@background";
         background-color = mkLiteral "@primary";
         cursor = mkLiteral "pointer";
       };

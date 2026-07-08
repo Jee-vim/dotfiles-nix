@@ -15,8 +15,8 @@ in {
 
   general = {
     gaps_in = 6;
-    gaps_out = 14;
-    border_size = 1;
+    gaps_out = 20;
+    border_size = 0;
     resize_on_border = true;
     allow_tearing = false;
     layout = "dwindle";

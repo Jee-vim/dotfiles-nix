@@ -13,8 +13,8 @@ rec {
   };
 
   image ={
-    internal= "/home/jee/Wallpaper/nixos-gruvbox-logo.png";
-    external= "/home/jee/Wallpaper/gruvbox-peiwen-yu.jpg";
+    internal= "/home/jee/Wallpaper/gruvbox-bw-4.png";
+    external= "/home/jee/Wallpaper/gruvbox-bw-3.png";
   };
 
   style = {
