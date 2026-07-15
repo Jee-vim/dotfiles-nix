@@ -20,9 +20,7 @@
     "npm:pi-diet-memory"
   ],
   "extensions": [
-    "~/.pi/agent/extensions/security.ts",
-    "~/.pi/agent/extensions/lsp.ts",
-    "~/.pi/agent/extensions/branch-guard.ts"
+    "~/.pi/agent/extensions/security.ts"
   ],
   "defaultModel": "openrouter/free",
   "defaultThinkingLevel": "high",
