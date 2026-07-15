@@ -15,4 +15,7 @@ in {
 
   home.file.".pi/agent/agents".source =
     config.lib.file.mkOutOfStoreSymlink "${configSourceDir}/agents";
+
+  home.file.".pi/agent/extensions".source =
+    config.lib.file.mkOutOfStoreSymlink "${configSourceDir}/extensions";
 }

@@ -19,6 +19,10 @@
     "npm:pi-mcp-adapter",
     "npm:pi-diet-memory"
   ],
+  "extensions": [
+    "~/.pi/agent/extensions/notify.ts",
+    "~/.pi/agent/extensions/security.ts"
+  ],
   "defaultModel": "openrouter/free",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
