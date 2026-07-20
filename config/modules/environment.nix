@@ -86,7 +86,7 @@
     # docker-compose
     nixd # nix lang server
     alejandra # nix formatter
-    inputs.zig.packages.${pkgs.stdenv.hostPlatform.system}."0.16.0"
+    inputs.zig.packages.${pkgs.stdenv.hostPlatform.system}.master
     inputs.zls.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

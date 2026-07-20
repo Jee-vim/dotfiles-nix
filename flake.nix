@@ -19,7 +19,7 @@
     system = "x86_64-linux";
   in {
     packages.${system} = {
-      zig = zig.packages.${system}."0.16.0";
+      zig = zig.packages.${system}.master;
       zls = zls.packages.${system}.default;
     };
     nixosConfigurations = {
