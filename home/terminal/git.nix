@@ -16,7 +16,12 @@ in {
     ignores = [
       "*~"
       "*.swp"
+      "*.cache"
       "*result*"
+      "**dist"
+      "**.cache"
+      ".cache"
+      "dist"
       ".direnv"
       ".env"
       ".venv"
