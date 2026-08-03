@@ -5,7 +5,7 @@
   "collapseChangelog": true,
   "quietStartup": true,
   "transport": "sse",
-  "defaultProvider": "openrouter",
+  "defaultProvider": "kilocode",
   "compaction": {
     "enabled": true
   },
@@ -22,7 +22,7 @@
   "extensions": [
     "~/.pi/agent/extensions/security.ts"
   ],
-  "defaultModel": "openrouter/free",
+  "defaultModel": "kilo-auto/free",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enableInstallTelemetry": true
