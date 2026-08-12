@@ -33,12 +33,18 @@ export default function (pi: ExtensionAPI) {
 
   pi.on("tool_call", async (event, ctx) => {
     const inputString = JSON.stringify(event.input);
-    const matchEnv = inputString.includes(".env");
+    const inputObj = event.input as Record<string, any>;
+    const targetPath = inputObj?.path || "";
+
+    const isDirectEnvAccess =
+      (typeof targetPath === "string" && (targetPath === ".env" || targetPath.endsWith("/.env"))) ||
+      (event.toolName === "bash" && /\b\.env\b/.test(inputString) && /(cat|less|grep|view|nano|vim|rm|mv)\s+.*\.env/.test(inputString));
+
     const matchDestructive =
       event.toolName === "bash" && inputString.includes("rm -rf");
 
-    if (matchEnv) {
-      return { block: true, reason: "Skipping .env access" };
+    if (isDirectEnvAccess) {
+      return { block: true, reason: "Direct .env file access is restricted." };
     }
 
     if (matchDestructive) {
