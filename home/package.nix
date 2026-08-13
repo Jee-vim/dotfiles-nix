@@ -2,8 +2,6 @@
 with pkgs; [
   ttyper
   hyprshot
-  river
-  rivertile
 
   # Applications
   chromium
