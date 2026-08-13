@@ -4,6 +4,7 @@
 in {
   imports = [
     ./hyprland
+    ./river
     ./terminal
     ./qutebrowser
     ./rofi
