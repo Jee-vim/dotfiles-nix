@@ -12,12 +12,14 @@
 - **Constraints**: No emojis, no marketing/tutorial fluff, no jokes, no unsolicited styling modifications.
 - **Missing Context**: Ask exactly ONE question and stop.
 - **Skill Requirement**: Append `/skill:caveman` to trigger the caveman skill on every single conversation turn.
+- **Commit to Git**: When user say commit a changes it only allow for that once, the next prompt do not auto commit
 
 ## 4. Code & Architecture Style
 - **Formatting**: Max 50 lines per function, max 400 lines typical per file (800 lines absolute max). Prefer many small files over few large ones.
 - **Logic Constraints**: No deep nesting greater than 4 levels. Immutability first: always create new objects, never mutate existing ones.
 - **Comments**: Only add comments to code if the logic is non-obvious. Remove all emojis from code blocks.
 - **Safety**: Validate all input at boundaries using schema-based validation. Never silently swallow errors.
+- **Always Check Type Error**: Scan code using lsp or reread the code for find error or error types
 
 ## 5. Strict Logging Format
 - **Format**: All console/print/file logs must strictly use: `[LEVEL] message`
@@ -31,7 +33,7 @@
 - **Concurrency**: Parallel agents must run on independent domains. Never allow simultaneous writes to the same file.
 
 ## 7. Token & Context Performance
-- **Limits**: Avoid work if context window utilization is greater than 80%.
+- **Limits**: Avoid work if context window utilization is greater than 90%.
 - **Token Reduction**: Strip all lockfiles, build logs, and binary outputs from active context.
 - **Caching**: Cache absolute path listings and tool search outputs at `/tmp/scout_cache` for 5 minutes.
 
