@@ -4,10 +4,10 @@
   # or ls $(nix eval --raw nixpkgs#volantes-cursors)/share/icons
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.gruvbox-gtk-theme;
-      name = "Gruvbox-Dark";
-    };
+    # theme = { 
+    #   package = pkgs.gruvbox-gtk-theme;
+    #   name = "Gruvbox-Dark"; // deprecate theme
+    # };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
@@ -37,6 +37,6 @@
   };
 
   home.packages = with pkgs; [
-    gtk-engine-murrine
+    # gtk-engine-murrine
   ];
 }

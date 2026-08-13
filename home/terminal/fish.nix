@@ -4,6 +4,7 @@
     shellAliases = {
       v = "nvim";
       nb = "sudo nixos-rebuild switch --flake .#jee";
+      lsbig = "du -ah ./ | sort -rh | head -n 20";
 
       ga = "git add $1";
       gc = "git commit -m $1";
