@@ -1,6 +1,4 @@
-let
-  settings = import ../../settings.nix;
-in {
+{
   "$mod" = "SUPER";
   unbind = [
     "$mod, N"
