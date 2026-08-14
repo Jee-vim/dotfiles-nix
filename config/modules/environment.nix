@@ -7,7 +7,7 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-wlr
     ];
     config.common.default = "*";
   };
@@ -17,8 +17,8 @@
     XKB_DEFAULT_LAYOUT = "us";
     XKB_DEFAULT_VARIANT = "";
     XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_CURRENT_DESKTOP = "river";
+    XDG_SESSION_DESKTOP = "river";
     # DISCORD_USE_WAYLAND = "0";
     EDITOR = "nvim";
     VISUAL = "nvim";

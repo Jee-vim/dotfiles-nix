@@ -1,0 +1,77 @@
+#!/bin/sh
+# River init — mirrors the gruvbox/hyprland setup.
+# River 0.3.x (pinned via nixpkgs-river): river + riverctl + rivertile.
+# Not replicated from hyprland: animations (river has none),
+# mouse-scroll workspace switching, and monitor hotplug binds.
+
+# ---- Appearance (gruvbox) ----
+riverctl background-color 0x1d2021
+riverctl border-color-focused 0xebdbb2
+riverctl border-color-unfocused 0x1d2021
+# border-width 0 matches hyprland border_size 0 (borderless look).
+# bump to e.g. 2 for a visible gruvbox focus border.
+riverctl border-width 0
+
+# ---- Input ----
+riverctl keyboard-layout us
+riverctl focus-follows-cursor normal
+riverctl set-repeat 50 300
+riverctl xcursor-theme volantes_cursors 24
+
+# ---- Layout (rivertile) ----
+riverctl default-layout rivertile
+riverctl spawn "rivertile -view-padding 6 -outer-padding 20"
+
+# ---- Wallpaper (swaybg) ----
+riverctl spawn "swaybg -o eDP-1 -i /home/jee/Wallpaper/gruvbox-bw-4.png -o HDMI-A-1 -i /home/jee/Wallpaper/gruvbox-bw-3.png"
+
+# ---- Rules: float specific windows ----
+riverctl rule-add -app-id 'pavucontrol' float
+riverctl rule-add -app-id 'mpv' float
+riverctl rule-add -app-id 'mpv' dimensions 1280 720
+riverctl rule-add -app-id 'SoundWireServer' float
+riverctl rule-add -app-id 'SoundWireServer' dimensions 725 330
+riverctl rule-add -title 'Picture-in-Picture' float
+
+# ---- Keybindings ----
+riverctl map normal Super Return spawn kitty
+riverctl map normal Super Escape exit
+riverctl map normal Super Q close
+riverctl map normal Super T focus-previous-tags
+riverctl map normal Super G spawn "riverctl send-to-output next && riverctl focus-output next"
+riverctl map normal Super F toggle-float
+riverctl map normal Super I spawn "rofi -show drun"
+riverctl map normal Super S spawn "screenshots"
+riverctl map normal Super O spawn "powermenu"
+riverctl map normal Super U spawn "volume up"
+riverctl map normal Super Y spawn "volume down"
+riverctl map normal Super+Shift U spawn "brightness up"
+riverctl map normal Super+Shift Y spawn "brightness down"
+
+# Move focus with hjkl
+riverctl map normal Super H focus-view left
+riverctl map normal Super L focus-view right
+riverctl map normal Super K focus-view up
+riverctl map normal Super J focus-view down
+
+# Resize with Super+Ctrl+arrows (river floats the view while resizing)
+riverctl map normal Super+Control Right resize horizontal 100
+riverctl map normal Super+Control Left resize horizontal -100
+riverctl map normal Super+Control Up resize vertical -100
+riverctl map normal Super+Control Down resize vertical 100
+
+# Workspaces 1-10 (river tags are bitfields: tag N = 1 << (N-1))
+for i in $(seq 1 9); do
+  tags=$((1 << (i - 1)))
+  riverctl map normal Super $i set-focused-tags $tags
+  riverctl map normal Super+Shift $i send-to-tag $tags
+done
+riverctl map normal Super 0 set-focused-tags 512
+riverctl map normal Super+Shift 0 send-to-tag 512
+
+# Pointer: move/resize with Super+drag
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Startup apps
+riverctl spawn "kitty"

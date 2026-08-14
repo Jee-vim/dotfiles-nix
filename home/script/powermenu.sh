@@ -20,7 +20,7 @@ case "$chosen" in
     hyprlock
     ;;
   *Logout)
-    # this will vary based on your session manager / DE / WM
-    pkill -KILL -u "$USER"
+    # river: exit the compositor; fall back to killing the session
+    riverctl exit || pkill -KILL -u "$USER"
     ;;
 esac

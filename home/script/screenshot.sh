@@ -2,14 +2,16 @@
 
 choice=$(printf "Output (file)\nRegion (file)\nRegion (clipboard)\n" | rofi -dmenu -p "󰩭  :")
 
+mkdir -p "$HOME/Screenshots"
+
 case "$choice" in
   "Output (file)")
-    hyprshot -m output -o "$HOME/Screenshots"
+    grim "$HOME/Screenshots/$(date +%s).png"
     ;;
   "Region (file)")
-    hyprshot -m region -o "$HOME/Screenshots"
+    grim -g "$(slurp)" "$HOME/Screenshots/$(date +%s).png"
     ;;
   "Region (clipboard)")
-    hyprshot -m region --clipboard-only
+    grim -g "$(slurp)" - | wl-copy
     ;;
 esac
