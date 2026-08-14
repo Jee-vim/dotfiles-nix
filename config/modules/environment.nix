@@ -56,6 +56,8 @@
     libnotify
     brightnessctl
     wl-clipboard
+    grim
+    slurp
     zip
     unzip
     p7zip
