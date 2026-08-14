@@ -63,10 +63,8 @@ riverctl map normal Super+Control Down resize vertical 100
 for i in $(seq 1 9); do
   tags=$((1 << (i - 1)))
   riverctl map normal Super $i set-focused-tags $tags
-  riverctl map normal Super+Shift $i send-to-tag $tags
 done
 riverctl map normal Super 0 set-focused-tags 512
-riverctl map normal Super+Shift 0 send-to-tag 512
 
 # Pointer: move/resize with Super+drag
 riverctl map-pointer normal Super BTN_LEFT move-view
