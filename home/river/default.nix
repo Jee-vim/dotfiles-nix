@@ -7,10 +7,8 @@
   home.packages = [
     pkgs.river-classic  # river compositor + riverctl + rivertile
     pkgs.swaybg         # wallpaper (compositor-agnostic)
-    pkgs.hyprlock       # lock screen (wlroots-agnostic)
   ];
 
-  # River init script — mirrors the old hyprland look/behavior.
   xdg.configFile."river/init" = {
     executable = true;
     text = builtins.readFile ./init;

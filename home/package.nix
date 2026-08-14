@@ -1,7 +1,6 @@
 {pkgs}:
 with pkgs; [
   ttyper
-  hyprshot
 
   # Applications
   chromium

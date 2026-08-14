@@ -1,14 +1,11 @@
 #!/bin/sh
-# River init — mirrors the gruvbox/hyprland setup.
 # River 0.3.x (pinned via nixpkgs-river): river + riverctl + rivertile.
-# Not replicated from hyprland: animations (river has none),
 # mouse-scroll workspace switching, and monitor hotplug binds.
 
 # ---- Appearance (gruvbox) ----
 riverctl background-color 0x1d2021
 riverctl border-color-focused 0xebdbb2
 riverctl border-color-unfocused 0x1d2021
-# border-width 0 matches hyprland border_size 0 (borderless look).
 # bump to e.g. 2 for a visible gruvbox focus border.
 riverctl border-width 0
 
