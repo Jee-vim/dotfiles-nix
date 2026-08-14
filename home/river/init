@@ -2,6 +2,8 @@
 # River 0.3.x (pinned via nixpkgs-river): river + riverctl + rivertile.
 # mouse-scroll workspace switching, and monitor hotplug binds.
 
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+
 # ---- Appearance (gruvbox) ----
 riverctl background-color 0x1d2021
 riverctl border-color-focused 0xebdbb2
@@ -71,4 +73,5 @@ riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 
 # Startup apps
+riverctl spawn "mako"
 riverctl spawn "kitty"

@@ -5,11 +5,19 @@
 }: {
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
     ];
-    config.common.default = "*";
+    config = {
+      common = {
+        default = ["gtk"];
+      };
+      river = {
+        "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
+        "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
+      };
+    };
   };
 
   environment.variables = {

@@ -18,7 +18,10 @@
       PermitRootLogin = "no";
     };
   };
-  services.dbus.packages = with pkgs; [dconf];
+  services.dbus.packages = with pkgs; [
+    dconf
+    gcr
+  ];
   services.blueman.enable = true;
   services.tlp = {
     enable = true;
