@@ -36,7 +36,7 @@ bindsym $mod+q kill
 bindsym $mod+g focus output next
 bindsym $mod+f floating toggle
 bindsym $mod+i exec rofi -show drun
-bindsym $mod+w exec /home/jee/.dotfiles/home/script/workspace.sh
+bindsym $mod+w exec workspace
 bindsym $mod+s exec screenshots
 bindsym $mod+o exec powermenu
 bindsym $mod+u exec volume up

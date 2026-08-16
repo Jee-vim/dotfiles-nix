@@ -6,7 +6,8 @@ mkdir -p "$HOME/Screenshots"
 
 case "$choice" in
   "Output (file)")
-    grim "$HOME/Screenshots/$(date +%s).png"
+    focused_output=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+    grim -o "$focused_output" "$HOME/Screenshots/$(date +%s).png"
     ;;
   "Region (file)")
     grim -g "$(slurp)" "$HOME/Screenshots/$(date +%s).png"

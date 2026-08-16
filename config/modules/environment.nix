@@ -48,7 +48,8 @@
     (writeScriptBin "powermenu" (builtins.readFile ../../home/script/powermenu.sh))
     (writeScriptBin "volume" (builtins.readFile ../../home/script/volume.sh))
     (writeScriptBin "brightness" (builtins.readFile ../../home/script/brightness.sh))
-    (writeScriptBin "screenshots" (builtins.readFile ../../home/script/screenshots))
+    (writeScriptBin "screenshots" (builtins.readFile ../../home/script/screenshots.sh))
+    (writeScriptBin "workspace" (builtins.readFile ../../home/script/workspace.sh))
 
     # CLI Utilities
     cron

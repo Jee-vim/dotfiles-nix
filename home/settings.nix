@@ -12,11 +12,6 @@ rec {
     external = "HDMI-A-1";
   };
 
-  image ={
-    internal= "/home/jee/Wallpaper/gruvbox-bw-4.png";
-    external= "/home/jee/Wallpaper/gruvbox-bw-3.png";
-  };
-
   style = {
     rounded = "0";
     radius = "0px";
