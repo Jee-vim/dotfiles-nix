@@ -36,10 +36,10 @@ riverctl rule-add -title 'Picture-in-Picture' float
 riverctl map normal Super Return spawn kitty
 riverctl map normal Super Escape exit
 riverctl map normal Super Q close
-riverctl map normal Super T focus-previous-tags
 riverctl map normal Super G spawn "riverctl send-to-output next && riverctl focus-output next"
 riverctl map normal Super F toggle-float
 riverctl map normal Super I spawn "rofi -show drun"
+riverctl map normal Super W spawn "/home/jee/.dotfiles/home/script/workspace.sh"
 riverctl map normal Super S spawn "screenshots"
 riverctl map normal Super O spawn "powermenu"
 riverctl map normal Super U spawn "volume up"
