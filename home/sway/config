@@ -3,12 +3,11 @@ set $term kitty
 
 # Appearance
 font pango:Fira Mono 10
-
-# Border
 default_border pixel 0
 default_floating_border pixel 0
+gaps inner 10
+gaps outer 10
 
-# Input
 input * {
   xkb_layout us
   repeat_rate 25
@@ -19,7 +18,6 @@ seat * {
   xcursor_theme volantes_cursors 24
 }
 
-# Wallpapers
 output eDP-1 bg /home/jee/Wallpaper/gruvbox-bw-4.png fill
 output HDMI-A-1 bg /home/jee/Wallpaper/gruvbox-bw-3.png fill
 
@@ -33,7 +31,6 @@ for_window [title="Picture-in-Picture"] floating enable
 bindsym $mod+Return exec $term
 bindsym $mod+Escape exit
 bindsym $mod+q kill
-bindsym $mod+g focus output next
 bindsym $mod+f floating toggle
 bindsym $mod+i exec rofi -show drun
 bindsym $mod+w exec workspace
@@ -79,6 +76,5 @@ exec swayidle -w \
   before-sleep 'swaylock -f -c 1d2021'
 
 # Startup
-exec swaybg -o eDP-1 -i /home/jee/Wallpaper/gruvbox-bw-4.png -o HDMI-A-1 -i /home/jee/Wallpaper/gruvbox-bw-3.png
 exec mako
 exec kitty
