@@ -17,7 +17,7 @@ case "$chosen" in
     systemctl suspend
     ;;
   *Logout)
-    # river: exit the compositor; fall back to killing the session
-    riverctl exit || pkill -KILL -u "$USER"
+    # sway: exit the compositor; fall back to killing the session
+    swaymsg exit || pkill -KILL -u "$USER"
     ;;
 esac

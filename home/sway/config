@@ -1,0 +1,96 @@
+set $mod Mod4
+set $term kitty
+
+# Appearance
+font pango:Fira Mono 10
+
+colors {
+  focused_border #ebdbb2
+  focused_background #1d2021
+  focused_text #ebdbb2
+  unfocused_border #1d2021
+  unfocused_background #1d2021
+  unfocused_text #ebdbb2
+}
+
+# Border
+default_border pixel 0
+default_floating_border pixel 0
+
+# Input
+input * {
+  xkb_layout us
+  focus_follows_mouse yes
+  repeat_rate 25
+  repeat_delay 600
+}
+
+seat * {
+  xcursor_theme volantes_cursors 24
+}
+
+# Wallpapers
+output eDP-1 bg /home/jee/Wallpaper/gruvbox-bw-4.png fill
+output HDMI-A-1 bg /home/jee/Wallpaper/gruvbox-bw-3.png fill
+
+# Floating rules
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="mpv"] floating enable
+for_window [app_id="mpv"] resize set 1280 720
+for_window [title="Picture-in-Picture"] floating enable
+
+# Keybindings
+bindsym $mod+Return exec $term
+bindsym $mod+Escape exit
+bindsym $mod+q kill
+bindsym $mod+t exec /home/jee/.dotfiles/home/script/monitor.sh
+bindsym $mod+g focus output next
+bindsym $mod+f floating toggle
+bindsym $mod+i exec rofi -show drun
+bindsym $mod+w exec /home/jee/.dotfiles/home/script/workspace.sh
+bindsym $mod+s exec screenshots
+bindsym $mod+o exec powermenu
+bindsym $mod+u exec volume up
+bindsym $mod+y exec volume down
+bindsym $mod+Shift+u exec brightness up
+bindsym $mod+Shift+y exec brightness down
+
+# Move focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Resize
+bindsym $mod+Control+Right resize grow width 100
+bindsym $mod+Control+Left resize shrink width 100
+bindsym $mod+Control+Up resize shrink height 100
+bindsym $mod+Control+Down resize grow height 100
+
+# Workspaces (global in Sway)
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Mouse bindings (drag floating windows)
+bindsym $mod+Button1 move
+bindsym $mod+Button3 resize
+
+# Lock / Idle
+exec swayidle -w \
+  timeout 300 'swaylock -f -c 1d2021' \
+  timeout 600 'swaymsg "output * power off"' \
+    resume  'swaymsg "output * power on"' \
+  before-sleep 'swaylock -f -c 1d2021'
+
+# Startup
+exec swaybg -o eDP-1 -i /home/jee/Wallpaper/gruvbox-bw-4.png -o HDMI-A-1 -i /home/jee/Wallpaper/gruvbox-bw-3.png
+exec mako
+exec kitty

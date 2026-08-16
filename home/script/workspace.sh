@@ -1,5 +1,6 @@
 #!/bin/sh
-# workspace.sh - rofi workspace switcher for River WM
+# workspace.sh - rofi workspace switcher for Sway WM
+# Bound to Super+W via sway config
 
 # Workspace names (uncomment and edit to name your workspaces)
 # WS1="1: term"
@@ -28,10 +29,4 @@ choice=$(printf "$items" | rofi -dmenu -p "workspace" -theme-str 'listview { lin
 
 ws=$(echo "$choice" | awk '{print $1}')
 
-if [ "$ws" = "0" ]; then
-  tags=512
-else
-  tags=$((1 << (ws - 1)))
-fi
-
-riverctl set-focused-tags "$tags"
+swaymsg workspace number "$ws"

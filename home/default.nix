@@ -3,7 +3,7 @@
   setting = import ./settings.nix;
 in {
   imports = [
-    ./river
+    ./sway
     ./terminal
     ./qutebrowser
     ./rofi
