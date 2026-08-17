@@ -1,12 +1,12 @@
 set $mod Mod4
 set $term kitty
 
-# Appearance
 font pango:Fira Mono 10
 default_border pixel 0
 default_floating_border pixel 0
 gaps inner 10
 gaps outer 10
+floating_modifier $mod normal
 
 input * {
   xkb_layout us
@@ -21,13 +21,11 @@ seat * {
 output eDP-1 bg /home/jee/Wallpaper/gruvbox-bw-4.png fill
 output HDMI-A-1 bg /home/jee/Wallpaper/gruvbox-bw-3.png fill
 
-# Floating rules
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [app_id="mpv"] resize set 1280 720
 for_window [title="Picture-in-Picture"] floating enable
 
-# Keybindings
 bindsym $mod+Return exec $term
 bindsym $mod+Escape exit
 bindsym $mod+q kill
@@ -41,16 +39,15 @@ bindsym $mod+y exec volume down
 bindsym $mod+Shift+u exec brightness up
 bindsym $mod+Shift+y exec brightness down
 
-# Move focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Control+Right resize grow width 100
-bindsym $mod+Control+Left resize shrink width 100
-bindsym $mod+Control+Up resize shrink height 100
-bindsym $mod+Control+Down resize grow height 100
+bindsym $mod+Control+Right resize grow width 100 px
+bindsym $mod+Control+Left resize shrink width 100 px
+bindsym $mod+Control+Up resize shrink height 100 px
+bindsym $mod+Control+Down resize grow height 100 px
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -63,17 +60,6 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 bindsym $mod+t workspace back_and_forth
-
-# Mouse bindings (drag floating windows)
-bindsym $mod+Button1 move
-bindsym $mod+Button3 resize
-
-# Lock / Idle
-exec swayidle -w \
-  timeout 300 'swaylock -f -c 1d2021' \
-  timeout 600 'swaymsg "output * power off"' \
-    resume  'swaymsg "output * power on"' \
-  before-sleep 'swaylock -f -c 1d2021'
 
 # Startup
 exec mako
