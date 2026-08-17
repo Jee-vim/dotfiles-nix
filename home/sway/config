@@ -61,6 +61,5 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 bindsym $mod+t workspace back_and_forth
 
-# Startup
 exec mako
 exec kitty

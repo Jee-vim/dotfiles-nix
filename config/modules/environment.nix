@@ -79,6 +79,7 @@
     gst_all_1.gstreamer # OBS feature
     v4l-utils # virtual camera support
     bluetui
+    jq
 
     # Audio Management
     pavucontrol # gui
