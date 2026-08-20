@@ -18,11 +18,12 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "gtk3";
     style.name = "adwaita-dark";
   };
 
   home.pointerCursor = {
+    enable = true;
     name = "volantes_cursors";
     package = pkgs.volantes-cursors;
     size = 24;
