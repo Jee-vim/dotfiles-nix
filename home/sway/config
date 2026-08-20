@@ -63,3 +63,8 @@ bindsym $mod+t workspace back_and_forth
 
 exec mako
 exec kitty
+
+# import compositor env (WAYLAND_DISPLAY) into systemd user manager so the
+# xdg-desktop-portal GTK backend can open a display and serve file pickers /
+# download dialogs (otherwise it dies with "cannot open display")
+exec "systemctl --user import-environment; systemctl --user restart xdg-desktop-portal.service"
