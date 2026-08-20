@@ -1,13 +1,6 @@
 {pkgs, ...}: {
-  # confirm installation
-  # find $(nix build nixpkgs#volantes-cursors --no-link --print-out-paths)/share/icons -maxdepth 1
-  # or ls $(nix eval --raw nixpkgs#volantes-cursors)/share/icons
   gtk = {
     enable = true;
-    # theme = { 
-    #   package = pkgs.gruvbox-gtk-theme;
-    #   name = "Gruvbox-Dark"; // deprecate theme
-    # };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
@@ -36,8 +29,4 @@
     MOZ_USE_XINPUT2 = "1";
     _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
   };
-
-  home.packages = with pkgs; [
-    # gtk-engine-murrine
-  ];
 }
