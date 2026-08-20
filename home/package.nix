@@ -4,6 +4,8 @@ with pkgs; [
 
   # Applications
   chromium
+  bemenu
+  wmenu
   obs-studio
   brave
   telegram-desktop
